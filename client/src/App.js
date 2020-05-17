@@ -19,6 +19,8 @@ const App = (props) => {
   );
 }
 
+
+// *** REDUX ***
 const mapStateToProps = state => {
   return {
     ctr: state.counter
