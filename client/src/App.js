@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { connect } from 'react-redux';
-// import { increment, decrement, reset } from './actionCreators';
+
+// TODO: plan out the components needed on homepage. (i.e. navbar, footer)
+// TODO: add a router
 
 const App = (props) => {
   return (
@@ -29,6 +31,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
     onIncrementCounter: () => dispatch({type: 'INCREMENT'})
   };
 };
