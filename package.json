@@ -12,7 +12,7 @@
         "build": "cd client && npm run build",
         "heroku-postbuild": "npm run build"
     },
-    "author": "Jacob Stanger, Brian, Miranda, Grahm",
+    "author": "Jacob Stanger, Brian Allen, Miranda D'Asto, Graham Thomas",
     "license": "MIT",
     "devDependencies": {
         "concurrently": "^4.1.0",
