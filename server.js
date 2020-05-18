@@ -11,7 +11,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Define API routes here
+// ******** API routes ********
+// kinda like /r/all just get all posts
+app.get('/s/all', (req, res) => {
+
+});
 
 // Send every other request to the React app
 // Define any API routes before this runs
