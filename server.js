@@ -3,6 +3,18 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// TODO: need mongoose and models require here
+const mongoose = require('mongoose');
+const db = require('./models');
+let MONGODB_URI = process.env.NODE_ENV
+  ? process.env.MONGODB_URI
+  : "mongodb://localhost/google_books";
+
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
