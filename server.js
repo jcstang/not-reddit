@@ -1,14 +1,16 @@
 const express = require("express");
 const path = require("path");
+// const db = require('./models/User');
 const PORT = process.env.PORT || 3001;
 const app = express();
+
 
 // TODO: need mongoose and models require here
 const mongoose = require('mongoose');
 const db = require('./models');
 let MONGODB_URI = process.env.NODE_ENV
   ? process.env.MONGODB_URI
-  : "mongodb://localhost/google_books";
+  : "mongodb://localhost/seenit_db";
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,

@@ -2,18 +2,15 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const BookSchema = new Schema({
+const PostSchema = new Schema({
     googleKey: String,
     title: String,
-    authors: [String],
-    description: String,
-    imageUrl: String,
-    bookUrl: String
 });
 
-const Book = mongoose.model('books', BookSchema);
+const Post = mongoose.model('posts', PostSchema);
 
-module.exports = Book;
+// ./index.js is handling the exports
+// module.exports = Book;
 
 // /* POSTS */
 // /* 1 */
