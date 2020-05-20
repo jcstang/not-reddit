@@ -6,7 +6,10 @@ function PostContainer(props) {
   return (
     <div className="container-fluid">
       {Posts.map((post, index) => (
-        <PostCard key={index} />
+        <PostCard
+          key={index}
+          post={post}
+        />
       ))}
     </div>
   );
