@@ -6,7 +6,7 @@ let PostSchema = new Schema({
     body: String,
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'users'
     },
     dateCreated: Date,
     onCommunity: {
