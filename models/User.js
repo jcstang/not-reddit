@@ -11,7 +11,7 @@ const UserSchema = new Schema({
 const User = mongoose.model('users', UserSchema);
 
 // ./index.js is handling the exports
-// module.exports = User;
+module.exports = User;
 
 
 // /* USERS */

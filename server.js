@@ -17,6 +17,8 @@ mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true
 });
 
+// console.log(mongoose);
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,6 +32,18 @@ if (process.env.NODE_ENV === "production") {
 app.get('/s/all', (req, res) => {
 
 });
+
+app.get('/api/all-posts', (req, res) => {
+  db.Post
+    .find({})
+    .then(data => {
+      res.status(200).json(data);
+    })
+    .catch(() => {
+      res.status(400).end('bad things');
+    })
+});
+
 
 // Send every other request to the React app
 // Define any API routes before this runs

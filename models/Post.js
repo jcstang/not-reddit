@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
-    googleKey: String,
+let PostSchema = new Schema({
     title: String,
+    body: String
 });
 
-const Post = mongoose.model('posts', PostSchema);
+let Post = mongoose.model('posts', PostSchema);
 
 // ./index.js is handling the exports
-// module.exports = Book;
+module.exports = Post;
 
 // /* POSTS */
 // /* 1 */

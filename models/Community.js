@@ -9,7 +9,7 @@ const CommunitySchema = new Schema({
 const Community = mongoose.model('communities', CommunitySchema);
 
 // ./index.js is handling the exports
-// module.exports = Book;
+module.exports = Community;
 
 
 
