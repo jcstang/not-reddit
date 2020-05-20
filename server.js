@@ -44,6 +44,28 @@ app.get('/api/all-posts', (req, res) => {
     })
 });
 
+app.post('/api/users', (req, res) => {
+  const userData = req.body;
+  console.log(userData);
+
+  db.User
+    .create(userData)
+    .then(() => {
+      res.status(200).end();
+    })
+    .catch(err => {
+      console.log(err.message);
+      res.status(418).json({ status: 418, message: "arent you late for something?"});
+    })
+});
+
+// TODO: find ref to something else. here is an example:
+// Post.findOne({_id: 123})
+// .populate('postedBy')
+// .exec(function(err, post) {
+//     // do stuff with post
+// });
+
 
 // Send every other request to the React app
 // Define any API routes before this runs

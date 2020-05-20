@@ -5,13 +5,24 @@ const UserSchema = new Schema({
     username: String,
     displayName: String,
     email: String,
-    password: String
+    password: String,
+    joinDate: Date
 });
 
 const User = mongoose.model('users', UserSchema);
 
 // ./index.js is handling the exports
 module.exports = User;
+
+// from stackoverflow
+// var userSchema = new Schema({
+//     twittername: String,
+//     twitterID: Number,
+//     displayName: String,
+//     profilePic: String,
+// });
+
+// var  User = mongoose.model('User')
 
 
 // /* USERS */

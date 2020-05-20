@@ -3,13 +3,40 @@ const Schema = mongoose.Schema;
 
 let PostSchema = new Schema({
     title: String,
-    body: String
+    body: String,
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    dateCreated: Date,
+    onCommunity: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Community'
+    },
+    //comments: [{body:"string", by: mongoose.Schema.Types.ObjectId}],
 });
 
 let Post = mongoose.model('posts', PostSchema);
 
 // ./index.js is handling the exports
 module.exports = Post;
+
+
+
+// var postSchema = new Schema({
+//     name: String,
+//     postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+//     dateCreated: Date,
+//     comments: [{body:"string", by: mongoose.Schema.Types.ObjectId}],
+// });
+
+// var Post = mongoose.model('Post', postSchema);
+
+// Post.findOne({_id: 123})
+// .populate('postedBy')
+// .exec(function(err, post) {
+//     // do stuff with post
+// });
 
 // /* POSTS */
 // /* 1 */

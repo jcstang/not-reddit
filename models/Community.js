@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CommunitySchema = new Schema({
-    googleKey: String,
-    title: String,
+    name: String,
+    link: String,
 });
 
 const Community = mongoose.model('communities', CommunitySchema);
