@@ -26,21 +26,30 @@ router.get('/all-posts', (req, res) => {
     .then(data => {
       res.status(200).json(data);
     })
-    .catch(() => {
-      res.status(400).end('bad things');
+    .catch((err) => {
+      // res.status(400).end('bad things');
+      res.status(400).json({
+        "error": err,
+        "message": err.message
+      });
     })
 });
 
 router.get('/posts/:id', (req, res) => {
   const postId = req.params.id;
   db.Post
-    .findOne({_id: "5ec579d5251f7e32b999058a"})
-    .populate('postedBy')
+    .findOne({_id: postId})
+    .populate(['postedBy', 'onCommunity'])
     .then((data) => {
       res.status(200).json(data);
     })
-    .catch(() => {
-      res.status(400).end('bad things');
+    .catch((err) => {
+      // res.status(400).end('bad things');
+      console.log(err);
+      res.status(418).json({
+        status: 418,
+        message: "arent you late for something?"
+      });
     });
 });
 

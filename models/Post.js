@@ -11,7 +11,7 @@ let PostSchema = new Schema({
     dateCreated: Date,
     onCommunity: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Community'
+        ref: 'communities'
     },
     //comments: [{body:"string", by: mongoose.Schema.Types.ObjectId}],
 });
