@@ -7,10 +7,35 @@ import PostContainer from "./components/PostContainer/PostContainer";
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
 // TODO: add a router
 
+const listOfPlaceholderPosts = [
+  {
+    _id: "5ec579d5251f7e32b999058a",
+    title: "hello world, hello title!",
+    body: "this is the body to the post of hello world",
+    postedBy: {
+      "_id": "5ec56f629f99772a8f8f0cd8",
+      "username": "beep2345",
+      "displayName": "beepinator",
+      "email": "beepinator@gmail.com",
+      "password": "password123",
+      "joinDate": "2012-04-23T18:25:43.511Z",
+      "__v": 0
+    },
+    dateCreated: "2012-04-23T18:25:43.511Z",
+    onCommunity: {
+      "_id": "5ec577a132f33a31f9a0338a",
+      "name": "lotr",
+      "link": "/s/lotr",
+      "__v": 0
+    },
+    "__v": 0
+  }
+]
+
 const App = (props) => {
   return (
     <div className="App">
-      <div className="App-header">
+      <div className="App-header container-fluid">
         <img src={logo} className="App-logo" alt="logo" />
         <h2>Seenit - not reddit</h2>
         <p>{props.ctr}</p>
@@ -18,7 +43,11 @@ const App = (props) => {
           onClick={props.onIncrementCounter}
         >+1</button>
       </div>
-      <PostContainer />
+      <div className="container">
+        <PostContainer
+          posts={listOfPlaceholderPosts}
+        />
+      </div>
     </div>
 
   );
@@ -35,7 +64,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
-    onIncrementCounter: () => dispatch({type: 'INCREMENT'})
+    onIncrementCounter: () => dispatch({ type: 'INCREMENT' })
   };
 };
 
