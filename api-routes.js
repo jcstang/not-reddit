@@ -61,7 +61,8 @@ router.post('/communities', (req, res) => {
 
   db.Community
     .create(commData)
-    .then(() => {
+    .then((result) => {
+      console.log(result);
       res.status(200).end();
     })
     .catch(err => {
