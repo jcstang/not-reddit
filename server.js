@@ -18,6 +18,10 @@ if (process.env.NODE_ENV === "production") {
 // =============================================================
 app.use('/api', apiRouter);
 
+app.post("/api/sendpostinfo", function (req, res) {
+  console.log(req.body);
+  res.end();
+});
 
 // REACT - Send every other request to the React app
 // =============================================================
