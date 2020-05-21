@@ -1,4 +1,5 @@
 import React from "react";
+import './PostContainer.css'
 import PostCard from "../PostCard/PostCard"
 
 function PostContainer(props) {

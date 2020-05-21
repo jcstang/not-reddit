@@ -3,10 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import { connect } from 'react-redux';
 import PostContainer from "./components/PostContainer/PostContainer";
-import Form from "./form.js";
+import Form from "./components/Form/form.js";
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
-// TODO: add a router
+// TODO: add a react router
 
 const listOfPlaceholderPosts = [
   {
