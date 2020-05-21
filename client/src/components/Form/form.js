@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import API from "./utils/API.";
+import './form.css';
+// import API from "../../utils/API.";
+import apiCalls from '../../utils/seenit-apis';
+const API = apiCalls.saveinfo;
 
 class Form extends Component {
   // Setting the component's initial state

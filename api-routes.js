@@ -35,6 +35,8 @@ router.get('/all-posts', (req, res) => {
     })
 });
 
+
+
 router.get('/posts/:id', (req, res) => {
   const postId = req.params.id;
   db.Post
@@ -99,6 +101,11 @@ router.post('/users', (req, res) => {
       console.log(err.message);
       res.status(418).json({ status: 418, message: "arent you late for something?"});
     });
+});
+
+app.post("/sendpostinfo", function (req, res) {
+  console.log(req.body);
+  res.end();
 });
 
 
