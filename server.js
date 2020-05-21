@@ -4,16 +4,16 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // TODO: need mongoose and models require here
-const mongoose = require('mongoose');
-const db = require('./models');
-let MONGODB_URI = process.env.NODE_ENV
-  ? process.env.MONGODB_URI
-  : "mongodb://localhost/google_books";
+// const mongoose = require("mongoose");
+// // const db = require("./models");
+// let MONGODB_URI = process.env.NODE_ENV
+//   ? process.env.MONGODB_URI
+//   : "mongodb://localhost/google_books";
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// mongoose.connect(MONGODB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -25,8 +25,10 @@ if (process.env.NODE_ENV === "production") {
 
 // ******** API routes ********
 // kinda like /r/all just get all posts
-app.get('/s/all', (req, res) => {
-
+app.get("/s/all", (req, res) => {});
+app.post("/api/sendpostinfo", function (req, res) {
+  console.log(req.body);
+  res.end();
 });
 
 // Send every other request to the React app
