@@ -1,9 +1,12 @@
-// START of backend - server.js
 
+//***************************************************************************
+//  server.js
+//  START of the api backend
+//***************************************************************************
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const apiRouter = require('./api-routes');
+const apiRouter = require('./routes/api-routes');
 
 const app = express();
 
