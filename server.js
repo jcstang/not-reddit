@@ -1,21 +1,12 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
+const apiRouter = require('./api-routes');
+
 const app = express();
 
-// TODO: need mongoose and models require here
-const mongoose = require('mongoose');
-const db = require('./models');
-let MONGODB_URI = process.env.NODE_ENV
-  ? process.env.MONGODB_URI
-  : "mongodb://localhost/google_books";
-
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
-// Define middleware here
+// == MIDDLEWARE
+// =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
@@ -23,14 +14,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// ******** API routes ********
-// kinda like /r/all just get all posts
-app.get('/s/all', (req, res) => {
+// == API ROUTES
+// =============================================================
+app.use('/api', apiRouter);
 
-});
 
-// Send every other request to the React app
-// Define any API routes before this runs
+// REACT - Send every other request to the React app
+// =============================================================
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });

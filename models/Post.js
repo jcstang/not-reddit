@@ -1,19 +1,42 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-const BookSchema = new Schema({
-    googleKey: String,
+let PostSchema = new Schema({
     title: String,
-    authors: [String],
-    description: String,
-    imageUrl: String,
-    bookUrl: String
+    body: String,
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    dateCreated: Date,
+    onCommunity: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'communities'
+    },
+    //comments: [{body:"string", by: mongoose.Schema.Types.ObjectId}],
 });
 
-const Book = mongoose.model('books', BookSchema);
+let Post = mongoose.model('posts', PostSchema);
 
-module.exports = Book;
+// ./index.js is handling the exports
+module.exports = Post;
+
+
+
+// var postSchema = new Schema({
+//     name: String,
+//     postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+//     dateCreated: Date,
+//     comments: [{body:"string", by: mongoose.Schema.Types.ObjectId}],
+// });
+
+// var Post = mongoose.model('Post', postSchema);
+
+// Post.findOne({_id: 123})
+// .populate('postedBy')
+// .exec(function(err, post) {
+//     // do stuff with post
+// });
 
 // /* POSTS */
 // /* 1 */
