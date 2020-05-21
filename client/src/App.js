@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PostContainer from "./components/PostContainer/PostContainer";
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
-// TODO: add a router
+// TODO: add a react router
 
 const listOfPlaceholderPosts = [
   {

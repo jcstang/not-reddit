@@ -1,4 +1,5 @@
 import React from "react";
+import './PostCard.css';
 
 export default function PostCard(props) {
   const body = props.post.body;

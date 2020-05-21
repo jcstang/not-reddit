@@ -1,4 +1,4 @@
-// server.js
+// START of backend - server.js
 
 const express = require("express");
 const path = require("path");
@@ -11,6 +11,7 @@ const app = express();
 // =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
