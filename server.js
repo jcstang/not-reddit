@@ -1,3 +1,5 @@
+// server.js
+
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
@@ -18,6 +20,10 @@ if (process.env.NODE_ENV === "production") {
 // =============================================================
 app.use('/api', apiRouter);
 
+app.post("/api/sendpostinfo", function (req, res) {
+  console.log(req.body);
+  res.end();
+});
 
 // REACT - Send every other request to the React app
 // =============================================================
