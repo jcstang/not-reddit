@@ -39,7 +39,7 @@ const App = (props) => {
       <Form />
       <div className="App-header container-fluid">
         <img src={logo} className="App-logo" alt="logo" />
-        <h2>Seenit - not reddit</h2>
+        <h2>Seenit</h2>
         <p>{props.ctr}</p>
         <button onClick={props.onIncrementCounter}>+1</button>
       </div>
