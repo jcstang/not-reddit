@@ -137,6 +137,17 @@ router.post('/seed', (req, res) => {
     "password": "password123",
     "joinDate": "2012-04-23T18:25:43.511Z"
   };
+  let communityData = {
+    "name": "all",
+    "link": "/s/all"
+  };
+  
+
+  db.User
+    .create(userData)
+    .then(uData => {
+
+    })
 
   db.User
     .create(userData)
@@ -152,10 +163,6 @@ router.post('/seed', (req, res) => {
 
   //  create community and get id
   // =============================================================
-  let communityData = {
-    "name": "all",
-    "link": "/s/all"
-  };
 
   db.Community.create(communityData)
   .then( data => {
