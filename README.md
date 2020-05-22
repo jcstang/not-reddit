@@ -1,4 +1,4 @@
-# not-reddit
+# not-reddit - Seenit
 A place to share and talk about things.
 
 ## install first
