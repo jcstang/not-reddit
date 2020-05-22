@@ -117,10 +117,10 @@ router.post('/users', (req, res) => {
     });
 });
 
-app.post("/sendpostinfo", function (req, res) {
-  console.log(req.body);
-  res.end();
-});
+// app.post("/sendpostinfo", function (req, res) {
+//   console.log(req.body);
+//   res.end();
+// });
 
 
 module.exports = router;
