@@ -1,0 +1,112 @@
+[
+  {
+    "_id": "5ec579d5251f7e32b999058a",
+    "title": "hello world, hello title!",
+    "body": "this is the body to the post of hello world",
+    "numberOfLikes": 10,
+    "numberOfDislikes": 0,
+    "imageUrl": "",
+    "postedBy": {
+      "_id": "5ec56f629f99772a8f8f0cd8",
+      "username": "beep2345",
+      "displayName": "beepinator",
+      "email": "beepinator@gmail.com",
+      "password": "password123",
+      "joinDate": "2012-04-23T18:25:43.511Z"
+    },
+    "dateCreated": "2012-04-23T18:25:43.511Z",
+    "onCommunity": {
+      "_id": "5ec577a132f33a31f9a0338a",
+      "name": "lotr",
+      "link": "/s/lotr"
+    }
+  },
+  {
+    "_id": "5ec579d5251f7e32b999058a",
+    "title": "hello world, hello title!",
+    "body": "this is the body to the post of hello world",
+    "numberOfLikes": 10,
+    "numberOfDislikes": 0,
+    "imageUrl": "",
+    "postedBy": {
+      "_id": "5ec56f629f99772a8f8f0cd8",
+      "username": "beep2345",
+      "displayName": "beepinator",
+      "email": "beepinator@gmail.com",
+      "password": "password123",
+      "joinDate": "2012-04-23T18:25:43.511Z"
+    },
+    "dateCreated": "2012-04-23T18:25:43.511Z",
+    "onCommunity": {
+      "_id": "5ec577a132f33a31f9a0338a",
+      "name": "lotr",
+      "link": "/s/lotr"
+    }
+  },
+  {
+    "_id": "5ec579d5251f7e32b999058a",
+    "title": "hello world, hello title!",
+    "body": "this is the body to the post of hello world",
+    "numberOfLikes": 10,
+    "numberOfDislikes": 0,
+    "imageUrl": "",
+    "postedBy": {
+      "_id": "5ec56f629f99772a8f8f0cd8",
+      "username": "beep2345",
+      "displayName": "beepinator",
+      "email": "beepinator@gmail.com",
+      "password": "password123",
+      "joinDate": "2012-04-23T18:25:43.511Z"
+    },
+    "dateCreated": "2012-04-23T18:25:43.511Z",
+    "onCommunity": {
+      "_id": "5ec577a132f33a31f9a0338a",
+      "name": "lotr",
+      "link": "/s/lotr"
+    }
+  },
+  {
+    "_id": "5ec579d5251f7e32b999058a",
+    "title": "hello world, hello title!",
+    "body": "this is the body to the post of hello world",
+    "numberOfLikes": 10,
+    "numberOfDislikes": 0,
+    "imageUrl": "",
+    "postedBy": {
+      "_id": "5ec56f629f99772a8f8f0cd8",
+      "username": "beep2345",
+      "displayName": "beepinator",
+      "email": "beepinator@gmail.com",
+      "password": "password123",
+      "joinDate": "2012-04-23T18:25:43.511Z"
+    },
+    "dateCreated": "2012-04-23T18:25:43.511Z",
+    "onCommunity": {
+      "_id": "5ec577a132f33a31f9a0338a",
+      "name": "lotr",
+      "link": "/s/lotr"
+    }
+  },
+  {
+    "_id": "5ec579d5251f7e32b999058a",
+    "title": "hello world, hello title!",
+    "body": "this is the body to the post of hello world",
+    "numberOfLikes": 10,
+    "numberOfDislikes": 0,
+    "imageUrl": "",
+    "postedBy": {
+      "_id": "5ec56f629f99772a8f8f0cd8",
+      "username": "beep2345",
+      "displayName": "beepinator",
+      "email": "beepinator@gmail.com",
+      "password": "password123",
+      "joinDate": "2012-04-23T18:25:43.511Z"
+    },
+    "dateCreated": "2012-04-23T18:25:43.511Z",
+    "onCommunity": {
+      "_id": "5ec577a132f33a31f9a0338a",
+      "name": "lotr",
+      "link": "/s/lotr"
+    }
+  }
+]
