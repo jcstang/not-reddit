@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const db = require('../models');
+const chalk = require('chalk');
+const POST_SIZE = 10;
 
-// MONGO setup ===
+// == MONGO setup ===
 // =============================================================
 let MONGODB_URI = process.env.NODE_ENV
 ? process.env.MONGODB_URI
@@ -13,79 +15,32 @@ mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true
 });
 
-let userId = null;
-let commId = null;
+const seenitConnection = mongoose.connection;
+seenitConnection.once("open", function() {
+  console.log(chalk.bgBlue.white('mongoDB connected successfully.'));
+  seenitConnection.db.dropCollection('posts', (err, result) => {
+    console.log(chalk.magenta('posts collection dropped'));
+  });
+  seenitConnection.db.dropCollection('communities', (err, result) => {
+    console.log(chalk.magenta('communities collection dropped'));
+  });
+  seenitConnection.db.dropCollection('users', (err, result) => {
+    console.log(chalk.magenta('users collection dropped'));
+  });
+});
+
+// let userId = null;
+// let commId = null;
 let userData = {
   "username": "seed_user",
   "displayName": "beepinator",
   "email": "beepinator@gmail.com",
   "password": "password123",
-  "joinDate": "2012-04-23T18:25:43.511Z"
 };
 let communityData = {
   "name": "all",
   "link": "/s/all"
 };
-let listOfPosts = [
-  {
-    "title": "hello world, hello title!",
-    "body": "this is the body to the post",
-    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
-    "postedBy": userId,
-    "dateCreated": "2012-04-23T18:25:43.511Z",
-    "onCommunity": commId
-  },
-  {
-    "title": "hello world, hello title!",
-    "body": "this is the body to the post",
-    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
-    "postedBy": userId,
-    "dateCreated": "2012-04-23T18:25:43.511Z",
-    "onCommunity": commId
-  },
-  {
-    "title": "hello world, hello title!",
-    "body": "this is the body to the post",
-    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
-    "postedBy": userId,
-    "dateCreated": "2012-04-23T18:25:43.511Z",
-    "onCommunity": commId
-  },
-  {
-    "title": "hello world, hello title!",
-    "body": "this is the body to the post",
-    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
-    "postedBy": userId,
-    "dateCreated": "2012-04-23T18:25:43.511Z",
-    "onCommunity": commId
-  },
-  {
-    "title": "hello world, hello title!",
-    "body": "this is the body to the post",
-    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
-    "postedBy": userId,
-    "dateCreated": "2012-04-23T18:25:43.511Z",
-    "onCommunity": commId
-  },
-  {
-    "title": "hello world, hello title!",
-    "body": "this is the body to the post",
-    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
-    "postedBy": userId,
-    "dateCreated": "2012-04-23T18:25:43.511Z",
-    "onCommunity": commId
-  },
-  {
-    "title": "hello world, hello title!",
-    "body": "this is the body to the post",
-    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
-    "postedBy": userId,
-    "dateCreated": "2012-04-23T18:25:43.511Z",
-    "onCommunity": commId
-  },
-
-];
-
 
 function createUser(data) {
   return db.User.create(data);
@@ -99,69 +54,47 @@ function createPost(data) {
   return db.Post.create(data);
 }
 
+function fillPostData(userId, commId) {
+  return {
+    "title": "hello world, hello title!",
+    "body": "this is the body to the post",
+    "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+    "postedBy": userId,
+    "onCommunity": commId
+  }
+}
 
+function seedTheData() {
+  createUser(userData)
+  .then(userResults => {
+      console.log(chalk.cyanBright('**** SEEDING DATA.... ******'));
+      console.log(chalk.cyanBright('inserting a user...'));
+      // userId = userResults._id;
+      createCommunity(communityData)
+        .then(commResults => {
+          console.log(chalk.cyanBright('inserting a community...'));
+          // commId = commResults._id;
+          let postData = [];
 
+          for (let i = 0; i < POST_SIZE; i++) {
+            postData.push( fillPostData(userResults._id, commResults._id) );
+          }
 
-
-router.post('/seed', (req, res) => {
-  console.log('do I make it here?');
-
-  // db.User.createCollection().then(collection => console.log('user collection created'));
-  // db.Community.createCollection().then(collection => console.log('community collection created'));
-  // db.Post.createCollection().then(collection => console.log('post collection created'));
-
-  // create user and get id
-  // =============================================================
-
-
-  db.User
-    .create(userData)
-    .then(uData => {
-
-    })
-
-  db.User
-    .create(userData)
-    .then((data) => {
-      userId = data._id
-      // res.status(200).json({ status: 200, data: data });
+          createPost(postData)
+            .then(postResults => {
+              console.log(chalk.cyanBright('inserting post data....'));
+              console.log(chalk.green('*******************************'));
+              console.log(chalk.green('** data has been seeded!!! ****'));
+              console.log(chalk.green('*******************************\n\n'));
+            });
+        });
     })
     .catch(err => {
-      // console.log(err.message);
-      res.status(418).json({ status: 418, message: "arent you late for something? user"});
+      return false;
     });
 
+}
 
-  //  create community and get id
-  // =============================================================
-
-  db.Community.create(communityData)
-  .then( data => {
-    commId = data._id;
-    // res.status(200).json({ status: 200, data: data });
-  })
-  .catch(err => {
-    res.status(418).json({ status: 418, message: "arent you late for something? community"});
-  });
-
-
-  db.Post.insertMany(listOfPosts, function(error, docs) {
-    if(error) {
-      res.status(418).json({ err: error });
-    }
-    res.end('hi');
-  });
-
-  // db.Post
-  //   .insertMany(listOfPosts)
-  //   .then(data => {
-  //     if (userId !== null && commId !== null) {
-  //       res.status(200).json({ status: 200, data: data });
-  //     }
-  //     res.end('hmmm something was null');
-  //   })
-  //   .catch(err => {
-  //     res.status(418).json({ status: 418, message: "arent you late for something? post"});
-  //   });
-
-});
+module.exports = {
+  seedTheData: seedTheData
+}

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const db = require('../models');
+const chalk = require('chalk');
+//import { seedTheData } from './seed-funcs';
 
 // MONGO setup ===
 // =============================================================
@@ -141,7 +143,7 @@ router.post('/seed', (req, res) => {
     "name": "all",
     "link": "/s/all"
   };
-  
+
 
   db.User
     .create(userData)

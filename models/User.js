@@ -6,7 +6,10 @@ const UserSchema = new Schema({
     displayName: String,
     email: String,
     password: String,
-    joinDate: Date
+    joinDate: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const User = mongoose.model('users', UserSchema);

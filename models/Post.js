@@ -20,7 +20,10 @@ let PostSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     },
-    dateCreated: Date,
+    dateCreated: {
+        type: Date,
+        default: Date.now
+    },
     onCommunity: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'communities'
