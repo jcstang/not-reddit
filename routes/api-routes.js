@@ -108,13 +108,143 @@ router.post('/users', (req, res) => {
 
   db.User
     .create(userData)
-    .then(() => {
-      res.status(200).end();
+    .then((whatHappened) => {
+      // console.log(whatHappened);
+      res.status(200).json({ status: 200, data: whatHappened });
     })
     .catch(err => {
       console.log(err.message);
       res.status(418).json({ status: 418, message: "arent you late for something?"});
     });
+});
+
+
+router.post('/seed', (req, res) => {
+  console.log('do I make it here?');
+  let userId = null;
+  let commId = null;
+
+  // db.User.createCollection().then(collection => console.log('user collection created'));
+  // db.Community.createCollection().then(collection => console.log('community collection created'));
+  // db.Post.createCollection().then(collection => console.log('post collection created'));
+
+  // create user and get id
+  // =============================================================
+  let userData = {
+    "username": "seed_user",
+    "displayName": "beepinator",
+    "email": "beepinator@gmail.com",
+    "password": "password123",
+    "joinDate": "2012-04-23T18:25:43.511Z"
+  };
+
+  db.User
+    .create(userData)
+    .then((data) => {
+      userId = data._id
+      // res.status(200).json({ status: 200, data: data });
+    })
+    .catch(err => {
+      // console.log(err.message);
+      res.status(418).json({ status: 418, message: "arent you late for something? user"});
+    });
+
+
+  //  create community and get id
+  // =============================================================
+  let communityData = {
+    "name": "all",
+    "link": "/s/all"
+  };
+
+  db.Community.create(communityData)
+  .then( data => {
+    commId = data._id;
+    // res.status(200).json({ status: 200, data: data });
+  })
+  .catch(err => {
+    res.status(418).json({ status: 418, message: "arent you late for something? community"});
+  });
+
+  let listOfPosts = [
+    {
+      "title": "hello world, hello title!",
+      "body": "this is the body to the post",
+      "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+      "postedBy": userId,
+      "dateCreated": "2012-04-23T18:25:43.511Z",
+      "onCommunity": commId
+    },
+    {
+      "title": "hello world, hello title!",
+      "body": "this is the body to the post",
+      "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+      "postedBy": userId,
+      "dateCreated": "2012-04-23T18:25:43.511Z",
+      "onCommunity": commId
+    },
+    {
+      "title": "hello world, hello title!",
+      "body": "this is the body to the post",
+      "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+      "postedBy": userId,
+      "dateCreated": "2012-04-23T18:25:43.511Z",
+      "onCommunity": commId
+    },
+    {
+      "title": "hello world, hello title!",
+      "body": "this is the body to the post",
+      "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+      "postedBy": userId,
+      "dateCreated": "2012-04-23T18:25:43.511Z",
+      "onCommunity": commId
+    },
+    {
+      "title": "hello world, hello title!",
+      "body": "this is the body to the post",
+      "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+      "postedBy": userId,
+      "dateCreated": "2012-04-23T18:25:43.511Z",
+      "onCommunity": commId
+    },
+    {
+      "title": "hello world, hello title!",
+      "body": "this is the body to the post",
+      "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+      "postedBy": userId,
+      "dateCreated": "2012-04-23T18:25:43.511Z",
+      "onCommunity": commId
+    },
+    {
+      "title": "hello world, hello title!",
+      "body": "this is the body to the post",
+      "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
+      "postedBy": userId,
+      "dateCreated": "2012-04-23T18:25:43.511Z",
+      "onCommunity": commId
+    },
+
+  ];
+
+  db.Post.insertMany(listOfPosts, function(error, docs) {
+    if(error) {
+      res.status(418).json({ err: error });
+    }
+    res.end('hi');
+  });
+
+  // db.Post
+  //   .insertMany(listOfPosts)
+  //   .then(data => {
+  //     if (userId !== null && commId !== null) {
+  //       res.status(200).json({ status: 200, data: data });
+  //     }
+  //     res.end('hmmm something was null');
+  //   })
+  //   .catch(err => {
+  //     res.status(418).json({ status: 418, message: "arent you late for something? post"});
+  //   });
+
 });
 
 // app.post("/sendpostinfo", function (req, res) {
