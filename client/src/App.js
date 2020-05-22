@@ -4,6 +4,7 @@ import "./App.css";
 import { connect } from 'react-redux';
 import PostContainer from "./components/PostContainer/PostContainer";
 import Form from "./components/Form/form.js";
+import Nav from "./components/Nav";
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
 // TODO: add a react router
@@ -36,6 +37,7 @@ const listOfPlaceholderPosts = [
 const App = (props) => {
   return (
     <div className="App">
+      <Nav/>
       <Form />
       <div className="App-header container-fluid">
         <img src={logo} className="App-logo" alt="logo" />
