@@ -7,14 +7,12 @@ export default function PostCard(props) {
   const title = props.post.title;
 
   return (
-    <div className="card card-fluid">
-      <h1 className="card-header">{title}</h1>
+    <div className="card card-fluid mt-1">
+      <h1 className="card-header">Title: {title}</h1>
       <div className="card-body">
         <p>{body}</p>
-        <div className="row">
-          <p className="mr-2">Community: {community} </p>
-          <p>Post Created by: {postedBy}</p>
-        </div>
+          <p className="float-left mr-2">Community: {community} </p>
+          <p className="float-left">Post Created by: {postedBy}</p>
       </div>
     </div>
   );

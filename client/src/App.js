@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { connect } from 'react-redux';
@@ -38,10 +38,10 @@ const App = (props) => {
       <div className="App-header container-fluid">
         <img src={logo} className="App-logo" alt="logo" />
         <h2>Seenit - not reddit</h2>
-        <p>{props.ctr}</p>
+        {/* <p>{props.ctr}</p>
         <button
           onClick={props.onIncrementCounter}
-        >+1</button>
+        >+1</button> */}
       </div>
       <div className="container">
         <PostContainer
