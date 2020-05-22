@@ -4,6 +4,18 @@ const Schema = mongoose.Schema;
 let PostSchema = new Schema({
     title: String,
     body: String,
+    numberOfLikes: {
+        type: Number,
+        default: 0
+    },
+    numberOfDislikes: {
+        type: Number,
+        default: 0
+    },
+    imageUrl: {
+        type: String,
+        required: [true, 'Please add a image url.']
+    },
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
