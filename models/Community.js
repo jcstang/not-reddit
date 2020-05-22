@@ -8,22 +8,4 @@ const CommunitySchema = new Schema({
 
 const Community = mongoose.model('communities', CommunitySchema);
 
-// ./index.js is handling the exports
 module.exports = Community;
-
-
-
-// /* COMMUNITIES */
-// /* 1 */
-// {
-//   "_id" : ObjectId("5ec2c29d74eb1c1a41714130"),
-//   "Name" : "all",
-//   "link" : "/s/all"
-// }
-
-// /* 2 */
-// {
-//   "_id" : ObjectId("5ec2c31e74eb1c1a4171413b"),
-//   "title" : "dnd",
-//   "link" : "/s/dnd"
-// }
