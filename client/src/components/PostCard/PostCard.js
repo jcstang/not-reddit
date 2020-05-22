@@ -2,18 +2,13 @@ import React from "react";
 import './PostCard.css';
 
 export default function PostCard(props) {
-  const body = props.post.body;
-  const community = props.post.onCommunity.name;
-  const postedBy = props.post.postedBy.displayName;
-  const title = props.post.title;
-
+  const img = props.post.img;
+  console.log(img);
   return (
-    <div className="card card-fluid mt-1">
-      <h1 className="card-header">Title: {title}</h1>
-      <div className="card-body">
-        <p>{body}</p>
-          <p className="float-left mr-2">Community: {community} </p>
-          <p className="float-left">Post Created by: {postedBy}</p>
+    <div className="card mt-1 cols-sm-2 cols-md-3 cols-lg-5">
+      <img src={img} className="card-img-top card-img" alt="..." />
+      <div className="card-footer">
+        <small className="text-muted">Likes: </small>
       </div>
     </div>
   );
