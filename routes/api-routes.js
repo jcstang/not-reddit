@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const db = require('../models');
+const chalk = require('chalk');
 
 // MONGO setup ===
 // =============================================================
@@ -108,19 +109,14 @@ router.post('/users', (req, res) => {
 
   db.User
     .create(userData)
-    .then(() => {
-      res.status(200).end();
+    .then((whatHappened) => {
+      // console.log(whatHappened);
+      res.status(200).json({ status: 200, data: whatHappened });
     })
     .catch(err => {
       console.log(err.message);
       res.status(418).json({ status: 418, message: "arent you late for something?"});
     });
 });
-
-// app.post("/sendpostinfo", function (req, res) {
-//   console.log(req.body);
-//   res.end();
-// });
-
 
 module.exports = router;
