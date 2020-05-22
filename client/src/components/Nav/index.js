@@ -5,7 +5,7 @@ import "./style.css";
 class Nav extends Component {
   state = {
     open: false,
-    width: window.innerWidth
+    width: window.innerWidth,
   };
 
   updateWidth = () => {
@@ -32,7 +32,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light mb-2">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <Link className="navbar-brand" to="/">
           Seenit
         </Link>
@@ -47,12 +47,19 @@ class Nav extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+        <div
+          className={`${this.state.open ? "" : "collapse "}navbar-collapse`}
+          id="navbarNav"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                className={
+                  window.location.pathname === "/"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
                 to="/"
               >
                 Home
@@ -61,16 +68,24 @@ class Nav extends Component {
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
+                className={
+                  window.location.pathname === "/search"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
                 to="/search"
               >
                 Search For A Post
               </Link>
             </li>
-            <li className = "nav-item">
+            <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/newPost" ? "nav-link active" : "nav-link"}
+                className={
+                  window.location.pathname === "/newPost"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
                 to="/newPost"
               >
                 Create a Post
