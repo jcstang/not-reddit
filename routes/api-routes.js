@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const db = require('./models');
+const db = require('../models');
+const chalk = require('chalk');
 
-// git merge test! :)
-
+// MONGO setup ===
+// =============================================================
 let MONGODB_URI = process.env.NODE_ENV
   ? process.env.MONGODB_URI
   : "mongodb://localhost/seenit_db";
@@ -17,7 +18,7 @@ mongoose.connect(MONGODB_URI, {
 // ROUTES - /api
 // =============================================================
 router.get('/', (req, res) => {
-  res.end('hi');
+  res.end('we should never come here.');
 });
 
 router.get('/all-posts', (req, res) => {
@@ -48,10 +49,26 @@ router.get('/posts/:id', (req, res) => {
       console.log(err);
       res.status(418).json({
         status: 418,
-        message: "arent you late for something?"
+        error: err,
+        message: `arent you late for something? ${err.message}`
       });
     });
 });
+
+router.get('/community-posts/:id', (req, res) => {
+  const communityId = req.params.id;
+  // TODO: use community id to filter the posts that come back.
+
+  res.end('/community-posts/:id');
+});
+
+router.get('/all-communities', (req, res) => {
+  // TODO: get a list of the communities that are available
+
+  res.end('/all-communities');
+});
+
+// TODO: Do we need get user routes???????
 
 // POST REQUESTS
 // =============================================================
@@ -61,7 +78,8 @@ router.post('/communities', (req, res) => {
 
   db.Community
     .create(commData)
-    .then(() => {
+    .then((result) => {
+      console.log(result);
       res.status(200).end();
     })
     .catch(err => {
@@ -91,14 +109,14 @@ router.post('/users', (req, res) => {
 
   db.User
     .create(userData)
-    .then(() => {
-      res.status(200).end();
+    .then((whatHappened) => {
+      // console.log(whatHappened);
+      res.status(200).json({ status: 200, data: whatHappened });
     })
     .catch(err => {
       console.log(err.message);
       res.status(418).json({ status: 418, message: "arent you late for something?"});
     });
 });
-
 
 module.exports = router;

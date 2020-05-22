@@ -1,15 +1,15 @@
 import React from "react";
+import './PostCard.css';
 
 export default function PostCard(props) {
-
-
-    return (
-        <div className="card card-fluid">
-            <h1 className="card-header">{props.post.title}</h1>
-            <img src="https://imgur.com/gZjp2um" className="float-left" alt="post"></img>
-            <div className="card-body">
-                <p>Content Lives here.</p>
-            </div>
-        </div>
-    )
+  const img = props.post.img;
+  console.log(img);
+  return (
+    <div className="card mt-1 cols-sm-2 cols-md-3 cols-lg-5">
+      <img src={img} className="card-img-top card-img" alt="..." />
+      <div className="card-footer">
+        <small className="text-muted">Likes: </small>
+      </div>
+    </div>
+  );
 }
