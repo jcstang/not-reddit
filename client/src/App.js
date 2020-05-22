@@ -42,10 +42,12 @@ const App = (props) => {
       <div className="App-header container-fluid">
         <img src={logo} className="App-logo" alt="logo" />
         <h2>Seenit</h2>
-        <p>{props.ctr}</p>
-        <button onClick={props.onIncrementCounter}>+1</button>
+        {/* commented this out. it was behaving strangely while styling the cards */}
+        {/* <p>{props.ctr}</p>
+        <button onClick={props.onIncrementCounter}>+1</button> */}
       </div>
       <div className="container">
+        <Form />
         <PostContainer
           posts={listOfPlaceholderPosts}
         />
