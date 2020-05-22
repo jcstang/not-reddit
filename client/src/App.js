@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import "./App.css";
 import { connect } from 'react-redux';
 import PostContainer from "./components/PostContainer/PostContainer";
