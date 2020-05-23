@@ -1,33 +1,33 @@
 {
-  "name": "seenit",
-  "version": "1.0.0",
-  "description": "not-reddit, its seenit",
-  "main": "server.js",
-  "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "author": "Jacob Stanger, Brian Allen, Miranda D'Asto, Graham Thomas",
-  "license": "MIT",
-  "devDependencies": {
-    "concurrently": "^4.1.2",
-    "nodemon": "^1.18.7"
-  },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "chalk": "^4.0.0",
-    "dom": "0.0.3",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "mongodb": "^3.5.7",
-    "mongoose": "^5.9.15",
-    "react": "^16.13.1",
-    "router": "^1.3.5"
-  }
+    "name": "seenit",
+    "version": "1.0.0",
+    "description": "not-reddit, its seenit",
+    "main": "server.js",
+    "scripts": {
+        "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+        "start:prod": "node server.js",
+        "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+        "client": "cd client && npm run start",
+        "install": "cd client && npm install",
+        "build": "cd client && npm run build",
+        "heroku-postbuild": "npm run build"
+    },
+    "author": "Jacob Stanger, Brian Allen, Miranda D'Asto, Graham Thomas",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^4.1.2",
+        "nodemon": "^1.18.7"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "chalk": "^4.0.0",
+        "dom": "0.0.3",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "if-env": "^1.0.4",
+        "mongodb": "^3.5.7",
+        "mongoose": "^5.9.15",
+        "react": "^16.13.1",
+        "router": "^1.3.5"
+    }
 }
