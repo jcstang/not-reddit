@@ -87,17 +87,14 @@ const listOfPlaceholderPosts = [
 
 
 const App = (props) => {
-  console.log(props.reduxPosts);
+  // console.log(props.reduxPosts);
   const [ postListState, setPostListState ] = useState([]);
 
   const refreshData = () => {
     Axios
     .get('/api/all-posts')
     .then(docs => {
-      setPostListState({
-        ...postListState,
-        docs
-      });
+      setPostListState(docs.data);
     })
     .catch(err => {
       console.log(err);
@@ -106,7 +103,7 @@ const App = (props) => {
 
   // func call for new data
   // =============================================================
-  // refreshData();
+  refreshData();
 
   return (
     <Router>
@@ -114,7 +111,8 @@ const App = (props) => {
       <Switch>
         <Route exact path="/">
           <div className="container-fluid">
-            <PostContainer posts={listOfPlaceholderPosts} />
+            {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
+            <PostContainer posts={postListState} />
           </div>
         </Route>
         <Route exact path="/create-post">
