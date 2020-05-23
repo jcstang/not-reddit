@@ -82,11 +82,11 @@ class Nav extends Component {
               <Link
                 onClick={this.toggleNav}
                 className={
-                  window.location.pathname === "/"
+                  window.location.pathname === "/create-post"
                     ? "nav-link active"
                     : "nav-link"
                 }
-                to="/newPost"
+                to="/create-post"
               >
                 Create a Post
               </Link>
