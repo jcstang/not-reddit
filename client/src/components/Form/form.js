@@ -28,6 +28,7 @@ class Form extends Component {
       },
     });
   };
+
   handleChange = (event) => {
     this.setState({ onCommunity: event.target.value });
   };
@@ -36,6 +37,12 @@ class Form extends Component {
     console.log("fart");
     if (!this.state.slidemenu) {
       this.setState({ slidemenu: true });
+    }
+  };
+  handleslideclickoff = (event) => {
+    console.log("fart");
+    if (this.state.slidemenu) {
+      this.setState({ slidemenu: false });
     }
   };
 
@@ -78,6 +85,7 @@ class Form extends Component {
           slideout menu
         </button>
         <section className={boxClass.join(" ")}>
+          <button onClick={() => this.handleslideclickoff()}>close</button>
           <div className="formwrap px-4">
             <div class="card" id="formcss">
               <div class="card" id="formcss">
@@ -132,7 +140,6 @@ class Form extends Component {
                   <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
               </div>
-              git
             </div>
           </div>
           <div className="toggle-bg"></div>
