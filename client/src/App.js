@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostContainer from "./components/PostContainer/PostContainer";
 import Nav from "./components/Nav";
-
 import Axios from "axios";
 import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
