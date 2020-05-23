@@ -60,7 +60,8 @@ function fillPostData(userId, commId) {
     "body": "this is the body to the post",
     "imageUrl": "https://source.unsplash.com/sfL_QOnmy00/250x300",
     "postedBy": userId,
-    "onCommunity": commId
+    // "onCommunity": commId
+    onCommunity: 'all'
   }
 }
 
