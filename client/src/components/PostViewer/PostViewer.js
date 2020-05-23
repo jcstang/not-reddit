@@ -3,7 +3,7 @@ import "./PostViewer.css";
 
 class PostViewer extends Component {
   render() {
-    let ShowComponent = ["toggle-form"];
+    let ShowComponent = ["toggler"];
     if (this.props.show) {
       ShowComponent.push("active");
     }

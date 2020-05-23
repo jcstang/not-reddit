@@ -1,9 +1,10 @@
-.toggle-form {
+.toggler {
   display: none;
 }
-.toggle-form.active {
+.toggler.active {
   display: block;
   background-color: green;
+  position: absolute;
   height: 60px;
   width: 150px;
   top: 50%;
