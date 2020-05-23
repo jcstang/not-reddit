@@ -9,6 +9,7 @@ import listOfPlaceholderPosts from './placeholder-data.js'
 import Axios from "axios";
 import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
+import UserSettings from "./pages/UserSettings";
 
 
 const App = (props) => {
@@ -35,18 +36,22 @@ const App = (props) => {
       <Nav />
       <Header title={"Seenit"} />
       <Switch>
+
         <Route exact path="/">
           <div className="container-fluid">
             {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
             <PostContainer posts={postListState} />
           </div>
         </Route>
+
         <Route path="/create-post">
           <CreatePost />
         </Route>
-        <Route>
 
+        <Route exact path="/user-settings">
+          <UserSettings />
         </Route>
+
       </Switch>
     </Router>
   );
