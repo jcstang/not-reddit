@@ -1,0 +1,11 @@
+.bodybox {
+  height: 200px;
+  width: 700px;
+}
+input {
+  width: 700px;
+}
+label {
+  font-size: larger;
+  font-weight: bold;
+}
