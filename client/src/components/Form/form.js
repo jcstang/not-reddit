@@ -80,10 +80,12 @@ class Form extends Component {
           slideout menu
         </button>
         <section className={boxClass.join(" ")}>
-          <button onClick={() => this.handleslideclickoff()}>close</button>
           <div className="formwrap px-4">
             <div className="card" id="formcss">
               <div className="card" id="formcss">
+                <button onClick={() => this.handleslideclickoff()}>
+                  close
+                </button>
                 <form className="form">
                   <label>Title:</label>
                   <div>
