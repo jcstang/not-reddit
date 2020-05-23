@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Form from "../components/Form/form";
+import Form from "../../components/Form/form";
 
 function CreatePost() {
   return (

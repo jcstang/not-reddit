@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostContainer from "./components/PostContainer/PostContainer";
 import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
-import CreatePost from "./pages/createPost";
+import CreatePost from "./pages/CreatePost/createPost";
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
 // TODO: add a react router
