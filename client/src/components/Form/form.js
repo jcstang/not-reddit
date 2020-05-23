@@ -7,13 +7,11 @@ const API = apiCalls;
 class Form extends Component {
   // Setting the component's initial state
   state = {
-    postinfo: {
-      title: "",
-      body: "",
-      imageUrl: "",
-      onCommunity: "",
-      postedBy: "placeholder",
-    },
+    title: "",
+    body: "",
+    imageUrl: "",
+    onCommunity: "",
+    postedBy: "placeholder",
     slidemenu: false,
   };
 
@@ -23,9 +21,7 @@ class Form extends Component {
 
     // Updating the input's state
     this.setState({
-      postinfo: {
-        [name]: value,
-      },
+      [name]: value,
     });
   };
 
@@ -34,13 +30,11 @@ class Form extends Component {
   };
 
   handleslideclick = (event) => {
-    console.log("fart");
     if (!this.state.slidemenu) {
       this.setState({ slidemenu: true });
     }
   };
   handleslideclickoff = (event) => {
-    console.log("fart");
     if (this.state.slidemenu) {
       this.setState({ slidemenu: false });
     }
@@ -50,12 +44,13 @@ class Form extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     let postObjectInfo = {
-      title: this.state.postinfo.title,
-      body: this.state.postinfo.body,
-      imageUrl: this.state.postinfo.imageUrl,
-      onCommunity: this.state.postinfo.onCommunity,
-      postedBy: this.state.postinfo.postedBy,
+      title: this.state.title,
+      body: this.state.body,
+      imageUrl: this.state.imageUrl,
+      onCommunity: this.state.onCommunity,
+      postedBy: this.state.postedBy,
     };
+    console.log(postObjectInfo);
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
     API.saveinfo(postObjectInfo)
       .then((res) => {
@@ -87,13 +82,13 @@ class Form extends Component {
         <section className={boxClass.join(" ")}>
           <button onClick={() => this.handleslideclickoff()}>close</button>
           <div className="formwrap px-4">
-            <div class="card" id="formcss">
-              <div class="card" id="formcss">
+            <div className="card" id="formcss">
+              <div className="card" id="formcss">
                 <form className="form">
                   <label>Title:</label>
                   <div>
                     <input
-                      value={this.state.postinfo.title}
+                      value={this.state.title}
                       name="title"
                       onChange={this.handleInputChange}
                       type="text"
@@ -105,7 +100,7 @@ class Form extends Component {
                     <div>
                       <textarea
                         className="bodybox"
-                        value={this.state.postinfo.body}
+                        value={this.state.body}
                         name="body"
                         onChange={this.handleInputChange}
                         type="text"
@@ -117,10 +112,10 @@ class Form extends Component {
                     <label>Image URL:</label>
                     <div>
                       <input
-                        value={this.state.postinfo.imageUrl}
+                        value={this.state.imageUrl}
                         name="imageUrl"
                         onChange={this.handleInputChange}
-                        type="url"
+                        type="text"
                         placeholder="imageUrl"
                       />
                     </div>
@@ -128,7 +123,7 @@ class Form extends Component {
                   <label>Pick a Community:</label>
                   <div>
                     <select
-                      value={this.state.postinfo.onCommunity}
+                      value={this.state.onCommunity}
                       onChange={this.handleChange}
                     >
                       <option value="grapefruit">Grapefruit</option>
@@ -142,7 +137,6 @@ class Form extends Component {
               </div>
             </div>
           </div>
-          <div className="toggle-bg"></div>
         </section>
       </div>
     );
