@@ -1,21 +1,14 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import logo from "./logo.png";
-=======
-import React from "react";
->>>>>>> brian
 import "./App.css";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostContainer from "./components/PostContainer/PostContainer";
 import Nav from "./components/Nav";
-<<<<<<< HEAD
-import Header from './components/Header/Header';
+
 import Axios from "axios";
-=======
 import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
->>>>>>> brian
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
 // TODO: add a react router
@@ -92,22 +85,19 @@ const listOfPlaceholderPosts = [
   },
 ];
 
-
-
 const App = (props) => {
   // console.log(props.reduxPosts);
-  const [ postListState, setPostListState ] = useState([]);
+  const [postListState, setPostListState] = useState([]);
 
   const refreshData = () => {
-    Axios
-    .get('/api/all-posts')
-    .then(docs => {
-      setPostListState(docs.data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }
+    Axios.get("/api/all-posts")
+      .then((docs) => {
+        setPostListState(docs.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   // func call for new data
   // =============================================================

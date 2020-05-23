@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import "./form.css";
 // import API from "../../utils/API.";
 import apiCalls from "../../utils/seenit-apis";
@@ -71,57 +71,6 @@ class Form extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
 
     return (
-<<<<<<< HEAD
-      <div className="card pl-3 pb-2" id="formcss">
-        <form className="form">
-          <h1>Post Something!</h1>
-          <label>Title:</label>
-          <div>
-            <input
-              value={this.state.title}
-              name="title"
-              onChange={this.handleInputChange}
-              type="text"
-              placeholder="title"
-            />
-          </div>
-          <div>
-            <label>Body:</label>
-            <div>
-              <textarea
-                className="bodybox"
-                value={this.state.body}
-                name="body"
-                onChange={this.handleInputChange}
-                type="text"
-                placeholder="body"
-              ></textarea>
-            </div>
-          </div>
-          <div>
-            <label>Image URL:</label>
-            <div>
-              <input
-                value={this.state.imageUrl}
-                name="imageUrl"
-                onChange={this.handleInputChange}
-                type="url"
-                placeholder="imageUrl"
-              />
-            </div>
-          </div>
-          <label>Pick a Community:</label>
-          <div>
-            <select value={this.state.onCommunity} onChange={this.handleChange}>
-              <option value="grapefruit">Grapefruit</option>
-              <option value="lime">Lime</option>
-              <option value="coconut">Coconut</option>
-              <option value="mango">Mango</option>
-            </select>
-          </div>
-          <button className="btn btn-dark mt-1" onClick={this.handleFormSubmit}>Submit</button>
-        </form>
-=======
       <div className="card">
         <button onClick={() => this.handleslideclick()} className="cta-open">
           slideout menu
@@ -181,11 +130,11 @@ class Form extends Component {
                   <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
               </div>
+              git
             </div>
           </div>
           <div className="toggle-bg"></div>
         </section>
->>>>>>> grahamfinishedform
       </div>
     );
   }
