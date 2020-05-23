@@ -1,0 +1,73 @@
+const listOfPlaceholderPosts = [
+  {
+    _id: "5ec579d5251f7e32b999058a",
+    title: "hello world, hello title!",
+    img: "https://i.imgur.com/gZjp2um.jpg",
+    body: "this is the body to the post of hello world",
+    postedBy: {
+      _id: "5ec56f629f99772a8f8f0cd8",
+      username: "beep2345",
+      displayName: "beepinator",
+      email: "beepinator@gmail.com",
+      password: "password123",
+      joinDate: "2012-04-23T18:25:43.511Z",
+      __v: 0,
+    },
+    dateCreated: "2012-04-23T18:25:43.511Z",
+    onCommunity: {
+      _id: "5ec577a132f33a31f9a0338a",
+      name: "lotr",
+      link: "/s/lotr",
+      __v: 0,
+    },
+    __v: 0,
+  },
+  {
+    _id: "5ec579d5251f7e32b999058a",
+    title: "hello world, hello title!",
+    img: "https://i.imgur.com/gZjp2um.jpg",
+    body: "this is the body to the post of hello world",
+    postedBy: {
+      _id: "5ec56f629f99772a8f8f0cd8",
+      username: "beep2345",
+      displayName: "beepinator",
+      email: "beepinator@gmail.com",
+      password: "password123",
+      joinDate: "2012-04-23T18:25:43.511Z",
+      __v: 0,
+    },
+    dateCreated: "2012-04-23T18:25:43.511Z",
+    onCommunity: {
+      _id: "5ec577a132f33a31f9a0338a",
+      name: "lotr",
+      link: "/s/lotr",
+      __v: 0,
+    },
+    __v: 0,
+  },
+  {
+    _id: "5ec579d5251f7e32b999058a",
+    title: "hello world, hello title!",
+    img: "https://i.imgur.com/gZjp2um.jpg",
+    body: "this is the body to the post of hello world",
+    postedBy: {
+      _id: "5ec56f629f99772a8f8f0cd8",
+      username: "beep2345",
+      displayName: "beepinator",
+      email: "beepinator@gmail.com",
+      password: "password123",
+      joinDate: "2012-04-23T18:25:43.511Z",
+      __v: 0,
+    },
+    dateCreated: "2012-04-23T18:25:43.511Z",
+    onCommunity: {
+      _id: "5ec577a132f33a31f9a0338a",
+      name: "lotr",
+      link: "/s/lotr",
+      __v: 0,
+    },
+    __v: 0,
+  },
+];
+
+module.exports = listOfPlaceholderPosts;
