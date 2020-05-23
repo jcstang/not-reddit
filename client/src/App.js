@@ -1,12 +1,11 @@
 import React from "react";
-import logo from "./logo.png";
 import "./App.css";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostContainer from "./components/PostContainer/PostContainer";
-import Form from "./components/Form/form.js";
 import Nav from "./components/Nav";
-import Header from './components/Header/Header';
+import Header from "./components/Header/Header";
+import CreatePost from "./pages/createPost";
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
 // TODO: add a react router
@@ -84,24 +83,18 @@ const listOfPlaceholderPosts = [
 ];
 
 const App = (props) => {
-  console.log(props.reduxPosts);
-
   return (
     <Router>
       <Nav />
+      <Header title={"Seenit"} />
       <Switch>
         <Route exact path="/">
           <div className="container-fluid">
             <PostContainer posts={listOfPlaceholderPosts} />
           </div>
         </Route>
-        <Route exact path="/create-post">
-          <div className="App">
-            <Header title={"Seenit"}/>
-            <div className="container mt-2">
-              <Form />
-            </div>
-          </div>
+        <Route path="/create-post">
+          <CreatePost />
         </Route>
       </Switch>
     </Router>
