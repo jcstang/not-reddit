@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import "./form.css";
 // import API from "../../utils/API.";
 import apiCalls from "../../utils/seenit-apis";
@@ -130,6 +130,7 @@ class Form extends Component {
                   <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
               </div>
+              git
             </div>
           </div>
           <div className="toggle-bg"></div>

@@ -84,22 +84,19 @@ const listOfPlaceholderPosts = [
   },
 ];
 
-
-
 const App = (props) => {
   // console.log(props.reduxPosts);
-  const [ postListState, setPostListState ] = useState([]);
+  const [postListState, setPostListState] = useState([]);
 
   const refreshData = () => {
-    Axios
-    .get('/api/all-posts')
-    .then(docs => {
-      setPostListState(docs.data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }
+    Axios.get("/api/all-posts")
+      .then((docs) => {
+        setPostListState(docs.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   // func call for new data
   // =============================================================
