@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.png";
 import "./App.css";
 import { connect } from "react-redux";
@@ -7,6 +7,7 @@ import PostContainer from "./components/PostContainer/PostContainer";
 import Form from "./components/Form/form.js";
 import Nav from "./components/Nav";
 import Header from './components/Header/Header';
+import Axios from "axios";
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
 // TODO: add a react router
@@ -83,8 +84,26 @@ const listOfPlaceholderPosts = [
   },
 ];
 
+
+
 const App = (props) => {
-  console.log(props.reduxPosts);
+  // console.log(props.reduxPosts);
+  const [ postListState, setPostListState ] = useState([]);
+
+  const refreshData = () => {
+    Axios
+    .get('/api/all-posts')
+    .then(docs => {
+      setPostListState(docs.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+  // func call for new data
+  // =============================================================
+  refreshData();
 
   return (
     <Router>
@@ -92,7 +111,8 @@ const App = (props) => {
       <Switch>
         <Route exact path="/">
           <div className="container-fluid">
-            <PostContainer posts={listOfPlaceholderPosts} />
+            {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
+            <PostContainer posts={postListState} />
           </div>
         </Route>
         <Route exact path="/create-post">
