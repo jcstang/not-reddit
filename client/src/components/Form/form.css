@@ -9,3 +9,100 @@ label {
   font-size: larger;
   font-weight: bold;
 }
+.btn {
+  cursor: pointer;
+}
+.icon-close {
+  right: 2rem;
+  top: 1.8rem;
+  transition: right 0.6s ease-in-out;
+  cursor: pointer;
+}
+.has-error .help-block {
+  color: white;
+  text-align: center;
+}
+
+.toggle-form {
+  right: -9999px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  transition: right 0.6s ease-in-out;
+}
+.toggle-form.active {
+  right: 0;
+}
+.toggle-form .formwrap img {
+  width: 20px;
+}
+.orange {
+  background-color: #ff910e;
+  border-color: #ff910e;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 2rem;
+}
+.btn.orange:hover {
+  background-color: #da7600;
+  border-color: #da7600;
+  color: #fff;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  color: #495057;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 1.5rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.formwrap {
+  background-color: #1aafff;
+  max-width: 620px;
+  height: 100%;
+  float: right;
+  box-shadow: -1px 0px 12px rgba(0, 0, 0, 0.1);
+}
+.formwrap form input,
+.formwrap form input:focus {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.mid-col {
+  max-width: 100%;
+  flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+}
+.form-control {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+  margin-right: 10px;
+}
+select.form-control:not([size]):not([multiple]) {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+option {
+  background-color: #fff;
+  color: #1f2124;
+}
+@media (max-width: 575px) {
+  .formwrap {
+    width: 100%;
+  }
+}
