@@ -55,8 +55,8 @@ class Form extends Component {
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
-      <div class="card" id="formcss">
-        <form className="form p-1">
+      <div className="card pl-3 pb-2" id="formcss">
+        <form className="form">
           <h1>Post Something!</h1>
           <label>Title:</label>
           <div>
@@ -72,7 +72,7 @@ class Form extends Component {
             <label>Body:</label>
             <div>
               <textarea
-                class="bodybox"
+                className="bodybox"
                 value={this.state.body}
                 name="body"
                 onChange={this.handleInputChange}
@@ -102,7 +102,7 @@ class Form extends Component {
               <option value="mango">Mango</option>
             </select>
           </div>
-          <button onClick={this.handleFormSubmit}>Submit</button>
+          <button className="btn btn-dark mt-1" onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
     );

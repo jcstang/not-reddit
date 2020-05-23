@@ -1,7 +1,6 @@
 const axios = require('axios');
 
 const getFreshData = () => {
-  console.log('inside getFreshData()');
   axios.get('/api/all-posts')
     .then(docs => {
       return docs;
