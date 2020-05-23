@@ -89,14 +89,10 @@ const App = (props) => {
   return (
     <Router>
       <Nav />
-        <Header title={"Seenit"}/>
       <Switch>
         <Route exact path="/post">
           <div className="App">
-            <div className="App-header container-fluid">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h2>Seenit</h2>
-            </div>
+            <Header title={"Seenit"}/>
             <div className="container mt-2">
               <Form />
             </div>
