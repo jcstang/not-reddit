@@ -8,7 +8,7 @@ class PostViewer extends Component {
       ShowComponent.push("active");
     }
 
-    return <div className={ShowComponent.join(" ")}>hello</div>;
+    return <div className={ShowComponent.join(" ")}></div>;
   }
 }
 
