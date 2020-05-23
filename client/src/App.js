@@ -129,6 +129,8 @@ const listOfPlaceholderPosts = [
 ];
 
 const App = (props) => {
+  console.log(props.reduxPosts);
+
   return (
     <Router>
       <Nav />
@@ -146,17 +148,20 @@ const App = (props) => {
   );
 };
 
-// *** REDUX ***
+// REDUX
+// =============================================================
 const mapStateToProps = (state) => {
   return {
-    ctr: state.counter,
+    // ctr: state.counter,
+    reduxPosts: state.postList,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
-    onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
+    // onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
+    onRefreshData: () => dispatch({ type: 'refreshData'}),
   };
 };
 
