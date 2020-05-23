@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostContainer from "./components/PostContainer/PostContainer";
 import Form from "./components/Form/form.js";
 import Nav from "./components/Nav";
+import Header from './components/Header/Header';
 
 // TODO: plan out the components needed on homepage. (i.e. navbar, footer)
 // TODO: add a react router
@@ -135,10 +136,7 @@ const App = (props) => {
     <Router>
       <Nav />
       <div className="App">
-        <div className="App-header container-fluid">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Seenit</h2>
-        </div>
+        <Header title={"Seenit"}/>
         <div className="container-fluid">
           <Form />
           <PostContainer posts={listOfPlaceholderPosts} />
