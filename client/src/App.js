@@ -95,7 +95,6 @@ const listOfPlaceholderPosts = [
 
 
 const App = (props) => {
-<<<<<<< HEAD
   // console.log(props.reduxPosts);
   const [ postListState, setPostListState ] = useState([]);
 
@@ -114,8 +113,6 @@ const App = (props) => {
   // =============================================================
   refreshData();
 
-=======
->>>>>>> brian
   return (
     <Router>
       <Nav />
