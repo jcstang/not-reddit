@@ -90,17 +90,17 @@ const App = (props) => {
     <Router>
       <Nav />
       <Switch>
-        <Route exact path="/post">
+        <Route exact path="/">
+          <div className="container-fluid">
+            <PostContainer posts={listOfPlaceholderPosts} />
+          </div>
+        </Route>
+        <Route exact path="/create-post">
           <div className="App">
             <Header title={"Seenit"}/>
             <div className="container mt-2">
               <Form />
             </div>
-          </div>
-        </Route>
-        <Route exact path="/all-posts">
-          <div className="container-fluid">
-            <PostContainer posts={listOfPlaceholderPosts} />
           </div>
         </Route>
       </Switch>
