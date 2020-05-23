@@ -42,18 +42,22 @@ const App = (props) => {
   return (
     <Router>
       <Nav />
-      <div className="App">
-        <div className="App-header container-fluid">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Seenit</h2>
-        </div>
-        <div className="container">
-          <Form />
-        </div>
+      <Switch>
+        <Route exact path="/all-posts">
+          <div className="App">
+            <div className="App-header container-fluid">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h2>Seenit</h2>
+            </div>
+            <div className="container">
+              <Form />
+            </div>
+          </div>
+        </Route>
         <div className="container-fluid">
           <PostContainer posts={listOfPlaceholderPosts} />
         </div>
-      </div>
+      </Switch>
     </Router>
   );
 };
