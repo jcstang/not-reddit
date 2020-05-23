@@ -1,4 +1,3 @@
-
 //***************************************************************************
 //  server.js
 //  START of the api backend
@@ -6,8 +5,8 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const apiRouter = require('./routes/api-routes');
-const seedTheData = require('./routes/seed-funcs').seedTheData;
+const apiRouter = require("./routes/api-routes");
+const seedTheData = require("./routes/seed-funcs").seedTheData;
 
 const app = express();
 
@@ -26,8 +25,7 @@ if (process.env.NODE_ENV === "production") {
 
 // == API ROUTES
 // =============================================================
-app.use('/api', apiRouter);
-
+app.use("/api", apiRouter);
 
 // REACT - Send every other request to the React app
 // =============================================================

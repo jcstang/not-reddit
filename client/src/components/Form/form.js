@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import './form.css';
+import "./form.css";
 // import API from "../../utils/API.";
-import apiCalls from '../../utils/seenit-apis';
-const API = apiCalls.saveinfo;
+import apiCalls from "../../utils/seenit-apis";
+const API = apiCalls;
 
 class Form extends Component {
   // Setting the component's initial state
   state = {
-    firstName: "",
-    lastName: "",
+    title: "",
     body: "",
-    imgurl: "",
+    imageUrl: "",
+    onCommunity: "",
+    postedBy: "placeholder",
   };
 
   handleInputChange = (event) => {
@@ -22,15 +23,19 @@ class Form extends Component {
       [name]: value,
     });
   };
+  handleChange = (event) => {
+    this.setState({ onCommunity: event.target.value });
+  };
 
   handleFormSubmit = (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     let postObjectInfo = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      title: this.state.title,
       body: this.state.body,
-      imgurl: this.state.imgurl,
+      imageUrl: this.state.imageUrl,
+      onCommunity: this.state.onCommunity,
+      postedBy: this.state.postedBy,
     };
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
     API.saveinfo(postObjectInfo)
@@ -39,49 +44,63 @@ class Form extends Component {
       })
       .catch((err) => console.log(err));
     this.setState({
-      firstName: "",
-      lastName: "",
+      title: "",
       body: "",
-      imgurl: "",
+      imageUrl: "",
+      onCommunity: "",
+      postedBy: "placeholder",
     });
   };
 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
-      <div>
-        <p>
-          Hello {this.state.firstName} {this.state.lastName}
-        </p>
+      <div class="card" id="formcss">
         <form className="form">
-          <input
-            value={this.state.firstName}
-            name="firstName"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="First Name"
-          />
-          <input
-            value={this.state.lastName}
-            name="lastName"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Last Name"
-          />
-          <input
-            value={this.state.body}
-            name="body"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="body"
-          />
-          <input
-            value={this.state.imgurl}
-            name="imgurl"
-            onChange={this.handleInputChange}
-            type="url"
-            placeholder="imgurl"
-          />
+          <label>Title:</label>
+          <div>
+            <input
+              value={this.state.title}
+              name="title"
+              onChange={this.handleInputChange}
+              type="text"
+              placeholder="title"
+            />
+          </div>
+          <div>
+            <label>Body:</label>
+            <div>
+              <textarea
+                class="bodybox"
+                value={this.state.body}
+                name="body"
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="body"
+              ></textarea>
+            </div>
+          </div>
+          <div>
+            <label>Image URL:</label>
+            <div>
+              <input
+                value={this.state.imageUrl}
+                name="imageUrl"
+                onChange={this.handleInputChange}
+                type="url"
+                placeholder="imageUrl"
+              />
+            </div>
+          </div>
+          <label>Pick a Community:</label>
+          <div>
+            <select value={this.state.onCommunity} onChange={this.handleChange}>
+              <option value="grapefruit">Grapefruit</option>
+              <option value="lime">Lime</option>
+              <option value="coconut">Coconut</option>
+              <option value="mango">Mango</option>
+            </select>
+          </div>
           <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
