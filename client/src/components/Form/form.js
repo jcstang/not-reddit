@@ -23,7 +23,9 @@ class Form extends Component {
 
     // Updating the input's state
     this.setState({
-      [name]: value,
+      postinfo: {
+        [name]: value,
+      },
     });
   };
   handleChange = (event) => {
