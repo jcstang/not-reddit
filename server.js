@@ -6,7 +6,9 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const apiRouter = require("./routes/api-routes");
-const seedTheData = require("./routes/seed-funcs").seedTheData;
+// const seedTheData = require("./routes/seed-funcs").seedTheData;
+const seedTheData = require("./models/data/seed-funcs").seedTheData;
+
 
 const app = express();
 

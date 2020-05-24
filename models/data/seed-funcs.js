@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const db = require('../models');
+const db = require('../../models');
 const chalk = require('chalk');
 const POST_SIZE = 10;
 

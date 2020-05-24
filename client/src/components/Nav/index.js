@@ -22,6 +22,12 @@ class Nav extends Component {
     this.setState({ open: !this.state.open });
   };
 
+  setActiveNavItem = (path) => {
+    return window.location.pathname === path
+      ? "nav-link active"
+      : "nav-link"
+  };
+
   componentDidMount() {
     window.addEventListener("resize", this.updateWidth);
   }
@@ -51,15 +57,12 @@ class Nav extends Component {
           className={`${this.state.open ? "" : "collapse "}navbar-collapse`}
           id="navbarNav"
         >
+          {/* Navbar items */}
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={
-                  window.location.pathname === "/"
-                    ? "nav-link active"
-                    : "nav-link"
-                }
+                className={this.setActiveNavItem("/")}
                 to="/"
               >
                 Home
@@ -68,11 +71,7 @@ class Nav extends Component {
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={
-                  window.location.pathname === "/search"
-                    ? "nav-link active"
-                    : "nav-link"
-                }
+                className={this.setActiveNavItem("/search")}
                 to="/search"
               >
                 Search For A Post
@@ -81,14 +80,19 @@ class Nav extends Component {
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={
-                  window.location.pathname === "/create-post"
-                    ? "nav-link active"
-                    : "nav-link"
-                }
+                className={this.setActiveNavItem("/create-post")}
                 to="/create-post"
               >
                 Create a Post
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className={this.setActiveNavItem("/user-settings")}
+                to="/user-settings"
+              >
+                My Settings
               </Link>
             </li>
           </ul>
