@@ -2,6 +2,9 @@ import React from "react";
 import "./PostContainer.css";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
+
 
 function PostContainer(props) {
   const Posts = props.posts;
