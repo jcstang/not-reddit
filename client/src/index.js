@@ -9,8 +9,8 @@ import registerServiceWorker from "./registerServiceWorker";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 // import reducer from './store/rootReducer';
-import reducer from './store/dataReducer';
-const store = createStore(reducer);
+import dataReducer from './store/dataReducer';
+const store = createStore(dataReducer);
 
 class Nav extends Component {
   state = {

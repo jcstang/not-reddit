@@ -12,23 +12,40 @@ const getFreshData = () => {
   // return [];
 }
 
+const rereFreshDaData = () => {
+  return axios.get('/api/all-posts');
+}
+
 const initialState = {
   defaultImgUrl: "",
   numberOfCommunities: 1,
   numberOfPosts: 1,
   numberOfUsers: 1,
-  postList: getFreshData()
+  postList: []
 }
 
-const listReducer = (state = initialState, action) => {
+const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'refreshData':
-      const posts = [];
-      posts = getFreshData();
-      console.log('here is posts data: ' + posts);
+      // const posts = [];
+      // posts = rereFreshDaData()
+      //   .then(docs => {
+
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   })
+      // posts = getFreshData();
+      // console.log('here is posts data: ' + posts);
       return {
         ...state,
-        postList: posts
+        postList: rereFreshDaData()
+          .then(docs => {
+            return docs.data;
+          })
+          .catch(err => {
+            console.log(err);
+          })
       }
     default:
       break;
@@ -37,4 +54,4 @@ const listReducer = (state = initialState, action) => {
 }
 
 
-export default listReducer;
+export default dataReducer;

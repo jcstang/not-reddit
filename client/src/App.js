@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 // import logo from "./logo.png";
 import "./App.css";
 import { connect } from "react-redux";
@@ -11,15 +11,39 @@ import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
 import UserSettings from "./pages/UserSettings";
 
+// REDUCER
+const postsReducer = (state, action) => {
+  switch (action.type) {
+    case 'get':
+      return {
+        ...state,
+        postsFromMongo: action.docs
+      }
+    default:
+      break;
+  }
+
+  // if nothing goes down, use same old state
+  return state;
+}
+
+
 
 const App = (props) => {
   // console.log(props.reduxPosts);
   const [postListState, setPostListState] = useState([]);
 
+  const [postState, postDispatch] = useReducer(postsReducer,{
+    defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
+    postsFromMongo: [],
+    messageForUser: ''
+  });
+
   const refreshData = () => {
     Axios.get("/api/all-posts")
       .then((docs) => {
-        setPostListState(docs.data);
+        // setPostListState(docs.data);
+        postDispatch({ type: 'get', docs: docs.data });
       })
       .catch((err) => {
         console.log(err);
@@ -27,9 +51,14 @@ const App = (props) => {
       return [];
   };
 
+  // like componentWillMount or didmount
+  useEffect(() => {
+    refreshData();
+  });
+
   // func call for new data
   // =============================================================
-  refreshData();
+  // refreshData();
 
   return (
     <Router>
@@ -40,7 +69,8 @@ const App = (props) => {
         <Route exact path="/">
           <div className="container-fluid">
             {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
-            <PostContainer posts={postListState} />
+            {/* <PostContainer posts={postListState} /> */}
+            <PostContainer posts={postState.postsFromMongo} />
           </div>
         </Route>
 
