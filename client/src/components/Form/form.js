@@ -10,7 +10,6 @@ class Form extends Component {
     title: "",
     body: "",
     imageUrl: "",
-    onCommunity: "",
     postedBy: "placeholder",
     slidemenu: false,
   };
