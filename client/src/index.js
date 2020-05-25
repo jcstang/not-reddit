@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
 // *** REDUX ***
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
 // import reducer from './store/rootReducer';
-import reducer from './store/dataReducer';
-const store = createStore(reducer);
+// import dataReducer from './store/dataReducer';
+// const store = createStore(dataReducer);
 
 class Nav extends Component {
   state = {
@@ -20,9 +20,7 @@ class Nav extends Component {
 }
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <App />,
   document.getElementById("root"));
 
 registerServiceWorker();
