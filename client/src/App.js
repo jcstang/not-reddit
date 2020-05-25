@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer } from "react";
 // import logo from "./logo.png";
 import "./App.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PostContainer from "./components/PostContainer/PostContainer";
 import Nav from "./components/Nav";
@@ -11,13 +11,13 @@ import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
 import UserSettings from "./pages/UserSettings";
 
-// REDUCER
+// REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
   switch (action.type) {
-    case 'get':
+    case 'getNewData':
       return {
         ...state,
-        postsFromMongo: action.docs
+        postsFromMongo: action.postDocs
       }
     default:
       break;
@@ -26,8 +26,6 @@ const postsReducer = (state, action) => {
   // if nothing goes down, use same old state
   return state;
 }
-
-
 
 const App = (props) => {
   // console.log(props.reduxPosts);
@@ -43,7 +41,7 @@ const App = (props) => {
     Axios.get("/api/all-posts")
       .then((docs) => {
         // setPostListState(docs.data);
-        postDispatch({ type: 'get', docs: docs.data });
+        postDispatch({ type: 'getNewData', postDocs: docs.data });
       })
       .catch((err) => {
         console.log(err);
@@ -55,10 +53,6 @@ const App = (props) => {
   useEffect(() => {
     refreshData();
   });
-
-  // func call for new data
-  // =============================================================
-  // refreshData();
 
   return (
     <Router>
@@ -89,19 +83,20 @@ const App = (props) => {
 
 // REDUX
 // =============================================================
-const mapStateToProps = (state) => {
-  return {
-    // ctr: state.counter,
-    reduxPosts: state.postList,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     // ctr: state.counter,
+//     reduxPosts: state.postList,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
-    // onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
-    onRefreshData: () => dispatch({ type: "refreshData" }),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
+//     // onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
+//     onRefreshData: () => dispatch({ type: "refreshData" }),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
