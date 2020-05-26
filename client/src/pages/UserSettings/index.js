@@ -8,7 +8,9 @@ import UserSettingItem from '../../components/UserSettingItem';
 import "./index.css";
 
 export default function UserSettings(props) {
+
   const [show, setShow] = useState(true);
+
   const alertCaller = () => {
 
     if(show) {
@@ -29,13 +31,37 @@ export default function UserSettings(props) {
     return <Button onClick={() => setShow(true)}>Show Alert</Button>
   }
 
+  const setupUserSettingItem = (user) => {
+
+    for (const key in user) {
+      if (user.hasOwnProperty(key)) {
+        const element = user[key];
+        
+      }
+    }
+  }
+
   return (
     <div className="user-page container-fluid">
       {alertCaller()}
       <div className="container">
         <h1>User Settings</h1>
         <p>UserName: {props.user.username}</p>
-        <UserSettingItem user={props.user} />
+        <UserSettingItem 
+          user={props.user}
+          itemText={"@username"}
+          valueText={props.user.username}
+        />
+        <UserSettingItem 
+          user={props.user}
+          itemText={"displayName"}
+          valueText={props.user.displayName}
+        />
+        <UserSettingItem 
+          user={props.user}
+          itemText={"email"}
+          valueText={props.user.email}
+        />
         <p>DisplayName: {props.user.displayName}</p>
         <p>Email: {props.user.email}</p>
         <h2>Some Title</h2>
