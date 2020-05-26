@@ -2,20 +2,22 @@ import UserSettingItem from "../../components/UserSettingItem";
 import React from 'react';
 
 
+
+
 export default function UserSettingContainer(props) {
   return (
     <div className="container-fluid">
-      <UserSettingItem 
+      <UserSettingItem
         user={props.user}
         itemText={"@username"}
         valueText={props.user.username}
       />
-      <UserSettingItem 
+      <UserSettingItem
         user={props.user}
         itemText={"displayName"}
         valueText={props.user.displayName}
       />
-      <UserSettingItem 
+      <UserSettingItem
         user={props.user}
         itemText={"email"}
         valueText={props.user.email}
