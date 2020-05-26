@@ -15,7 +15,8 @@ export default function UserSettings(props) {
 
   const [show, setShow] = useState(true);
 
-  const alertCaller = () => {
+  const alertCaller = (event) => {
+    event.preventDefault();
 
     if(show) {
       return (
@@ -41,6 +42,7 @@ export default function UserSettings(props) {
       <h1>Some title for some settings page</h1>
       <UserSettingContainer 
         user={props.user}
+        alertFunction={alertCaller}
       />
     </div>
   );

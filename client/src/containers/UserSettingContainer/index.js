@@ -5,9 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import FormGroup from "react-bootstrap/FormGroup";
-import FormLabel from "react-bootstrap/FormLabel";
-import FormControl from "react-bootstrap/FormControl";
 import './index.css';
 
 
@@ -31,16 +28,20 @@ export default function UserSettingContainer(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control className="thing" type="password" placeholder="Password" />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button 
+              variant="primary" 
+              type="submit"
+              onClick={() => props.AlertFunction()}
+              >
               Submit
             </Button>
           </Form>
         </Col>
         <Col md={4}>
           <p><strong>Profile Picture</strong></p>
+          <div>
+            <img src="https://source.unsplash.com/6anudmpILw4/200x200"></img>
+          </div>
         </Col>
       </Row>
     </Container>
