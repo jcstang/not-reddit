@@ -35,16 +35,6 @@ export default function UserSettings(props) {
     return <Button onClick={() => setShow(true)}>Show Alert</Button>
   }
 
-  const setupUserSettingItem = (user) => {
-
-    for (const key in user) {
-      if (user.hasOwnProperty(key)) {
-        const element = user[key];
-        
-      }
-    }
-  }
-
   return (
     <div className="user-page container-fluid">
       {alertCaller()}

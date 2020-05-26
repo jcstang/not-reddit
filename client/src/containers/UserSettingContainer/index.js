@@ -5,6 +5,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import FormGroup from "react-bootstrap/FormGroup";
+import FormLabel from "react-bootstrap/FormLabel";
+import FormControl from "react-bootstrap/FormControl";
+import './index.css';
 
 
 
@@ -17,15 +21,15 @@ export default function UserSettingContainer(props) {
           <Form>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control className="thing" type="email" placeholder="Enter email" />
               <Form.Text className="text-muted">
-              Your name may appear around GitHub where you contribute or are mentioned. You can remove it at any time.
+                Your name may appear around GitHub where you contribute or are mentioned. You can remove it at any time.
               </Form.Text>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control className="thing" type="password" placeholder="Password" />
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Check me out" />
