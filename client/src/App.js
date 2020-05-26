@@ -34,7 +34,15 @@ const App = (props) => {
   const [postState, postDispatch] = useReducer(postsReducer,{
     defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
     postsFromMongo: [],
-    messageForUser: ''
+    messageForUser: '',
+    placeHolderUser: {
+      username: "beep2434",
+      displayName: "beep",
+      email: 'beep@gmail.com',
+      password: '',
+      joinDate: '2020-05-26T03:23:49.058Z'
+
+    }
   });
 
   const refreshData = () => {
@@ -73,7 +81,7 @@ const App = (props) => {
         </Route>
 
         <Route exact path="/user-settings">
-          <UserSettings />
+          <UserSettings user={postState.placeHolderUser}/>
         </Route>
 
       </Switch>

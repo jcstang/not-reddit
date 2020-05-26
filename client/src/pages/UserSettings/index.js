@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import UserSettingItem from '../../components/UserSettingItem';
 import "./index.css";
 
-export default function UserSettings() {
+export default function UserSettings(props) {
   const [show, setShow] = useState(true);
   const alertCaller = () => {
 
@@ -30,7 +34,10 @@ export default function UserSettings() {
       {alertCaller()}
       <div className="container">
         <h1>User Settings</h1>
-        <p>UserName: </p>
+        <p>UserName: {props.user.username}</p>
+        <UserSettingItem user={props.user} />
+        <p>DisplayName: {props.user.displayName}</p>
+        <p>Email: {props.user.email}</p>
         <h2>Some Title</h2>
         <h2>Some Title</h2>
         <h3>Some other title</h3>
