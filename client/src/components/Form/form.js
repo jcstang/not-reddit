@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./form.css";
 // import API from "../../utils/API.";
 import apiCalls from "../../utils/seenit-apis";
+import Editor1 from "../formeditor/Formeditor.js";
+import FormVisualizer from "../Formvisualizer/FormVisualizer";
 const API = apiCalls;
 
 class Form extends Component {
@@ -66,6 +68,13 @@ class Form extends Component {
       },
     });
   };
+
+  handleEditorChange = (e) => {
+    this.setState({ body: e.target.getContent() });
+    console.log(this.state.body);
+    // console.log("Content was updated:", e.target.getContent());
+  };
+
   render() {
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {
@@ -96,19 +105,7 @@ class Form extends Component {
                       placeholder="title"
                     />
                   </div>
-                  <div>
-                    <label>Body:</label>
-                    <div>
-                      <textarea
-                        className="bodybox"
-                        value={this.state.body}
-                        name="body"
-                        onChange={this.handleInputChange}
-                        type="text"
-                        placeholder="body"
-                      ></textarea>
-                    </div>
-                  </div>
+                  <Editor1 handleEditorChange={this.handleEditorChange} />
                   <div>
                     <label>Image URL:</label>
                     <div>
@@ -137,6 +134,7 @@ class Form extends Component {
                 </form>
               </div>
             </div>
+            <FormVisualizer data={this.state} />
           </div>
         </section>
       </div>
