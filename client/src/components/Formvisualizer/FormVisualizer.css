@@ -1,0 +1,32 @@
+.VisualizerPic {
+  float: left;
+  height: 150px;
+  margin-right: 10px;
+  min-width: 150px;
+}
+body {
+  margin: 0;
+}
+.VisualizerBox {
+  background-color: white;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  width: 500px;
+  height: 280px;
+  overflow-x: hidden;
+  overflow-x: auto;
+  text-align: justify;
+}
+.VisualizerTitle {
+  font-size: xx-large;
+  margin: 0;
+}
+.VisualizerP {
+  word-wrap: normal;
+
+  font-size: xx-small;
+}
