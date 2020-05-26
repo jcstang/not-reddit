@@ -1,10 +1,20 @@
+// ***************************************************************************
+// User Settings -  Page
+// ***************************************************************************
 import React, { useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import UserSettingItem from '../../components/UserSettingItem';
 import "./index.css";
+import UserSettingContainer from '../../containers/UserSettingContainer';
 
-export default function UserSettings() {
+export default function UserSettings(props) {
+
   const [show, setShow] = useState(true);
+
   const alertCaller = () => {
 
     if(show) {
@@ -28,13 +38,10 @@ export default function UserSettings() {
   return (
     <div className="user-page container-fluid">
       {alertCaller()}
-      <div className="container">
-        <h1>User Settings</h1>
-        <p>UserName: </p>
-        <h2>Some Title</h2>
-        <h2>Some Title</h2>
-        <h3>Some other title</h3>
-      </div>
+      <h1>Some title for some settings page</h1>
+      <UserSettingContainer 
+        user={props.user}
+      />
     </div>
   );
 }
