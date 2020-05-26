@@ -7,13 +7,13 @@ export default function UserSettingItem(props) {
     <div>
       <InputGroup className="mb-3">
         <InputGroup.Prepend>
-          <InputGroup.Text id="basic-addon1">@username</InputGroup.Text>
+          <InputGroup.Text id="basic-addon1">{props.itemText}</InputGroup.Text>
         </InputGroup.Prepend>
         <FormControl
-          placeholder="Username"
-          aria-label="Username"
+          placeholder={props.valueText}
+          aria-label={props.valueText}
           aria-describedby="basic-addon1"
-          value={props.user.username}
+          value={props.valueText}
         />
       </InputGroup>
     </div>
