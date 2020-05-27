@@ -10,7 +10,7 @@ function PostContainer(props) {
       {Posts.map((post, index) => (
         <PostCard key={index} post={post}/>
       ))}
-      <PostViewer show={true} />
+      <PostViewer show={false} />
     </div>
   );
 }
