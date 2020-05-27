@@ -68,6 +68,7 @@ class Nav extends Component {
                 Home
               </Link>
             </li>
+
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
@@ -77,6 +78,7 @@ class Nav extends Component {
                 Search For A Post
               </Link>
             </li>
+
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
@@ -86,6 +88,27 @@ class Nav extends Component {
                 Create a Post
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className={this.setActiveNavItem("/log-in")}
+                to="/log-in"
+              >
+                Log In
+              </Link>
+            </li>  
+
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className={this.setActiveNavItem("/sign-up")}
+                to="/sign-up"
+              >
+                Sign Up
+              </Link>
+            </li>
+
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}

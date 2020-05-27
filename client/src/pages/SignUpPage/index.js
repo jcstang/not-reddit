@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function SearchPage() {
+export default function SignUpPage() {
     return (
         <div className="container">
-            <h2>Search Page</h2>
+            <h2>Sign-Up Page</h2>
         </div>
     );
 }

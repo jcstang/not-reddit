@@ -1,7 +1,17 @@
+import React from 'react';
 
-const LoginPage = () => {
-    // TODO: Page with just the login thing in the middle 
-    return null;
+export default function LoginPage() {
+    return (
+        <div className="container">
+            <h2>Log-in Page</h2>
+        </div>
+    );
 }
 
-export default LoginPage;
+
+// const LoginPage = () => {
+//     // TODO: Page with just the login thing in the middle 
+//     return null;
+// }
+
+// export default LoginPage;
