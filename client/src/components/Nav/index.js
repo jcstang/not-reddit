@@ -71,8 +71,8 @@ class Nav extends Component {
             <li className="nav-item">
               <Link
                 onClick={this.toggleNav}
-                className={this.setActiveNavItem("/search")}
-                to="/search"
+                className={this.setActiveNavItem("/search-posts")}
+                to="/search-posts"
               >
                 Search For A Post
               </Link>

@@ -10,6 +10,7 @@ import Axios from "axios";
 import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
 import UserSettings from "./pages/UserSettings";
+import SearchPage from "./pages/SearchPage";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -40,7 +41,8 @@ const App = (props) => {
       displayName: "beep",
       email: 'beep@gmail.com',
       password: '',
-      joinDate: '2020-05-26T03:23:49.058Z'
+      joinDate: '2020-05-26T03:23:49.058Z',
+      imageUrl: 'https://source.unsplash.com/6anudmpILw4/200x200'
 
     }
   });
@@ -74,6 +76,10 @@ const App = (props) => {
             {/* <PostContainer posts={postListState} /> */}
             <PostContainer posts={postState.postsFromMongo} />
           </div>
+        </Route>
+
+        <Route exact path="/search-posts">
+          <SearchPage />
         </Route>
 
         <Route path="/create-post">
