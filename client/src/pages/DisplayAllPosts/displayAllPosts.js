@@ -1,11 +1,12 @@
 import React from "react";
 import PostContainer from "../../components/PostContainer/PostContainer";
+import Container from "react-bootstrap/Container";
 
 export default function DisplayAllPosts(props) {
   const posts = props.posts;
   return (
-    <div className="container-fluid">
+    <Container fluid>
       <PostContainer posts={posts} />
-    </div>
+    </Container>
   );
 }
