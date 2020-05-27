@@ -7,12 +7,12 @@ import CardDeck from "react-bootstrap/CardDeck";
 function PostContainer(props) {
   const Posts = props.posts;
   return (
-    <CardDeck>
-      {Posts.map((post, index) => (
-        <PostCard key={index} post={post} />
-      ))}
-      <PostViewer show={true} />
-    </CardDeck>
+      <CardDeck>
+        {Posts.map((post, index) => (
+          <PostCard key={index} post={post} />
+        ))}
+        <PostViewer show={false} />
+      </CardDeck>
   );
 }
 

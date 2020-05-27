@@ -1,7 +1,6 @@
 import React from "react";
-import './PostCard.css';
+import "./PostCard.css";
 import Card from "react-bootstrap/Card";
-
 
 export default function PostCard(props) {
   const img = props.post.imageUrl;
@@ -9,7 +8,9 @@ export default function PostCard(props) {
   return (
     <Card>
       <Card.Img variant="top" src={img} />
-  <Card.Footer as="small" variant="text-muted">Likes: {likes}</Card.Footer>
+      <Card.Footer as="small" variant="text-muted">
+        Likes: {likes}
+      </Card.Footer>
     </Card>
   );
 }
