@@ -10,6 +10,8 @@ import CreatePost from "./pages/CreatePost/createPost";
 import UserSettings from "./pages/UserSettings";
 import SearchPage from "./pages/SearchPage";
 import Footer from "./components/Footer";
+import LoginPage from "./pages/LoginPage/";
+import SignUpPage from "./pages/SignUpPage/";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -84,6 +86,14 @@ const App = (props) => {
 
           <Route path="/create-post">
             <CreatePost />
+          </Route>
+
+          <Route exact path = "/log-in">
+            <LoginPage />
+          </Route>
+
+          <Route exact path = "/sign-up">
+            <SignUpPage />
           </Route>
 
           <Route exact path="/user-settings">
