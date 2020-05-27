@@ -8,6 +8,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import Login from "./components/Login/";
+import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
 import CreatePost from "./pages/CreatePost/createPost";
 import SearchPage from "./pages/SearchPage";
@@ -85,6 +86,7 @@ const App = (props) => {
 
           <Route path = "/log-in" component = {Login} />
           <Route path = "/sign-up" component = {SignUpForm} />
+          <Route path = "*" component = {NotFound} />
 
           <Route exact path="/user-settings">
             <UserSettings user={postState.placeHolderUser} />
