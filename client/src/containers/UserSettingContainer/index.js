@@ -19,28 +19,37 @@ const userSettingsReducer = (state, action) => {
   return state;
 }
 
-
 export default function UserSettingContainer(props) {
   const placeholderImg = "https://source.unsplash.com/6anudmpILw4/200x200";
-
-
-  const [ userNameState, setUserNameState ] = useState('');
-  const [ userEmailState, setUserEmailState ] = useState('');
-  const [ userDisplayNameState, setUserDisplayNameState ] = useState('');
-
+  
   const [ userSettingState, userSettingDispatch ] = useReducer(userSettingsReducer, {
     username: "JimHalpert23",
     email: "jim@dundermifflin.com",
     displayName: "Jim Halpert"
   });
+  
+  
+  
+  
+  // * start
+  const [ userNameState, setUserNameState ] = useState('');
+  const [ userEmailState, setUserEmailState ] = useState('');
+  const [ userDisplayNameState, setUserDisplayNameState ] = useState('');
 
-  // useEffect(() => {
-  //   setUserNameState(props.user.username || "JimHalpert23");
-  //   userSettingDispatch({type: 'bear', username: props.user.username});
-  //   setUserEmailState(props.user.email || "jim@dundermifflin.com");
-  //   setUserDisplayNameState(props.user.displayName || "Jim Halpert");
-  // });
 
+
+
+  useEffect(() => {
+    // userSettingDispatch({type: 'bear', username: props.user.username});
+    setUserNameState(props.user.username || "JimHalpert23");
+    setUserEmailState(props.user.email || "jim@dundermifflin.com");
+    setUserDisplayNameState(props.user.displayName || "Jim Halpert");
+
+  },[userNameState]);
+
+
+
+  
   const onSubmitHandler = (event) => {
     event.preventDefault();
     // TODO: stuff
