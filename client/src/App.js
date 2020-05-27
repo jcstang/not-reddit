@@ -69,7 +69,6 @@ const App = (props) => {
         <Route exact path="/">
           <DisplayAllPosts 
           posts={postState.postsFromMongo}
-          image={postState.defaultImgUrl}
           />
           {/* <div className="container-fluid"> */}
           {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
