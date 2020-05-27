@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Card from 'react-bootstrap/Card';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function DetailsPage(props) {
 
@@ -18,7 +17,7 @@ export default function DetailsPage(props) {
 		'This is a comment which is cool! 5',
 		'This is a comment which is cool! 6'
 	]);
-	const [ showDetails, setShowDetails ] = useState(true);
+	//const [ showDetails, setShowDetails ] = useState(true);
 
 	// const loadCardList = () => {
 	//     const myArray = ['comment 1'];
@@ -30,11 +29,11 @@ export default function DetailsPage(props) {
 	// }
 
 	// loadCardList();
-	let index = 7;
+	// let index = 7;
 	const addToArray = () => {
 		const arrayThing = [...cardList, 'This is a comment which is cool! ' + (cardList.length + 1)];
 		setCardList(arrayThing);
-		index++;
+		// index++;
 	}
 
 

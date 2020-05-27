@@ -22,7 +22,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 } else {
   // seed data to the mongo db - IF NOT production
-  seedTheData();
+  // ***************************************
+  //seedTheData();
+  // ***************************************
 }
 
 // == API ROUTES

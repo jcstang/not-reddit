@@ -10,9 +10,6 @@ import Login from "./components/Login/";
 import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
 import CreatePost from "./pages/CreatePost/createPost";
-import SearchPage from "./pages/SearchPage";
-import UserSettings from "./pages/UserSettings";
-import DetailsPage from "./pages/DetailsPage";
 import Footer from './components/Footer';
 
 // REDUCER - React hooks useReducer
