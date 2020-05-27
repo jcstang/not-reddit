@@ -47,7 +47,7 @@ export default function DetailsPage(props) {
 					<Jumbotron>
 						<h3>{props.post.title}</h3>
 						<p>
-							This is the body of the post!!!!
+							{props.post.body}
                         </p>
 						<p>
 							<Button variant="primary">Go to a link??</Button>
