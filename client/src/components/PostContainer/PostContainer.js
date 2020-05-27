@@ -2,18 +2,17 @@ import React from "react";
 import "./PostContainer.css";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
-import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
 
 
 function PostContainer(props) {
   const Posts = props.posts;
+  const image = props.image;
   return (
     <div className="card-deck">
       {Posts.map((post, index) => (
-        <PostCard key={index} post={post} />
+        <PostCard key={index} post={post} image={image}/>
       ))}
-      <PostViewer show={true} />
+      <PostViewer show={false} />
     </div>
   );
 }

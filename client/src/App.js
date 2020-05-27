@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useReducer } from "react";
-// import logo from "./logo.png";
 import "./App.css";
 // import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PostContainer from "./components/PostContainer/PostContainer";
+import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
 import Nav from "./components/Nav";
-// import listOfPlaceholderPosts from './placeholder-data.js'
 import Axios from "axios";
 import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
@@ -15,27 +13,26 @@ import SearchPage from "./pages/SearchPage";
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
   switch (action.type) {
-    case 'getNewData':
+    case "getNewData":
       return {
         ...state,
-        postsFromMongo: action.postDocs
-      }
+        postsFromMongo: action.postDocs,
+      };
     default:
       break;
   }
 
   // if nothing goes down, use same old state
   return state;
-}
+};
 
 const App = (props) => {
-  // console.log(props.reduxPosts);
   const [postListState, setPostListState] = useState([]);
 
-  const [postState, postDispatch] = useReducer(postsReducer,{
+  const [postState, postDispatch] = useReducer(postsReducer, {
     defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
     postsFromMongo: [],
-    messageForUser: '',
+    messageForUser: "",
     placeHolderUser: {
       username: "beep2434",
       displayName: "beep",
@@ -51,12 +48,12 @@ const App = (props) => {
     Axios.get("/api/all-posts")
       .then((docs) => {
         // setPostListState(docs.data);
-        postDispatch({ type: 'getNewData', postDocs: docs.data });
+        postDispatch({ type: "getNewData", postDocs: docs.data });
       })
       .catch((err) => {
         console.log(err);
       });
-      return [];
+    return [];
   };
 
   // like componentWillMount or didmount
@@ -69,13 +66,16 @@ const App = (props) => {
       <Nav />
       <Header title={"Seenit"} />
       <Switch>
-
         <Route exact path="/">
-          <div className="container-fluid">
-            {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
-            {/* <PostContainer posts={postListState} /> */}
-            <PostContainer posts={postState.postsFromMongo} />
-          </div>
+          <DisplayAllPosts 
+          posts={postState.postsFromMongo}
+          image={postState.defaultImgUrl}
+          />
+          {/* <div className="container-fluid"> */}
+          {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
+          {/* <PostContainer posts={postListState} /> */}
+          {/* <PostContainer posts={postState.postsFromMongo} /> */}
+          {/* </div> */}
         </Route>
 
         <Route exact path="/search-posts">
@@ -87,9 +87,8 @@ const App = (props) => {
         </Route>
 
         <Route exact path="/user-settings">
-          <UserSettings user={postState.placeHolderUser}/>
+          <UserSettings user={postState.placeHolderUser} />
         </Route>
-
       </Switch>
     </Router>
   );
