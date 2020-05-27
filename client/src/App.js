@@ -64,7 +64,7 @@ const App = (props) => {
   // like componentWillMount or didmount
   useEffect(() => {
     refreshData();
-  });
+  },[]);
 
   return (
     <Router>
@@ -76,25 +76,11 @@ const App = (props) => {
           posts={postState.postsFromMongo}
           />
         </Route>
-
-          <Route exact path="/search-posts">
-            <SearchPage />
-          </Route>
-
-          <Route path="/create-post">
-            <CreatePost />
-          </Route>
-
-          <Route path = "/log-in" component = {Login} />
-          <Route path = "/sign-up" component = {SignUpForm} />
-          <Route path = "*" component = {NotFound} />
-
-          <Route exact path="/user-settings">
-            <UserSettings user={postState.placeHolderUser} />
-          </Route>
-          <Route exact path="/details-page">
-            <DetailsPage />
-          </Route>
+        <Route exact path="/search-posts" component={SearchPage} />
+        <Route path="/create-post" component={CreatePost} />
+        <Route path = "/log-in" component = {Login} />
+        <Route path = "/sign-up" component = {SignUpForm} />
+        <Route path = "*" component = {NotFound} />
         </Switch>
       <Footer />
     </Router>

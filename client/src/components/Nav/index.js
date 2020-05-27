@@ -108,16 +108,6 @@ class Nav extends Component {
                 Sign Up
               </Link>
             </li>
-
-            <li className="nav-item">
-              <Link
-                onClick={this.toggleNav}
-                className={this.setActiveNavItem("/user-settings")}
-                to="/user-settings"
-              >
-                My Settings
-              </Link>
-            </li>
           </ul>
         </div>
       </nav>
