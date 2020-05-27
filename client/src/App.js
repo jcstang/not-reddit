@@ -9,6 +9,7 @@ import Header from "./components/Header/Header";
 import CreatePost from "./pages/CreatePost/createPost";
 import UserSettings from "./pages/UserSettings";
 import SearchPage from "./pages/SearchPage";
+import Footer from "./components/Footer";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -65,31 +66,32 @@ const App = (props) => {
     <Router>
       <Nav />
       <Header title={"Seenit"} />
-      <Switch>
-        <Route exact path="/">
-          <DisplayAllPosts 
-          posts={postState.postsFromMongo}
-          image={postState.defaultImgUrl}
-          />
-          {/* <div className="container-fluid"> */}
-          {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
-          {/* <PostContainer posts={postListState} /> */}
-          {/* <PostContainer posts={postState.postsFromMongo} /> */}
-          {/* </div> */}
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <DisplayAllPosts 
+            posts={postState.postsFromMongo}
+            image={postState.defaultImgUrl}
+            />
+            {/* <div className="container-fluid"> */}
+            {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
+            {/* <PostContainer posts={postListState} /> */}
+            {/* <PostContainer posts={postState.postsFromMongo} /> */}
+            {/* </div> */}
+          </Route>
 
-        <Route exact path="/search-posts">
-          <SearchPage />
-        </Route>
+          <Route exact path="/search-posts">
+            <SearchPage />
+          </Route>
 
-        <Route path="/create-post">
-          <CreatePost />
-        </Route>
+          <Route path="/create-post">
+            <CreatePost />
+          </Route>
 
-        <Route exact path="/user-settings">
-          <UserSettings user={postState.placeHolderUser} />
-        </Route>
-      </Switch>
+          <Route exact path="/user-settings">
+            <UserSettings user={postState.placeHolderUser} />
+          </Route>
+        </Switch>
+      <Footer />
     </Router>
   );
 };
