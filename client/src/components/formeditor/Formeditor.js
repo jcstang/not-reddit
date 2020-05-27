@@ -22,8 +22,7 @@ class Editor1 extends React.Component {
             "insertdatetime media table paste wordcount",
           ],
           toolbar:
-            "undo redo | bold italic | \
-            bullist numlist outdent indent | help",
+            "undo redo | bold italic | bullist numlist outdent indent | help",
         }}
         onChange={this.props.handleEditorChange}
       />
