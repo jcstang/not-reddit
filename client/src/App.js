@@ -3,15 +3,15 @@ import "./App.css";
 // import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
-import Nav from "./components/Nav";
 import Axios from "axios";
+import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
-import CreatePost from "./pages/CreatePost/createPost";
-import UserSettings from "./pages/UserSettings";
-import SearchPage from "./pages/SearchPage";
 import Footer from "./components/Footer";
-import LoginPage from "./pages/LoginPage/";
-import SignUpPage from "./pages/SignUpPage/";
+import Login from "./components/Login/";
+import SignUpForm from "./components/SignUpForm/";
+import CreatePost from "./pages/CreatePost/createPost";
+import SearchPage from "./pages/SearchPage";
+import UserSettings from "./pages/UserSettings";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -83,13 +83,8 @@ const App = (props) => {
             <CreatePost />
           </Route>
 
-          <Route exact path = "/log-in">
-            <LoginPage />
-          </Route>
-
-          <Route exact path = "/sign-up">
-            <SignUpPage />
-          </Route>
+          <Route path = "/log-in" component = {Login} />
+          <Route path = "/sign-up" component = {SignUpForm} />
 
           <Route exact path="/user-settings">
             <UserSettings user={postState.placeHolderUser} />
