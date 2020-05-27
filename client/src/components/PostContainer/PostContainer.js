@@ -10,6 +10,7 @@ function PostContainer(props) {
 
   const postSelectedHandler = (post) => {
     alert(`post with the id of ${post._id} has been clicked!`);
+    
   }
 
   return (
