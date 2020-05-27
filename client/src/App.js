@@ -12,6 +12,7 @@ import SearchPage from "./pages/SearchPage";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage/";
 import SignUpPage from "./pages/SignUpPage/";
+import DetailsPage from "./pages/DetailsPage";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -93,6 +94,9 @@ const App = (props) => {
 
           <Route exact path="/user-settings">
             <UserSettings user={postState.placeHolderUser} />
+          </Route>
+          <Route exact path="/details-page">
+            <DetailsPage />
           </Route>
         </Switch>
       <Footer />
