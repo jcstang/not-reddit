@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import "./App.css";
 // import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -30,7 +30,7 @@ const postsReducer = (state, action) => {
 };
 
 const App = (props) => {
-  const [postListState, setPostListState] = useState([]);
+  // const [postListState, setPostListState] = useState([]);
 
   const [postState, postDispatch] = useReducer(postsReducer, {
     defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
