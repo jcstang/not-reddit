@@ -39,13 +39,13 @@ export default function UserSettingContainer(props) {
 
 
 
-  useEffect(() => {
-    // userSettingDispatch({type: 'bear', username: props.user.username});
-    setUserNameState(props.user.username || "JimHalpert23");
-    setUserEmailState(props.user.email || "jim@dundermifflin.com");
-    setUserDisplayNameState(props.user.displayName || "Jim Halpert");
+  // useEffect(() => {
+  //   // userSettingDispatch({type: 'bear', username: props.user.username});
+  //   setUserNameState(props.user.username || "JimHalpert23");
+  //   setUserEmailState(props.user.email || "jim@dundermifflin.com");
+  //   setUserDisplayNameState(props.user.displayName || "Jim Halpert");
 
-  },[userNameState]);
+  // },[userNameState]);
 
 
 
