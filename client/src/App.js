@@ -66,18 +66,17 @@ const App = (props) => {
     <Router>
       <Nav />
       <Header title={"Seenit"} />
-        <Switch>
-          <Route exact path="/">
-            <DisplayAllPosts 
-            posts={postState.postsFromMongo}
-            image={postState.defaultImgUrl}
-            />
-            {/* <div className="container-fluid"> */}
-            {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
-            {/* <PostContainer posts={postListState} /> */}
-            {/* <PostContainer posts={postState.postsFromMongo} /> */}
-            {/* </div> */}
-          </Route>
+      <Switch>
+        <Route exact path="/">
+          <DisplayAllPosts 
+          posts={postState.postsFromMongo}
+          />
+          {/* <div className="container-fluid"> */}
+          {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
+          {/* <PostContainer posts={postListState} /> */}
+          {/* <PostContainer posts={postState.postsFromMongo} /> */}
+          {/* </div> */}
+        </Route>
 
           <Route exact path="/search-posts">
             <SearchPage />
