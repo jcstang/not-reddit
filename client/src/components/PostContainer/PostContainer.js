@@ -2,16 +2,17 @@ import React from "react";
 import "./PostContainer.css";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
+import CardDeck from "react-bootstrap/CardDeck";
 
 function PostContainer(props) {
   const Posts = props.posts;
   return (
-    <div className="card-deck">
+    <CardDeck>
       {Posts.map((post, index) => (
-        <PostCard key={index} post={post}/>
+        <PostCard key={index} post={post} />
       ))}
       <PostViewer show={true} />
-    </div>
+    </CardDeck>
   );
 }
 

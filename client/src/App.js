@@ -71,11 +71,6 @@ const App = (props) => {
           <DisplayAllPosts 
           posts={postState.postsFromMongo}
           />
-          {/* <div className="container-fluid"> */}
-          {/* <PostContainer posts={listOfPlaceholderPosts} /> */}
-          {/* <PostContainer posts={postListState} /> */}
-          {/* <PostContainer posts={postState.postsFromMongo} /> */}
-          {/* </div> */}
         </Route>
 
           <Route exact path="/search-posts">
