@@ -76,7 +76,6 @@ const App = (props) => {
           posts={postState.postsFromMongo}
           />
         </Route>
-        <Route exact path="/search-posts" component={SearchPage} />
         <Route path="/create-post" component={CreatePost} />
         <Route path = "/log-in" component = {Login} />
         <Route path = "/sign-up" component = {SignUpForm} />
