@@ -6,6 +6,8 @@ export default function DisplayAllPosts(props) {
   const image = props.image;
   return (
     <div className="container-fluid">
+      <p>{posts.toString()}</p>
+      <p>{image}</p>
       <PostContainer posts={posts} image={image} />
     </div>
   );
