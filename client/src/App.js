@@ -6,7 +6,6 @@ import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
 import Axios from "axios";
 import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer";
 import Login from "./components/Login/";
 import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
@@ -14,8 +13,6 @@ import CreatePost from "./pages/CreatePost/createPost";
 import SearchPage from "./pages/SearchPage";
 import UserSettings from "./pages/UserSettings";
 import Footer from "./components/Footer";
-import LoginPage from "./pages/LoginPage/";
-import SignUpPage from "./pages/SignUpPage/";
 import DetailsPage from "./pages/DetailsPage";
 
 // REDUCER - React hooks useReducer
