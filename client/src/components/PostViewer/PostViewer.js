@@ -21,9 +21,9 @@ class PostViewer extends Component {
 
     return (
       <div className={ShowComponent.join(" ")} id="myModal">
-        <div class="modal-content">
+        <div className="modal-content">
           <div>
-            <span onClick={this.props.close} class="close">
+            <span onClick={this.props.close} className="close">
               &times;
             </span>
             <img
