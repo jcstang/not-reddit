@@ -6,6 +6,7 @@ import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
 import Axios from "axios";
 import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
+import BacktoTop from "./components/BacktoTop/BackToTop";
 import Login from "./components/Login/";
 import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
@@ -67,6 +68,7 @@ const App = (props) => {
     <Router>
       <Nav />
       <Header title={"Seenit"} />
+      <BacktoTop />
       <Switch>
         <Route exact path="/">
           <DisplayAllPosts 
