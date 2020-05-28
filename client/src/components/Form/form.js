@@ -84,15 +84,15 @@ class Form extends Component {
 
     return (
       <div className="card">
-        <button onClick={() => this.handleslideclick()} className="cta-open">
-          slideout menu
+        <button onClick={() => this.handleslideclick()} className="btn btn-light cta-open">
+          Create a New post
         </button>
         <section className={boxClass.join(" ")}>
           <div className="formwrap px-4">
             <div className="card" id="formcss">
               <div className="card" id="formcss">
-                <button onClick={() => this.handleslideclickoff()}>
-                  close
+                <button className="btn btn-dark" onClick={() => this.handleslideclickoff()}>
+                  Close Window
                 </button>
                 <form className="form">
                   <label>Title:</label>
@@ -130,7 +130,7 @@ class Form extends Component {
                       <option value="mango">Mango</option>
                     </select>
                   </div>
-                  <button onClick={this.handleFormSubmit}>Submit</button>
+                  <button type="submit" className="btn btn-dark m-2" onClick={this.handleFormSubmit}>Post</button>
                 </form>
               </div>
             </div>
