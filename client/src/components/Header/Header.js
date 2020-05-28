@@ -31,7 +31,7 @@ export default function Header(props) {
     <div className="Header-header container-fluid mb-2">
       <img src={logo} className="Header-logo" alt="logo" />
       <h2>{props.title}</h2>
-      <ul className="nav nav-tabs">
+      {/* <ul className="nav nav-tabs">
         {
           navItems.map((item, index) => (
             <li className="nav-item" key={index}>
@@ -39,7 +39,7 @@ export default function Header(props) {
             </li>
           ))
         }
-      </ul>
+      </ul> */}
     </div>
 
   )
