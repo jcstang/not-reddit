@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useReducer } from 'react';
-import UserSettingItem from "../../components/UserSettingItem";
+import React, { useState, useEffect } from 'react';
+// import UserSettingItem from "../../components/UserSettingItem";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,25 +8,25 @@ import Button from 'react-bootstrap/Button';
 import './index.css';
 
 
-const userSettingsReducer = (state, action) => {
-  if (action.type === 'bear') {
-    return {
-      ...state,
-      username: action.username
-    }
-  }
+// const userSettingsReducer = (state, action) => {
+//   if (action.type === 'bear') {
+//     return {
+//       ...state,
+//       username: action.username
+//     }
+//   }
 
-  return state;
-}
+//   return state;
+// }
 
 export default function UserSettingContainer(props) {
-  const placeholderImg = "https://source.unsplash.com/6anudmpILw4/200x200";
+  // const placeholderImg = "https://source.unsplash.com/6anudmpILw4/200x200";
   
-  const [ userSettingState, userSettingDispatch ] = useReducer(userSettingsReducer, {
-    username: "JimHalpert23",
-    email: "jim@dundermifflin.com",
-    displayName: "Jim Halpert"
-  });
+  // const [ userSettingState, userSettingDispatch ] = useReducer(userSettingsReducer, {
+  //   username: "JimHalpert23",
+  //   email: "jim@dundermifflin.com",
+  //   displayName: "Jim Halpert"
+  // });
   
   
   
@@ -39,13 +39,13 @@ export default function UserSettingContainer(props) {
 
 
 
-  useEffect(() => {
-    // userSettingDispatch({type: 'bear', username: props.user.username});
-    setUserNameState(props.user.username || "JimHalpert23");
-    setUserEmailState(props.user.email || "jim@dundermifflin.com");
-    setUserDisplayNameState(props.user.displayName || "Jim Halpert");
+  // useEffect(() => {
+  //   // userSettingDispatch({type: 'bear', username: props.user.username});
+  //   setUserNameState(props.user.username || "JimHalpert23");
+  //   setUserEmailState(props.user.email || "jim@dundermifflin.com");
+  //   setUserDisplayNameState(props.user.displayName || "Jim Halpert");
 
-  },[userNameState]);
+  // },[userNameState]);
 
 
 
@@ -55,9 +55,9 @@ export default function UserSettingContainer(props) {
     // TODO: stuff
   }
 
-  const onChangeHandler = (event) => {
-    console.log(event);
-  }
+  // const onChangeHandler = (event) => {
+  //   console.log(event);
+  // }
 
   return (
 
@@ -103,7 +103,7 @@ export default function UserSettingContainer(props) {
         <Col md={4}>
           <p><strong>Profile Picture</strong></p>
           <div>
-            <img src={props.user.imageUrl}></img>
+            <img src={props.user.imageUrl} alt="..."></img>
           </div>
         </Col>
       </Row>

@@ -18,6 +18,12 @@ mongoose.connect(MONGODB_URI, {
 const seenitConnection = mongoose.connection;
 seenitConnection.once("open", function() {
   console.log(chalk.bgBlue.white('mongoDB connected successfully.'));
+  // ===== 
+  // commenting out this func to not drop db.
+  //dropAllCollections();
+});
+
+const dropAllCollections = () => {
   seenitConnection.db.dropCollection('posts', (err, result) => {
     console.log(chalk.magenta('posts collection dropped'));
   });
@@ -26,8 +32,9 @@ seenitConnection.once("open", function() {
   });
   seenitConnection.db.dropCollection('users', (err, result) => {
     console.log(chalk.magenta('users collection dropped'));
-  });
-});
+  })
+
+}
 
 // let userId = null;
 // let commId = null;

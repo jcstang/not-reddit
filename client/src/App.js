@@ -1,17 +1,16 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import "./App.css";
 // import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
-import Nav from "./components/Nav";
 import Axios from "axios";
+import Nav from "./components/Nav";
 import Header from "./components/Header/Header";
+import Login from "./components/Login/";
+import NotFound from "./components/NotFound/";
+import SignUpForm from "./components/SignUpForm/";
 import CreatePost from "./pages/CreatePost/createPost";
-import UserSettings from "./pages/UserSettings";
-import SearchPage from "./pages/SearchPage";
-import Footer from "./components/Footer";
-import LoginPage from "./pages/LoginPage/";
-import SignUpPage from "./pages/SignUpPage/";
+import Footer from './components/Footer';
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -30,7 +29,7 @@ const postsReducer = (state, action) => {
 };
 
 const App = (props) => {
-  const [postListState, setPostListState] = useState([]);
+  // const [postListState, setPostListState] = useState([]);
 
   const [postState, postDispatch] = useReducer(postsReducer, {
     defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
@@ -62,7 +61,7 @@ const App = (props) => {
   // like componentWillMount or didmount
   useEffect(() => {
     refreshData();
-  });
+  },[]);
 
   return (
     <Router>
@@ -74,26 +73,10 @@ const App = (props) => {
           posts={postState.postsFromMongo}
           />
         </Route>
-
-          <Route exact path="/search-posts">
-            <SearchPage />
-          </Route>
-
-          <Route path="/create-post">
-            <CreatePost />
-          </Route>
-
-          <Route exact path = "/log-in">
-            <LoginPage />
-          </Route>
-
-          <Route exact path = "/sign-up">
-            <SignUpPage />
-          </Route>
-
-          <Route exact path="/user-settings">
-            <UserSettings user={postState.placeHolderUser} />
-          </Route>
+        <Route path="/create-post" component={CreatePost} />
+        <Route path = "/log-in" component = {Login} />
+        <Route path = "/sign-up" component = {SignUpForm} />
+        <Route path = "*" component = {NotFound} />
         </Switch>
       <Footer />
     </Router>
