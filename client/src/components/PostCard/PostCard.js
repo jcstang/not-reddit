@@ -14,6 +14,7 @@ export default function PostCard(props) {
         src={img}
         name={props.indexValue}
         onClick={props.getid}
+        className="card-post"
       />
       <Card.Footer as="small" variant="text-muted">
         Likes: {likes}
