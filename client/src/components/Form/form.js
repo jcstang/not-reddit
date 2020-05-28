@@ -130,7 +130,7 @@ class Form extends Component {
                       <option value="mango">Mango</option>
                     </select>
                   </div>
-                  <button type="submit" className="btn btn-dark m-2" onClick={this.handleFormSubmit}>Post</button>
+                  <button className="btn btn-dark m-2" onClick={this.handleFormSubmit}>Post</button>
                 </form>
               </div>
             </div>
