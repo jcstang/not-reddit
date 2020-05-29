@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     username: String,
-    displayName: String,
     email: String,
     password: String,
     joinDate: {
@@ -12,6 +11,6 @@ const UserSchema = new Schema({
     }
 });
 
-const User = mongoose.model('users', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
