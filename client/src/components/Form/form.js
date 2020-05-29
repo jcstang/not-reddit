@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./form.css";
-// import API from "../../utils/API.";
 import apiCalls from "../../utils/seenit-apis";
 import Editor1 from "../formeditor/Formeditor.js";
 import FormVisualizer from "../Formvisualizer/FormVisualizer";
+import { Redirect } from "react-router-dom";
 const API = apiCalls;
 
 class Form extends Component {
@@ -14,6 +14,7 @@ class Form extends Component {
     imageUrl: "",
     postedBy: "placeholder",
     slidemenu: false,
+    redirect: false
   };
 
   handleInputChange = (event) => {
@@ -51,7 +52,6 @@ class Form extends Component {
       onCommunity: this.state.onCommunity,
       postedBy: this.state.postedBy,
     };
-    console.log(postObjectInfo);
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
     API.saveinfo(postObjectInfo)
       .then((res) => {
@@ -59,14 +59,14 @@ class Form extends Component {
       })
       .catch((err) => console.log(err));
     this.setState({
-      postinfo: {
-        title: "",
-        body: "",
-        imageUrl: "",
-        onCommunity: "",
-        postedBy: "placeholder",
-      },
+      title: "",
+      body: "",
+      imageUrl: "",
+      onCommunity: "",
+      postedBy: "placeholder",
+      redirect: true
     });
+    this.handleslideclickoff();
   };
 
   handleEditorChange = (e) => {
@@ -76,6 +76,11 @@ class Form extends Component {
   };
 
   render() {
+    if (this.state.redirect) {
+      return (
+        <Redirect to="/" />
+      )
+    }
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {
       boxClass.push("active");
@@ -84,14 +89,20 @@ class Form extends Component {
 
     return (
       <div className="card">
-        <button onClick={() => this.handleslideclick()} className="btn btn-light cta-open">
+        <button
+          onClick={() => this.handleslideclick()}
+          className="btn btn-light cta-open"
+        >
           Create a New post
         </button>
         <section className={boxClass.join(" ")}>
           <div className="formwrap px-4">
             <div className="card" id="formcss">
               <div className="card" id="formcss">
-                <button className="btn btn-dark" onClick={() => this.handleslideclickoff()}>
+                <button
+                  className="btn btn-dark"
+                  onClick={() => this.handleslideclickoff()}
+                >
                   Close Window
                 </button>
                 <form className="form">
@@ -130,7 +141,12 @@ class Form extends Component {
                       <option value="mango">Mango</option>
                     </select>
                   </div>
-                  <button className="btn btn-dark m-2" onClick={this.handleFormSubmit}>Post</button>
+                  <button
+                    className="btn btn-dark m-2"
+                    onClick={this.handleFormSubmit}
+                  >
+                    Post
+                  </button>
                 </form>
               </div>
             </div>
