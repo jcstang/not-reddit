@@ -7,7 +7,6 @@ import { Redirect } from "react-router-dom";
 const API = apiCalls;
 
 class Form extends Component {
-  // formHomeRefresh = this.props.refreshHomePage;
   // Setting the component's initial state
   state = {
     title: "",
@@ -44,7 +43,6 @@ class Form extends Component {
   };
 
   handleFormSubmit = (event) => {
-    const formHomeRefresh = this.props.refreshHomePage;
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     let postObjectInfo = {
@@ -58,9 +56,6 @@ class Form extends Component {
     API.saveinfo(postObjectInfo)
       .then((res) => {
         console.log(res);
-        console.log(this.props.refreshHomePage);
-        console.log(formHomeRefresh);
-        this.props.refreshHomePage();
       })
       .catch((err) => console.log(err));
     this.setState({
@@ -80,7 +75,7 @@ class Form extends Component {
     // console.log("Content was updated:", e.target.getContent());
   };
 
-  render(props) {
+  render() {
     if (this.state.redirect) {
       return (
         <Redirect to="/" />

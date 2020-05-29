@@ -1,11 +1,10 @@
 import React from "react";
 import Form from "../../components/Form/form";
 
-function CreatePost(props) {
-  console.log(props.refreshHomePage);
+function CreatePost() {
   return (
     <div className="container">
-      <Form refreshHomePage={props.refreshHomePage} />
+      <Form />
     </div>
   );
 }
