@@ -11,7 +11,7 @@ import Login from "./components/Login/";
 import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
 import CreatePost from "./pages/CreatePost/createPost";
-import Footer from './components/Footer';
+import Footer from "./components/Footer";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -20,6 +20,11 @@ const postsReducer = (state, action) => {
       return {
         ...state,
         postsFromMongo: action.postDocs,
+      };
+    case "changeuserdata":
+      return {
+        ...state,
+        placeHolderUser: action.placeHolderUser,
       };
     default:
       break;
@@ -39,12 +44,11 @@ const App = (props) => {
     placeHolderUser: {
       username: "beep2434",
       displayName: "beep",
-      email: 'beep@gmail.com',
-      password: '',
-      joinDate: '2020-05-26T03:23:49.058Z',
-      imageUrl: 'https://source.unsplash.com/6anudmpILw4/200x200'
-
-    }
+      email: "beep@gmail.com",
+      password: "",
+      joinDate: "2020-05-26T03:23:49.058Z",
+      imageUrl: "https://source.unsplash.com/6anudmpILw4/200x200",
+    },
   });
 
   const refreshData = () => {
@@ -62,7 +66,7 @@ const App = (props) => {
   // like componentWillMount or didmount
   useEffect(() => {
     refreshData();
-  },[]);
+  }, []);
 
   return (
     <Router>
@@ -71,15 +75,18 @@ const App = (props) => {
       <BacktoTop />
       <Switch>
         <Route exact path="/">
-          <DisplayAllPosts 
-          posts={postState.postsFromMongo}
-          />
+          <DisplayAllPosts posts={postState.postsFromMongo} />
         </Route>
-        <Route path="/create-post" component={CreatePost} />
-        <Route path = "/log-in" component = {Login} />
-        <Route path = "/sign-up" component = {SignUpForm} />
-        <Route path = "*" component = {NotFound} />
-        </Switch>
+        <Route path="/create-post" component={() => <CreatePost refreshHomePage={refreshData} />} />
+        {/* <Route path="/create-post" component={CreatePost} refreshHomePage={refreshData} >
+          <CreatePost refreshHomePage={refreshData} />
+        </Route> */}
+        <Route path="/sign-up" component={Login} />
+        <Route path="/log-in">
+          <SignUpForm dispatch={postDispatch} />
+        </Route>
+        <Route path="*" component={NotFound} />
+      </Switch>
       <Footer />
     </Router>
   );
