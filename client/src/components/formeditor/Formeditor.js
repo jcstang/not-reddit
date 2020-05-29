@@ -9,7 +9,7 @@ class Editor1 extends React.Component {
   render() {
     return (
       <Editor
-        initialValue="<p>Initial content</p>"
+        initialValue="<p></p>"
         apiKey="wwkmp2fw21ycmhgtkucd5pvy3kp32a35a99edhi5o4nt2nku"
         outputFormat="text"
         init={{
