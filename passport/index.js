@@ -1,4 +1,4 @@
-const passport = require('./passport');
+const passport = require('passport');
 
 const SignupStrategy = require('./SignupStrategy');
 const LoginStrategy = require('./LoginStrategy');
