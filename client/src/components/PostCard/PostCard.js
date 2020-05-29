@@ -8,7 +8,7 @@ export default function PostCard(props) {
   // const getid = props.getid;
 
   return (
-    <Card className="mb-2">
+    <Card>
       <Card.Img
         variant="top"
         src={img}

@@ -23,7 +23,7 @@ function PostContainer(props) {
 
   return (
     <div>
-      <CardGroup className="">
+      <CardGroup>
         <Row>
           {Posts.map((post, index) => (
             //we can fiddle with sizes here :)
