@@ -6,20 +6,19 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const apiRouter = require("./routes/api-routes");
-const mongoose = require('mongoose');
-const passport = require('./passport');
+const mongoose = require("mongoose");
+// const passport = require("./passport");
 // const seedTheData = require("./routes/seed-funcs").seedTheData;
 const seedTheData = require("./models/data/seed-funcs").seedTheData;
 
-
 const app = express();
-mongoose.connect('mongodb://localhost/seenit_db');
+mongoose.connect("mongodb://localhost/seenit_db");
 
 // == MIDDLEWARE
 // =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(passport.initialize());
+// app.use(passport.initialize());
 // app.use(passport.session());
 
 // Serve up static assets (usually on heroku)
