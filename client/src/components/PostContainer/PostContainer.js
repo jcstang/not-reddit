@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./PostContainer.css";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
-import { CardDeck, Col, Row } from "react-bootstrap";
+import { CardGroup, Col, Row } from "react-bootstrap";
 
 function PostContainer(props) {
   const Posts = props.posts;
@@ -24,7 +23,7 @@ function PostContainer(props) {
 
   return (
     <div>
-      <CardDeck className="m-1">
+      <CardGroup className="">
         <Row>
           {Posts.map((post, index) => (
             //we can fiddle with sizes here :)
@@ -33,7 +32,7 @@ function PostContainer(props) {
             </Col>
           ))}
         </Row>
-      </CardDeck>
+      </CardGroup>
       <PostViewer
         show={showMainViewer}
         posts={Posts}

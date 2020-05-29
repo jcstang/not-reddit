@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./BacktoTop.css";
 
 export default class ScrollToTop extends Component {
   constructor(props) {
