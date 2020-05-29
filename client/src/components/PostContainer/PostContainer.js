@@ -14,7 +14,6 @@ function PostContainer(props) {
   const getid = (event) => {
     let postname = event.target.name;
     let postnumber = parseInt(postname);
-    console.log(postnumber);
     setTargetPost(postnumber);
     setShowMainViewer(true);
     // this.setState({ onCommunity: event.target.value });
