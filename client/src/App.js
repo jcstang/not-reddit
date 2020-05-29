@@ -77,7 +77,10 @@ const App = (props) => {
         <Route exact path="/">
           <DisplayAllPosts posts={postState.postsFromMongo} />
         </Route>
-        <Route path="/create-post" component={CreatePost} />
+        <Route path="/create-post" component={() => <CreatePost refreshHomePage={refreshData} />} />
+        {/* <Route path="/create-post" component={CreatePost} refreshHomePage={refreshData} >
+          <CreatePost refreshHomePage={refreshData} />
+        </Route> */}
         <Route path="/sign-up" component={Login} />
         <Route path="/log-in">
           <SignUpForm dispatch={postDispatch} />
