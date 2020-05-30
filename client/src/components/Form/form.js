@@ -76,11 +76,7 @@ class Form extends Component {
       body: "",
       imageUrl: "",
       onCommunity: "",
-<<<<<<< HEAD
       postedBy: this.props.username,
-=======
-      postedBy: "placeholder",
->>>>>>> f8d5a62e57e41225edc6a261af1a6c544189891d
       redirect: true,
     });
     this.handleslideclickoff();
@@ -94,13 +90,9 @@ class Form extends Component {
 
   render(props) {
     if (this.state.redirect) {
-<<<<<<< HEAD
-      return <Redirect to="/" />;
-=======
       return (
         <Redirect to="/all-posts" />
       )
->>>>>>> f8d5a62e57e41225edc6a261af1a6c544189891d
     }
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {
