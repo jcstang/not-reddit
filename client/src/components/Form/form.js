@@ -7,9 +7,7 @@ import { Redirect } from "react-router-dom";
 const API = apiCalls;
 
 const goGetUserData = () => {
-
-
-  return "Jane Doe"
+  return "Jane Doe";
 };
 
 class Form extends Component {
@@ -52,15 +50,14 @@ class Form extends Component {
     }
   };
 
-
-
   handleFormSubmit = (event) => {
+    const formHomeRefresh = this.props.refreshHomePage;
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
-    // go get user data from passport session? or DB? 
+    // go get user data from passport session? or DB?
     // this.setState({postedBy: this.goGetUserData()});
-    
+
     let postObjectInfo = {
       title: this.state.title,
       body: this.state.body,
@@ -70,31 +67,40 @@ class Form extends Component {
     };
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
     API.saveinfo(postObjectInfo)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => console.log(err));
+      .then((res) => {
+        this.props.refreshHomePage();
+      })
+      .catch((err) => console.log(err));
     this.setState({
       title: "",
       body: "",
       imageUrl: "",
       onCommunity: "",
+<<<<<<< HEAD
       postedBy: this.props.username,
+=======
+      postedBy: "placeholder",
+>>>>>>> f8d5a62e57e41225edc6a261af1a6c544189891d
       redirect: true,
     });
     this.handleslideclickoff();
   };
-  
+
   handleEditorChange = (e) => {
     this.setState({ body: e.target.getContent() });
     console.log(this.state.body);
     // console.log("Content was updated:", e.target.getContent());
   };
-  
-  render(props) {
 
+  render(props) {
     if (this.state.redirect) {
+<<<<<<< HEAD
       return <Redirect to="/" />;
+=======
+      return (
+        <Redirect to="/all-posts" />
+      )
+>>>>>>> f8d5a62e57e41225edc6a261af1a6c544189891d
     }
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {
@@ -153,7 +159,6 @@ class Form extends Component {
                     Post
                   </button>
                 </form>
-
               </div>
             </div>
             <FormVisualizer data={this.state} />

@@ -77,7 +77,15 @@ const App = (props) => {
         <Route exact path="/">
           <DisplayAllPosts posts={postState.postsFromMongo} />
         </Route>
-        <Route path="/create-post" component={CreatePost} />
+        <Route
+          path="/create-post"
+          component={() => (
+            <CreatePost
+              refreshHomePage={refreshData}
+              username={postState.placeHolderUser.username}
+            />
+          )}
+        />
         <Route path="/sign-up" component={SignUpForm} />
         <Route path="/log-in">
           <Login dispatch={postDispatch} />
