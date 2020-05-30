@@ -14,7 +14,7 @@ export default function Login(props) {
     event.preventDefault();
 
     let userguy = {
-      username: username,
+      username: email,
       email: email,
       password: password,
       joinDate: "2020-05-26T03:23:49.058Z",
