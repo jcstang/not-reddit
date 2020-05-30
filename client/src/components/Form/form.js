@@ -64,7 +64,7 @@ class Form extends Component {
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
     API.saveinfo(postObjectInfo)
       .then((res) => {
-        this.props.refreshHomePage();
+        formHomeRefresh();
       })
       .catch((err) => console.log(err));
     this.setState({
@@ -80,13 +80,12 @@ class Form extends Component {
 
   handleEditorChange = (e) => {
     this.setState({ body: e.target.getContent() });
-    console.log(this.state.body);
     // console.log("Content was updated:", e.target.getContent());
   };
 
   render(props) {
     if (this.state.redirect) {
-      return <Redirect to="/all-posts" />;
+      return <Redirect to="/" />;
     }
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {
