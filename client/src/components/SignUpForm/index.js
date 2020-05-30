@@ -42,6 +42,7 @@ export default class Login extends Component {
       <div>
         <h2>Sign Up Below!</h2>
         <form onSubmit = {this.handleSubmit}>
+          {/* <FormGroup controlId = "username" */}
           <input type = "text" name = "username" onChange = {this.handleChange} placeholder = "username"/>
           <input type = "text" name = "email" onChange = {this.handleChange} placeholder = "email"/>
           <input type = "text" name = "password" onChange = {this.handleChange} placeholder = "password"/>
