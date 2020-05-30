@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { Button, FormControl } from "react-bootstrap";
+import { Button, FormGroup, FormControl } from "react-bootstrap";
 
 export default class Login extends Component {
   state = {
@@ -46,11 +46,22 @@ export default class Login extends Component {
       <div>
         <h2>Sign Up Below!</h2>
         <form onSubmit = {this.handleSubmit}>
-          <FormControl autoFocus type = "text" name = "username" placeholder = "username" onChange = {this.handleChange} />
-          <FormControl autoFocus type = "text" name = "email" placeholder = "email" onChange = {this.handleChange} />
-          <FormControl autoFocus type = "text" name = "password" placeholder = "password" onChange = {this.handleChange} />
-          
-          <Button block bssize = "large" type = "submit"> Sign Up </Button>
+          <FormGroup controlId = "username" bssize = "large">
+            <FormControl autoFocus type = "text" name = "username" placeholder = "username" onChange = {this.handleChange} />
+          </FormGroup>
+
+          <FormGroup controlId = "email" bssize = "large">
+            <FormControl autoFocus type = "text" name = "email" placeholder = "email" onChange = {this.handleChange} />
+          </FormGroup>
+
+          <FormGroup controlId = "password" bssize = "large">
+            <FormControl autoFocus type = "text" name = "password" placeholder = "password" onChange = {this.handleChange} />
+          </FormGroup>
+
+          <FormGroup>
+            <Button block bssize = "large" type = "submit"> Sign Up </Button>
+          </FormGroup>
+
         </form>
         <p>{this.state.errorMessage}</p>
       </div>
