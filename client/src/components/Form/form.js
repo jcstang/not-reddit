@@ -12,9 +12,9 @@ class Form extends Component {
     title: "",
     body: "",
     imageUrl: "",
-    postedBy: "placeholder",
+    postedBy: this.props.username,
     slidemenu: false,
-    redirect: false
+    redirect: false,
   };
 
   handleInputChange = (event) => {
@@ -63,8 +63,8 @@ class Form extends Component {
       body: "",
       imageUrl: "",
       onCommunity: "",
-      postedBy: "placeholder",
-      redirect: true
+      postedBy: this.props.username,
+      redirect: true,
     });
     this.handleslideclickoff();
   };
@@ -77,9 +77,7 @@ class Form extends Component {
 
   render() {
     if (this.state.redirect) {
-      return (
-        <Redirect to="/" />
-      )
+      return <Redirect to="/" />;
     }
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {

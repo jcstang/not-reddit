@@ -4,7 +4,7 @@ import Form from "../../components/Form/form";
 function CreatePost() {
   return (
     <div className="container">
-      <Form />
+      <Form username={"hi"} />
     </div>
   );
 }
