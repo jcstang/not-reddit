@@ -78,9 +78,9 @@ const App = (props) => {
           <DisplayAllPosts posts={postState.postsFromMongo} />
         </Route>
         <Route path="/create-post" component={CreatePost} />
-        <Route path="/sign-up" component={Login} />
+        <Route path="/sign-up" component={SignUpForm} />
         <Route path="/log-in">
-          <SignUpForm dispatch={postDispatch} />
+          <Login dispatch={postDispatch} />
         </Route>
         <Route path="*" component={NotFound} />
       </Switch>
