@@ -47,6 +47,7 @@ class Form extends Component {
   };
 
   handleFormSubmit = (event) => {
+    const formHomeRefresh = this.props.refreshHomePage;
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
 
@@ -63,7 +64,7 @@ class Form extends Component {
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
     API.saveinfo(postObjectInfo)
       .then((res) => {
-        console.log(res);
+        this.props.refreshHomePage();
       })
       .catch((err) => console.log(err));
     this.setState({
