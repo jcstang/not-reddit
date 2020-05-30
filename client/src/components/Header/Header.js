@@ -5,27 +5,27 @@ import './Header.css';
 export default function Header(props) {
 
   // const [titleState, setTitleState ] = useState('');
-  const [linkOpen, setLinkOpen] = useState(false);
-  const [ navItems, setNavItems ] = useState([
-    {
-      text: "Home",
-      className: "nav-link"
-    },
-    {
-      text: "Thing",
-      className: "nav-link"
-    },
-    {
-      text: "Apple",
-      className: "nav-link"
-    }
-  ]);
+  // const [linkOpen, setLinkOpen] = useState(false);
+  // const [ navItems, setNavItems ] = useState([
+  //   {
+  //     text: "Home",
+  //     className: "nav-link"
+  //   },
+  //   {
+  //     text: "Thing",
+  //     className: "nav-link"
+  //   },
+  //   {
+  //     text: "Apple",
+  //     className: "nav-link"
+  //   }
+  // ]);
 
-  const clickHandler = (event) => {
-    // console.log(event.target);
-    // setLinkOpen(!linkOpen);
-    event.target.className = "nav-link active";
-  }
+  // const clickHandler = (event) => {
+  //   // console.log(event.target);
+  //   // setLinkOpen(!linkOpen);
+  //   event.target.className = "nav-link active";
+  // }
 
   return (
     <div className="Header-header container-fluid mb-2">
