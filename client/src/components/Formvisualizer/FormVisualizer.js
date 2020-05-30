@@ -10,6 +10,7 @@ function FormVisualizer(props) {
         className="VisualizerPic"
       />
       <h6 className="VisualizerTitle">{props.data.title}</h6>
+      <div className="VisualizerP">Written by:{props.data.postedBy}</div>
       <div
         className="VisualizerP"
         dangerouslySetInnerHTML={{
