@@ -3,8 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const db = require("../models");
 const chalk = require("chalk");
-// const passport = require('../passport')
-const passport = require('passport');
+const passport = require('../passport');
 
 // MONGO setup ===
 // =============================================================
@@ -137,18 +136,19 @@ router.post('/sign-up', (req, res, next) => {
 
 });
 
-// router.post('/log-in', passport.authenticate('local-signup',
-// {
-//   // passport.authenticate('local-signin', function(error, user, info)
-//   {
-//     if (error) {
-//        return res.status(500).json({
-//         message: error || "Oops, something happened.",
-//       });
-//     }
+router.post('/log-in',(req, res, next) =>
+{
+  passport.authenticate('local-login', function(error, user, info)
+  {
+    if (error) {
+       return res.status(500).json({
+        message: error || "Oops, something happened.",
+      });
+    }
     
-//     return res.json(user);
-//   })(req, res, next);
-// }));
+    return res.json(user);
+  })(req, res, next);
+
+});
 
 module.exports = router;
