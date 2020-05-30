@@ -6,13 +6,23 @@ import FormVisualizer from "../Formvisualizer/FormVisualizer";
 import { Redirect } from "react-router-dom";
 const API = apiCalls;
 
+const goGetUserData = () => {
+
+
+  return "Jane Doe"
+};
+
 class Form extends Component {
   // Setting the component's initial state
   state = {
     title: "",
     body: "",
     imageUrl: "",
+<<<<<<< HEAD
     postedBy: this.props.username,
+=======
+    postedBy: goGetUserData(),
+>>>>>>> 047e3276dcc319b6a6cf8cf35c1f4e9f9acb9600
     slidemenu: false,
     redirect: false,
   };
@@ -42,9 +52,15 @@ class Form extends Component {
     }
   };
 
+
+
   handleFormSubmit = (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
+
+    // go get user data from passport session? or DB? 
+    // this.setState({postedBy: this.goGetUserData()});
+    
     let postObjectInfo = {
       title: this.state.title,
       body: this.state.body,
@@ -54,10 +70,10 @@ class Form extends Component {
     };
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
     API.saveinfo(postObjectInfo)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => console.log(err));
     this.setState({
       title: "",
       body: "",
@@ -68,14 +84,15 @@ class Form extends Component {
     });
     this.handleslideclickoff();
   };
-
+  
   handleEditorChange = (e) => {
     this.setState({ body: e.target.getContent() });
     console.log(this.state.body);
     // console.log("Content was updated:", e.target.getContent());
   };
+  
+  render(props) {
 
-  render() {
     if (this.state.redirect) {
       return <Redirect to="/" />;
     }
@@ -103,6 +120,8 @@ class Form extends Component {
                 >
                   Close Window
                 </button>
+
+                {/* -------- FORM --------- */}
                 <form className="form">
                   <label>Title:</label>
                   <div>
@@ -127,18 +146,6 @@ class Form extends Component {
                       />
                     </div>
                   </div>
-                  <label>Pick a Community:</label>
-                  <div>
-                    <select
-                      value={this.state.onCommunity}
-                      onChange={this.handleChange}
-                    >
-                      <option value="grapefruit">Grapefruit</option>
-                      <option value="lime">Lime</option>
-                      <option value="coconut">Coconut</option>
-                      <option value="mango">Mango</option>
-                    </select>
-                  </div>
                   <button
                     className="btn btn-dark m-2"
                     onClick={this.handleFormSubmit}
@@ -146,6 +153,7 @@ class Form extends Component {
                     Post
                   </button>
                 </form>
+
               </div>
             </div>
             <FormVisualizer data={this.state} />

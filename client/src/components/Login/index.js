@@ -26,7 +26,7 @@ export default function Login(props) {
   return (
     <div className="Login container">
       <form onSubmit={handleSubmit}>
-        <FormGroup controlId="username" bsSize="large">
+        {/* <FormGroup controlId="username" bsSize="large">
           <label>Username</label>
           <FormControl
             autoFocus
@@ -34,7 +34,7 @@ export default function Login(props) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup controlId="email" bsSize="large">
           <label>Email</label>
           <FormControl
