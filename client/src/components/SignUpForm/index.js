@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { Button, FormControl } from "react-bootstrap";
 
 export default class Login extends Component {
   state = {
     username: "",
     email: "",
-    password: ""
+    password: "",
+    errorMessage: ""
   };
 
   handleSubmit = (event) => {
@@ -25,8 +27,10 @@ export default class Login extends Component {
       this.props.history.push('/');
     })
     .catch((error) => {
-      console.log('Error ', error.response);
-    })
+      this.setState({
+        errorMessage: error.response.data.message
+      });
+    });
   };
 
   handleChange = event => {
@@ -42,13 +46,13 @@ export default class Login extends Component {
       <div>
         <h2>Sign Up Below!</h2>
         <form onSubmit = {this.handleSubmit}>
-          {/* <FormGroup controlId = "username" */}
-          <input type = "text" name = "username" onChange = {this.handleChange} placeholder = "username"/>
-          <input type = "text" name = "email" onChange = {this.handleChange} placeholder = "email"/>
-          <input type = "text" name = "password" onChange = {this.handleChange} placeholder = "password"/>
+          <FormControl autoFocus type = "text" name = "username" placeholder = "username" onChange = {this.handleChange} />
+          <FormControl autoFocus type = "text" name = "email" placeholder = "email" onChange = {this.handleChange} />
+          <FormControl autoFocus type = "text" name = "password" placeholder = "password" onChange = {this.handleChange} />
           
-          <button>SignUp</button>
+          <Button block bsSize = "large" type = "submit"> Sign Up </Button>
         </form>
+        <p>{this.state.errorMessage}</p>
       </div>
     );
   }
