@@ -124,16 +124,16 @@ router.post("/users", (req, res) => {
 
 router.post('/sign-up', (req, res, next) => {
 
-  // passport.authenticate('local-signup', function(error, user, info)
-  // {
-  //   if (error) {
-  //      return res.status(500).json({
-  //       message: error || "Oops, something happened.",
-  //     });
-  //   }
+  passport.authenticate('local-signup', function(error, user, info)
+  {
+    if (error) {
+       return res.status(500).json({
+        message: error || "Oops, something happened.",
+      });
+    }
     
-  //   return res.json(user);
-  // })(req, res, next);
+    return res.json(user);
+  })(req, res, next);
 
 });
 
