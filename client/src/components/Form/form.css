@@ -66,7 +66,7 @@ label {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .formwrap {
-  background-color: #1aafff;
+  background-color: slategray;
   max-width: 900px;
   height: 100%;
   float: right;
