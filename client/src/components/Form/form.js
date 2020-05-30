@@ -91,7 +91,7 @@ class Form extends Component {
 
     if (this.state.redirect) {
       return (
-        <Redirect to="/" />
+        <Redirect to="/all-posts" />
       )
     }
     let boxClass = ["toggle-form"];
