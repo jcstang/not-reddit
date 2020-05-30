@@ -14,7 +14,7 @@ export default class Signup extends Component {
     event.preventDefault();
     const { username, email, password } = this.state;
     axios({
-      url: "api/users",
+      url: "api/sign-up",
       method: "POST",
       data: {
         username,
@@ -41,9 +41,8 @@ export default class Signup extends Component {
   };
 
   render() {
-
     return(
-      <div className = "signupContainer">
+      <div className = "Login Container">
         <h2>Sign Up Below!</h2>
         <form onSubmit = {this.handleSubmit}>
           <FormGroup controlId = "username" bssize = "large">
