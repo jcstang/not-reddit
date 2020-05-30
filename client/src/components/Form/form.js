@@ -86,13 +86,9 @@ class Form extends Component {
 
   render(props) {
     if (this.state.redirect) {
-<<<<<<< HEAD
       return (
         <Redirect to="/all-posts" />
       )
-=======
-      return <Redirect to="/" />;
->>>>>>> brian
     }
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {
