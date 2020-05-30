@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
-
-// export default class Login
 
 export default function Login(props) {
   const [password, setPassword] = useState("");
