@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
+
+// export default class Login
 
 export default function Login(props) {
   const [password, setPassword] = useState("");
@@ -23,19 +26,11 @@ export default function Login(props) {
     props.dispatch({ type: "changeuserdata", placeHolderUser: userguy });
   }
 
+
   return (
     <div className="Login container">
       <form onSubmit={handleSubmit}>
-        {/* <FormGroup controlId="username" bsSize="large">
-          <label>Username</label>
-          <FormControl
-            autoFocus
-            type="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </FormGroup> */}
-        <FormGroup controlId="email" bsSize="large">
+        <FormGroup controlId="email" bssize="large">
           <label>Email</label>
           <FormControl
             autoFocus
@@ -44,7 +39,7 @@ export default function Login(props) {
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
+        <FormGroup controlId="password" bssize="large">
           <label>Password</label>
           <FormControl
             value={password}
@@ -52,7 +47,7 @@ export default function Login(props) {
             type="password"
           />
         </FormGroup>
-        <Button block bsSize="large" disabled={!validateForm()} type="submit">
+        <Button block bssize="large" disabled={!validateForm()} type="submit">
           Login
         </Button>
       </form>

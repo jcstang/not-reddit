@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 
-export default class Login extends Component {
+export default class Signup extends Component {
   state = {
     username: "",
     email: "",
@@ -43,18 +43,21 @@ export default class Login extends Component {
   render() {
 
     return(
-      <div>
+      <div className = "signupContainer">
         <h2>Sign Up Below!</h2>
         <form onSubmit = {this.handleSubmit}>
           <FormGroup controlId = "username" bssize = "large">
+            <label>Username</label>
             <FormControl autoFocus type = "text" name = "username" placeholder = "username" onChange = {this.handleChange} />
           </FormGroup>
 
           <FormGroup controlId = "email" bssize = "large">
+            <label>Email</label>
             <FormControl autoFocus type = "text" name = "email" placeholder = "email" onChange = {this.handleChange} />
           </FormGroup>
 
           <FormGroup controlId = "password" bssize = "large">
+            <label>Password</label>
             <FormControl autoFocus type = "text" name = "password" placeholder = "password" onChange = {this.handleChange} />
           </FormGroup>
 
