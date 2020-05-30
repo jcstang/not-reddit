@@ -28,7 +28,7 @@ const SignupStrategy = new LocalStrategy({ passReqToCallback: true }, function( 
             if (error) {
                 return done(error, null);
             }
-            delete inserted.password;
+            delete inserted.password; //This may not work, TODO
             return done(null, inserted);
         });
     });

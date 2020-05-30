@@ -127,7 +127,7 @@ router.post('/sign-up', (req, res, next) => {
   // passport.authenticate('local-signup', function(error, user, info)
   // {
   //   if (error) {
-  //     res.status(500).json({
+  //      return res.status(500).json({
   //       message: error || "Oops, something happened.",
   //     });
   //   }
@@ -139,9 +139,16 @@ router.post('/sign-up', (req, res, next) => {
 
 // router.post('/log-in', passport.authenticate('local-signup',
 // {
-//   successRedirect: '/',
-//   failureRedirect: '/log-in',
-//   session: false
+//   // passport.authenticate('local-signin', function(error, user, info)
+  // {
+  //   if (error) {
+  //      return res.status(500).json({
+  //       message: error || "Oops, something happened.",
+  //     });
+  //   }
+    
+  //   return res.json(user);
+  // })(req, res, next);
 // }));
 
 module.exports = router;
