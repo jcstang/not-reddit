@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Button, FormGroup, FormControl } from "react-bootstrap";
+import React, { Component } from 'react';
 
+<<<<<<< HEAD
 export default function Login(props) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+=======
+export default class Login extends Component {
+>>>>>>> ab6e243d53e79d3611349607e345a8bde7252f9f
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
-  }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  render() {
 
+<<<<<<< HEAD
     let userguy = {
       username: username,
       email: email,
@@ -59,3 +59,12 @@ export default function Login(props) {
     </div>
   );
 }
+=======
+    return(
+      <div>
+        <h1> Login Component</h1>
+      </div>
+    );
+  }
+}
+>>>>>>> ab6e243d53e79d3611349607e345a8bde7252f9f
