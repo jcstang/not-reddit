@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 const seedTheData = require("./models/data/seed-funcs").seedTheData;
 
 const app = express();
-mongoose.connect("mongodb://localhost/seenit_db");
+// mongoose.connect("mongodb://localhost/seenit_db");
 
 // == MIDDLEWARE
 // =============================================================
