@@ -14,7 +14,7 @@ export default class Login extends Component {
     event.preventDefault();
     const { username, email, password } = this.state;
     axios({
-      url: "/signup",
+      url: "api/users",
       method: "POST",
       data: {
         username,
@@ -50,7 +50,7 @@ export default class Login extends Component {
           <FormControl autoFocus type = "text" name = "email" placeholder = "email" onChange = {this.handleChange} />
           <FormControl autoFocus type = "text" name = "password" placeholder = "password" onChange = {this.handleChange} />
           
-          <Button block bsSize = "large" type = "submit"> Sign Up </Button>
+          <Button block bssize = "large" type = "submit"> Sign Up </Button>
         </form>
         <p>{this.state.errorMessage}</p>
       </div>
