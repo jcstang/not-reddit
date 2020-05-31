@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let CommentSchema = new Schema({
@@ -16,14 +16,14 @@ let CommentSchema = new Schema({
     default: Date.now,
   },
   createdBy: {
-    type: String
+    type: String,
   },
   onPost: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'posts'
-  }
+    ref: "posts",
+  },
 });
 
-let Comment = mongoose.model('comments', CommentSchema);
+let Comment = mongoose.model("comments", CommentSchema);
 
 module.exports = Comment;
