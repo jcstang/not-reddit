@@ -8,6 +8,12 @@ export default function PostCard(props) {
   const img = props.post.imageUrl;
   const likes = props.post.numberOfLikes;
 
+  const onLikeClick = (index) => {
+    console.log('onLikeClick func is here');
+    props.dispatch({type: 'upLike', selectedPostIndex: index});
+  }
+
+
   return (
     <Card>
       <Card.Img
@@ -19,7 +25,7 @@ export default function PostCard(props) {
       />
       <Card.Footer as="small" variant="text-muted">
         Likes: {likes}{" "}
-        <Button className="float-right" size="sm" variant="outline-dark">
+        <Button className="float-right" size="sm" variant="outline-dark" onClick={() => onLikeClick(props.indexValue)} >
           <TiThumbsUp />
         </Button>
       </Card.Footer>

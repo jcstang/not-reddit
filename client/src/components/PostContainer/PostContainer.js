@@ -28,7 +28,7 @@ function PostContainer(props) {
           {Posts.map((post, index) => (
             //we can fiddle with sizes here :)
             <Col xs="12" sm="6" md="4" lg="3" xl="2" key={index}>
-              <PostCard indexValue={index} post={post} getid={getid} />
+              <PostCard indexValue={index} post={post} getid={getid} dispatch={props.dispatch} />
             </Col>
           ))}
         </Row>
