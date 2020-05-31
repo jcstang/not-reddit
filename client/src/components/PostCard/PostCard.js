@@ -20,7 +20,7 @@ export default function PostCard(props) {
         className="card-post"
       />
       <Card.Footer as="small" variant="text-muted">
-        Likes: {likes}  <Button className="float-right" size="sm"><TiThumbsUp/></Button>
+        Likes: {likes}  <Button className="float-right" size="sm" variant="outline-dark"><TiThumbsUp/></Button>
       </Card.Footer>
     </Card>
   );
