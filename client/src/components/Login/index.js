@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
 
 export default class Login extends Component {
@@ -7,6 +8,7 @@ export default class Login extends Component {
     username: "",
     password: "",
     errorMessage: "",
+    redirect: false,
   };
 
   handleSubmit = (event) => {
@@ -30,13 +32,13 @@ export default class Login extends Component {
       // this.props.dispatch({ type: "changeuserdata", placeHolderUser: userguy });
     })
       .then((response) => {
-        console.log("Data: ", response.data);
-        this.props.history.push("/");
+        // console.log("Data: ", response.data);
+        this.setState({ redirect: true });
       })
       .catch((error) => {
         // console.log("Error: ", error.response);
         this.setState({
-          errorMessage: error.response.data.message,
+          errorMessage: error.message,
         });
       });
   };
@@ -49,6 +51,9 @@ export default class Login extends Component {
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="Login Container container">
         <h2>Log in Below!</h2>
