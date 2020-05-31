@@ -1,15 +1,15 @@
 .card-img {
-    width: inherit;
+  width: inherit;
 }
 
 .card-post {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .card-post:hover {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }

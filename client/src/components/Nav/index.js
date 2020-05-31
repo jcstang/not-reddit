@@ -23,9 +23,7 @@ class Nav extends Component {
   };
 
   setActiveNavItem = (path) => {
-    return window.location.pathname === path
-      ? "nav-link active"
-      : "nav-link"
+    return window.location.pathname === path ? "nav-link active" : "nav-link";
   };
 
   componentDidMount() {
@@ -87,7 +85,7 @@ class Nav extends Component {
               >
                 Log In
               </Link>
-            </li>  
+            </li>
 
             <li className="nav-item">
               <Link
