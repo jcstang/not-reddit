@@ -50,7 +50,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="Login Container">
+      <div className="Login Container container">
         <h2>Log in Below!</h2>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bssize="large">
