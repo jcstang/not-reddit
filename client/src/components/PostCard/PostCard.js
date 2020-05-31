@@ -7,8 +7,6 @@ import { TiThumbsUp } from "react-icons/ti";
 export default function PostCard(props) {
   const img = props.post.imageUrl;
   const likes = props.post.numberOfLikes;
-  
-
 
   return (
     <Card>
@@ -20,7 +18,10 @@ export default function PostCard(props) {
         className="card-post"
       />
       <Card.Footer as="small" variant="text-muted">
-        Likes: {likes}  <Button className="float-right" size="sm" variant="outline-dark"><TiThumbsUp/></Button>
+        Likes: {likes}{" "}
+        <Button className="float-right" size="sm" variant="outline-dark">
+          <TiThumbsUp />
+        </Button>
       </Card.Footer>
     </Card>
   );
