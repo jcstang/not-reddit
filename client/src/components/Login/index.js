@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 
 export default function Login(props) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [toHome, setToHome] = useState(false);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -21,10 +23,12 @@ export default function Login(props) {
       imageUrl: "https://source.unsplash.com/6anudmpILw4/200x200",
     };
     props.dispatch({ type: "changeuserdata", placeHolderUser: userguy });
+    setTimeout(() => setToHome(true), 2000);
   }
 
   return (
     <div className="Login container">
+      {toHome ? <Redirect to="/" /> : null}
       <form onSubmit={handleSubmit}>
         {/* <FormGroup controlId="username" bsSize="large">
           <label>Username</label>
