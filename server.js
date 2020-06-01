@@ -1,4 +1,3 @@
-
 //***************************************************************************
 //  server.js
 //  START of the api backend
@@ -6,28 +5,33 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const apiRouter = require('./routes/api-routes');
-const seedTheData = require('./routes/seed-funcs').seedTheData;
+const apiRouter = require("./routes/api-routes");
+const mongoose = require("mongoose");
+const passport = require("./passport");
 
 const app = express();
+// mongoose.connect("mongodb://localhost/seenit_db");
 
 // == MIDDLEWARE
 // =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 } else {
   // seed data to the mongo db - IF NOT production
-  seedTheData();
+  // ***************************************
+  //seedTheData();
+  // ***************************************
 }
 
 // == API ROUTES
 // =============================================================
-app.use('/api', apiRouter);
-
+app.use("/api", apiRouter);
 
 // REACT - Send every other request to the React app
 // =============================================================

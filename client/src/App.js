@@ -1,163 +1,117 @@
-import React from "react";
-import logo from "./logo.png";
+import React, { useEffect, useReducer } from "react";
 import "./App.css";
-import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PostContainer from "./components/PostContainer/PostContainer";
-import Form from "./components/Form/form.js";
+import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
+import Axios from "axios";
 import Nav from "./components/Nav";
+import Header from "./components/Header/Header";
+import BacktoTop from "./components/BacktoTop/BackToTop";
+import Login from "./components/Login/";
+import NotFound from "./components/NotFound/";
+import SignUpForm from "./components/SignUpForm/";
+import CreatePost from "./pages/CreatePost/createPost";
+import Footer from "./components/Footer";
 
-// TODO: plan out the components needed on homepage. (i.e. navbar, footer)
-// TODO: add a react router
+// REDUCER - React hooks useReducer
+const postsReducer = (state, action) => {
+  switch (action.type) {
+    case "getNewData":
+      return {
+        ...state,
+        postsFromMongo: action.postDocs,
+      };
+    case "changeuserdata":
+      return {
+        ...state,
+        placeHolderUser: action.placeHolderUser,
+      };
+    case "upLike":
+      const index = action.selectedPostIndex;
 
-const listOfPlaceholderPosts = [
-  {
-    _id: "5ec579d5251f7e32b999058a",
-    title: "hello world, hello title!",
-    img: "https://i.imgur.com/gZjp2um.jpg",
-    body: "this is the body to the post of hello world",
-    postedBy: {
-      _id: "5ec56f629f99772a8f8f0cd8",
-      username: "beep2345",
-      displayName: "beepinator",
-      email: "beepinator@gmail.com",
-      password: "password123",
-      joinDate: "2012-04-23T18:25:43.511Z",
-      __v: 0,
-    },
-    dateCreated: "2012-04-23T18:25:43.511Z",
-    onCommunity: {
-      _id: "5ec577a132f33a31f9a0338a",
-      name: "lotr",
-      link: "/s/lotr",
-      __v: 0,
-    },
-    __v: 0,
-  },
-  {
-    _id: "5ec579d5251f7e32b999058a",
-    title: "hello world, hello title!",
-    img: "https://i.imgur.com/gZjp2um.jpg",
-    body: "this is the body to the post of hello world",
-    postedBy: {
-      _id: "5ec56f629f99772a8f8f0cd8",
-      username: "beep2345",
-      displayName: "beepinator",
-      email: "beepinator@gmail.com",
-      password: "password123",
-      joinDate: "2012-04-23T18:25:43.511Z",
-      __v: 0,
-    },
-    dateCreated: "2012-04-23T18:25:43.511Z",
-    onCommunity: {
-      _id: "5ec577a132f33a31f9a0338a",
-      name: "lotr",
-      link: "/s/lotr",
-      __v: 0,
-    },
-    __v: 0,
-  },
-  {
-    _id: "5ec579d5251f7e32b999058a",
-    title: "hello world, hello title!",
-    img: "https://i.imgur.com/gZjp2um.jpg",
-    body: "this is the body to the post of hello world",
-    postedBy: {
-      _id: "5ec56f629f99772a8f8f0cd8",
-      username: "beep2345",
-      displayName: "beepinator",
-      email: "beepinator@gmail.com",
-      password: "password123",
-      joinDate: "2012-04-23T18:25:43.511Z",
-      __v: 0,
-    },
-    dateCreated: "2012-04-23T18:25:43.511Z",
-    onCommunity: {
-      _id: "5ec577a132f33a31f9a0338a",
-      name: "lotr",
-      link: "/s/lotr",
-      __v: 0,
-    },
-    __v: 0,
-  },
-  {
-    _id: "5ec579d5251f7e32b999058a",
-    title: "hello world, hello title!",
-    img: "https://i.imgur.com/gZjp2um.jpg",
-    body: "this is the body to the post of hello world",
-    postedBy: {
-      _id: "5ec56f629f99772a8f8f0cd8",
-      username: "beep2345",
-      displayName: "beepinator",
-      email: "beepinator@gmail.com",
-      password: "password123",
-      joinDate: "2012-04-23T18:25:43.511Z",
-      __v: 0,
-    },
-    dateCreated: "2012-04-23T18:25:43.511Z",
-    onCommunity: {
-      _id: "5ec577a132f33a31f9a0338a",
-      name: "lotr",
-      link: "/s/lotr",
-      __v: 0,
-    },
-    __v: 0,
-  },
-  {
-    _id: "5ec579d5251f7e32b999058a",
-    title: "hello world, hello title!",
-    img: "https://i.imgur.com/gZjp2um.jpg",
-    body: "this is the body to the post of hello world",
-    postedBy: {
-      _id: "5ec56f629f99772a8f8f0cd8",
-      username: "beep2345",
-      displayName: "beepinator",
-      email: "beepinator@gmail.com",
-      password: "password123",
-      joinDate: "2012-04-23T18:25:43.511Z",
-      __v: 0,
-    },
-    dateCreated: "2012-04-23T18:25:43.511Z",
-    onCommunity: {
-      _id: "5ec577a132f33a31f9a0338a",
-      name: "lotr",
-      link: "/s/lotr",
-      __v: 0,
-    },
-    __v: 0,
+      const postMongoArray = state.postsFromMongo;
+      const currentLikes = postMongoArray[index].numberOfLikes;
+
+      // increase likes by 1
+      postMongoArray[index].numberOfLikes = currentLikes + 1;
+      // TODO: update the post data inside mongo
+
+      // axios put
+      //     state.postsFromMongo[index]
+      // then do something
+
+      return {
+        ...state,
+        postsFromMongo: postMongoArray,
+      };
+    default:
+      break;
   }
-];
+
+  // if nothing goes down, use same old state
+  return state;
+};
 
 const App = (props) => {
+  const [postState, postDispatch] = useReducer(postsReducer, {
+    defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
+    postsFromMongo: [],
+    messageForUser: "",
+    placeHolderUser: {
+      username: "beep2434",
+      displayName: "beep",
+      email: "beep@gmail.com",
+      password: "",
+      joinDate: "2020-05-26T03:23:49.058Z",
+      imageUrl: "https://source.unsplash.com/6anudmpILw4/200x200",
+    },
+  });
+
+  const refreshData = () => {
+    Axios.get("/api/all-posts")
+      .then((docs) => {
+        postDispatch({ type: "getNewData", postDocs: docs.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return [];
+  };
+
+  // like componentWillMount or didmount
+  useEffect(() => {
+    refreshData();
+  }, []);
+
   return (
     <Router>
       <Nav />
-      <div className="App">
-        <div className="App-header container-fluid">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Seenit</h2>
-        </div>
-        <div className="container-fluid">
-          <Form />
-          <PostContainer posts={listOfPlaceholderPosts} />
-        </div>
-      </div>
+      <Header title={"Seenit"} />
+      <BacktoTop />
+      <Switch>
+        <Route exact path="/">
+          <DisplayAllPosts
+            posts={postState.postsFromMongo}
+            dispatch={postDispatch}
+          />
+        </Route>
+        <Route
+          path="/create-post"
+          component={() => (
+            <CreatePost
+              refreshHomePage={refreshData}
+              username={postState.placeHolderUser.username}
+            />
+          )}
+        />
+        <Route path="/sign-up" component={SignUpForm} />
+        <Route path="/log-in">
+          <Login dispatch={postDispatch} />
+        </Route>
+        <Route path="*" component={NotFound} />
+      </Switch>
+      <Footer />
     </Router>
   );
 };
 
-// *** REDUX ***
-const mapStateToProps = (state) => {
-  return {
-    ctr: state.counter,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
-    onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

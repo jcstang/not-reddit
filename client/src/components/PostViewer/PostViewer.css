@@ -1,0 +1,75 @@
+.toggler {
+  display: none;
+}
+.toggler.active {
+  display: block;
+}
+.VisualizerPicModal {
+  float: left;
+  height: 300px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  min-width: 150px;
+}
+body {
+  margin: 0;
+}
+.VisualizerBoxModal {
+  background-color: white;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  width: 500px;
+  height: 280px;
+  overflow-x: hidden;
+  overflow-x: auto;
+  text-align: justify;
+}
+.VisualizerTitleModal {
+  font-size: 70px;
+  margin: 0;
+}
+.mainViewerP {
+  word-wrap: normal;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 600px;
+  overflow: auto;
+}
+
+.close {
+  clear: both;
+  color: #aaaaaa;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

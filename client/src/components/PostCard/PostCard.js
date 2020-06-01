@@ -1,15 +1,37 @@
 import React from "react";
-import './PostCard.css';
+import "./PostCard.css";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import { TiThumbsUp } from "react-icons/ti";
 
 export default function PostCard(props) {
-  const img = props.post.img;
-  console.log(img);
+  const img = props.post.imageUrl;
+  const likes = props.post.numberOfLikes;
+
+  const onLikeClick = (index) => {
+    props.dispatch({ type: "upLike", selectedPostIndex: index });
+  };
+
   return (
-    <div className="card mt-1 cols-sm-2 cols-md-3 cols-lg-5">
-      <img src={img} className="card-img-top card-img" alt="..." />
-      <div className="card-footer">
-        <small className="text-muted">Likes: </small>
-      </div>
-    </div>
+    <Card>
+      <Card.Img
+        variant="top"
+        src={img}
+        name={props.indexValue}
+        onClick={props.getid}
+        className="card-post"
+      />
+      <Card.Footer as="small" variant="text-muted">
+        Likes: {likes}{" "}
+        <Button
+          className="float-right"
+          size="sm"
+          variant="outline-dark"
+          onClick={() => onLikeClick(props.indexValue)}
+        >
+          <TiThumbsUp />
+        </Button>
+      </Card.Footer>
+    </Card>
   );
 }
