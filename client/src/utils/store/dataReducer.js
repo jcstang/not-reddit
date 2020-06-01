@@ -1,32 +1,33 @@
-const axios = require('axios');
+const axios = require("axios");
 
 const getFreshData = () => {
-  axios.get('/api/all-posts')
-    .then(docs => {
+  axios
+    .get("/api/all-posts")
+    .then((docs) => {
       return docs;
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err.message);
       return [];
     });
   // return [];
-}
+};
 
 const rereFreshDaData = () => {
-  return axios.get('/api/all-posts');
-}
+  return axios.get("/api/all-posts");
+};
 
 const initialState = {
   defaultImgUrl: "",
   numberOfCommunities: 1,
   numberOfPosts: 1,
   numberOfUsers: 1,
-  postList: []
-}
+  postList: [],
+};
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'refreshData':
+    case "refreshData":
       // const posts = [];
       // posts = rereFreshDaData()
       //   .then(docs => {
@@ -40,18 +41,17 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         postList: rereFreshDaData()
-          .then(docs => {
+          .then((docs) => {
             return docs.data;
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
-          })
-      }
+          }),
+      };
     default:
       break;
   }
   return state;
-}
-
+};
 
 export default dataReducer;

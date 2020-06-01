@@ -7,7 +7,7 @@ export default function DisplayAllPosts(props) {
 
   return (
     <Container fluid>
-      <PostContainer posts={posts} />
+      <PostContainer posts={posts} dispatch={props.dispatch} />
     </Container>
   );
 }

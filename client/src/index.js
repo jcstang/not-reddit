@@ -11,9 +11,6 @@ import registerServiceWorker from "./registerServiceWorker";
 // import dataReducer from './store/dataReducer';
 // const store = createStore(dataReducer);
 
-
-ReactDOM.render(
-  <App />,
-  document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 registerServiceWorker();

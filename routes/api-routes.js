@@ -3,8 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const db = require("../models");
 const chalk = require("chalk");
-// const passport = require('../passport')
-const passport = require('passport');
+const passport = require("../passport");
 
 // MONGO setup ===
 // =============================================================
@@ -29,7 +28,6 @@ router.get("/all-posts", (req, res) => {
       res.status(200).json(data);
     })
     .catch((err) => {
-      // res.status(400).end('bad things');
       res.status(400).json({
         error: err,
         message: err.message,
@@ -45,7 +43,6 @@ router.get("/posts/:id", (req, res) => {
       res.status(200).json(data);
     })
     .catch((err) => {
-      // res.status(400).end('bad things');
       console.log(err);
       res.status(418).json({
         status: 418,
@@ -111,7 +108,6 @@ router.post("/users", (req, res) => {
 
   db.User.create(userData)
     .then((whatHappened) => {
-      // console.log(whatHappened);
       res.status(200).json({ status: 200, data: whatHappened });
     })
     .catch((err) => {
@@ -122,33 +118,26 @@ router.post("/users", (req, res) => {
     });
 });
 
-router.post('/sign-up', (req, res, next) => {
-
-  passport.authenticate('local-signup', function(error, user, info)
-  {
+router.post("/sign-up", (req, res, next) => {
+  passport.authenticate("local-signup", function (error, user, info) {
     if (error) {
-       return res.status(500).json({
+      return res.status(500).json({
         message: error || "Oops, something happened.",
       });
     }
-    
     return res.json(user);
   })(req, res, next);
-
 });
 
-// router.post('/log-in', passport.authenticate('local-signup',
-// {
-//   // passport.authenticate('local-signin', function(error, user, info)
-  // {
-  //   if (error) {
-  //      return res.status(500).json({
-  //       message: error || "Oops, something happened.",
-  //     });
-  //   }
-    
-  //   return res.json(user);
-  // })(req, res, next);
-// }));
+router.post("/log-in", (req, res, next) => {
+  passport.authenticate("local-login", function (error, user, info) {
+    if (error) {
+      return res.status(500).json({
+        message: error || "Oops, something happened.",
+      });
+    }
+    return res.json(user);
+  })(req, res, next);
+});
 
 module.exports = router;

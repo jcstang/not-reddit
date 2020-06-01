@@ -6,9 +6,9 @@ import FormVisualizer from "../Formvisualizer/FormVisualizer";
 import { Redirect } from "react-router-dom";
 const API = apiCalls;
 
-const goGetUserData = () => {
-  return "Jane Doe";
-};
+// const goGetUserData = () => {
+//   return "Jane Doe";
+// };
 
 class Form extends Component {
   // Setting the component's initial state

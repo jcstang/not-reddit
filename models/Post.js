@@ -27,7 +27,7 @@ let PostSchema = new Schema({
   },
   onCommunity: {
     type: String,
-    default: 'all'
+    default: "all",
     // type: mongoose.Schema.Types.ObjectId,
     // ref: 'communities'
   },
