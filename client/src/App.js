@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer } from "react";
 import "./App.css";
-// import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
 import Axios from "axios";
@@ -35,7 +34,7 @@ const postsReducer = (state, action) => {
       // increase likes by 1
       postMongoArray[index].numberOfLikes = currentLikes + 1;
       // TODO: update the post data inside mongo
-      
+
       // axios put
       //     state.postsFromMongo[index]
       // then do something
@@ -53,8 +52,6 @@ const postsReducer = (state, action) => {
 };
 
 const App = (props) => {
-  // const [postListState, setPostListState] = useState([]);
-
   const [postState, postDispatch] = useReducer(postsReducer, {
     defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
     postsFromMongo: [],
@@ -72,7 +69,6 @@ const App = (props) => {
   const refreshData = () => {
     Axios.get("/api/all-posts")
       .then((docs) => {
-        // setPostListState(docs.data);
         postDispatch({ type: "getNewData", postDocs: docs.data });
       })
       .catch((err) => {

@@ -9,7 +9,7 @@ export default class Login extends Component {
     password: "",
     errorMessage: "",
     redirect: false,
-    needSignup: false
+    needSignup: false,
   };
 
   handleSubmit = (event) => {
@@ -42,7 +42,7 @@ export default class Login extends Component {
           errorMessage: "Failed to login. Please sign up or try again.",
         });
         setTimeout(() => {
-          this.setState({ needSignup: true })
+          this.setState({ needSignup: true });
         }, 10000);
       });
   };
@@ -59,7 +59,7 @@ export default class Login extends Component {
       return <Redirect to="/" />;
     }
     if (this.state.needSignup) {
-      return <Redirect to="/sign-up"/>;
+      return <Redirect to="/sign-up" />;
     }
     return (
       <div className="Login Container container">
