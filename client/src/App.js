@@ -28,31 +28,22 @@ const postsReducer = (state, action) => {
       };
     case "upLike":
       const index = action.selectedPostIndex;
-      console.log('upLike reached ' + index);
 
       const postMongoArray = state.postsFromMongo;
       const currentLikes = postMongoArray[index].numberOfLikes;
 
       // increase likes by 1
       postMongoArray[index].numberOfLikes = currentLikes + 1;
-      // [{ title: 'hi', body: 'hi'},{}]
-      // const post = postArray[index];
-      // post.likes = post.likes + 1;
-
-
       // TODO: update the post data inside mongo
+      
       // axios put
       //     state.postsFromMongo[index]
       // then do something
 
-
       return {
         ...state,
-        postsFromMongo: postMongoArray
+        postsFromMongo: postMongoArray,
       };
-      // return (
-      //   postsFromMongo[action.index].likes += 1;
-      // );
     default:
       break;
   }
@@ -102,7 +93,10 @@ const App = (props) => {
       <BacktoTop />
       <Switch>
         <Route exact path="/">
-          <DisplayAllPosts posts={postState.postsFromMongo} dispatch={postDispatch} />
+          <DisplayAllPosts
+            posts={postState.postsFromMongo}
+            dispatch={postDispatch}
+          />
         </Route>
         <Route
           path="/create-post"
@@ -124,22 +118,4 @@ const App = (props) => {
   );
 };
 
-// REDUX
-// =============================================================
-// const mapStateToProps = (state) => {
-//   return {
-//     // ctr: state.counter,
-//     reduxPosts: state.postList,
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
-//     // onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
-//     onRefreshData: () => dispatch({ type: "refreshData" }),
-//   };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
 export default App;

@@ -5,8 +5,6 @@ import { CardGroup, Col, Row } from "react-bootstrap";
 
 function PostContainer(props) {
   const Posts = props.posts;
-  // let Posts2 = props.posts;
-
   const [TargetPost, setTargetPost] = useState([]);
   const [showMainViewer, setShowMainViewer] = useState([false]);
 
@@ -15,7 +13,6 @@ function PostContainer(props) {
     let postnumber = parseInt(postname);
     setTargetPost(postnumber);
     setShowMainViewer(true);
-    // this.setState({ onCommunity: event.target.value });
   };
   const closeViewer = (event) => {
     setShowMainViewer(false);
@@ -28,7 +25,12 @@ function PostContainer(props) {
           {Posts.map((post, index) => (
             //we can fiddle with sizes here :)
             <Col xs="12" sm="6" md="4" lg="3" xl="2" key={index}>
-              <PostCard indexValue={index} post={post} getid={getid} dispatch={props.dispatch} />
+              <PostCard
+                indexValue={index}
+                post={post}
+                getid={getid}
+                dispatch={props.dispatch}
+              />
             </Col>
           ))}
         </Row>
