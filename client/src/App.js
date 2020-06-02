@@ -4,13 +4,12 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
 import Axios from "axios";
 import Nav from "./components/Nav";
-import Header from "./components/Header/Header";
 import BacktoTop from "./components/BacktoTop/BackToTop";
 import Login from "./components/Login/";
 import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
-import CreatePost from "./pages/CreatePost/createPost";
 import Footer from "./components/Footer";
+import Form from "./components/Form/form";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -84,29 +83,29 @@ const App = (props) => {
 
   return (
     <Router>
-      <Nav />
-      <Header title={"Seenit"} />
+      {/* <Header title={"Seenit"} /> */}
       <BacktoTop />
       <Switch>
         <Route path="/home">
+          <Nav />
           <DisplayAllPosts
             posts={postState.postsFromMongo}
             dispatch={postDispatch}
           />
+          <Form refreshHomePage={refreshData} slidemenu={false} />
         </Route>
         <Route path="/sign-up" component={SignUpForm} />
         <Route exact path="/">
           <Login dispatch={postDispatch} />
         </Route>
-        <Route
-          path="/create-post"
-          component={() => (
-            <CreatePost
-              refreshHomePage={refreshData}
-              username={postState.placeHolderUser.username}
-            />
-          )}
-        />
+        <Route path="/create-post">
+          <Nav />
+          <DisplayAllPosts
+            posts={postState.postsFromMongo}
+            dispatch={postDispatch}
+          />
+          <Form refreshHomePage={refreshData} slidemenu={true} />
+        </Route>
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />

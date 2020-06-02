@@ -16,10 +16,12 @@ class Form extends Component {
     title: "",
     body: "",
     imageUrl: "",
-    postedBy: this.props.username,
-    slidemenu: false,
+    postedBy: "",
+    slidemenu: this.props.slidemenu,
     redirect: false,
+    hoveryes: false,
   };
+
   componentDidMount() {
     var data = localStorage.getItem("username1");
 
@@ -77,10 +79,17 @@ class Form extends Component {
       body: "",
       imageUrl: "",
       onCommunity: "",
-      postedBy: this.props.username,
+      postedBy: this.state.postedBy,
       redirect: true,
     });
     this.handleslideclickoff();
+  };
+  handleHover = () => {
+    if (this.state.hoveryes === false) {
+      this.setState({ hoveryes: true });
+    } else {
+      this.setState({ hoveryes: false });
+    }
   };
 
   handleEditorChange = (e) => {
@@ -92,36 +101,85 @@ class Form extends Component {
     if (this.state.redirect) {
       return <Redirect to="/home" />;
     }
-    let boxClass = ["toggle-form"];
+    let boxClass = ["zindex", "toggle-form"];
     if (this.state.slidemenu) {
       boxClass.push("active");
+    }
+    let modalAdder = ["modal2"];
+    if (this.state.slidemenu) {
+      modalAdder.push("active");
+    }
+    let hoverpush = ["slidericon"];
+    if (this.state.hoveryes) {
+      hoverpush.push("slideout");
+    }
+    let deleteDots = ["slidedots"];
+    if (this.state.hoveryes) {
+      deleteDots.push("hidedots");
+    } else {
+      deleteDots = ["slidedots"];
+    }
+    let addextendarrow = ["slidearrowopen"];
+    if (this.state.hoveryes) {
+      addextendarrow.push("showarrow");
+    } else {
+      addextendarrow = ["slidearrowopen"];
     }
     // Notice how each input has a `value`, `name`, and `onChange` prop
 
     return (
-      <div className="card">
-        <button
-          onClick={() => this.handleslideclick()}
-          className="btn btn-light cta-open"
+      <div>
+        <div
+          className={hoverpush.join(" ")}
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleHover}
         >
-          Create a New post
-        </button>
+          <img
+            src="https://i.imgur.com/PWf4vFd.png"
+            alt="slideicon"
+            className="baseslidericon"
+          />
+          <img
+            src="https://i.imgur.com/eStLuo5.png"
+            alt="slidedots"
+            className={deleteDots.join(" ")}
+          />
+          <img
+            onClick={() => this.handleslideclick()}
+            src="https://i.imgur.com/0NH3WaP.png"
+            alt="slidearrowopen"
+            className={addextendarrow.join(" ")}
+          />
+          <img
+            src="https://i.imgur.com/AX08Ky8.png"
+            alt="slidearrowclose"
+            className="slidearrowclose"
+          />
+          <div className="greyline"></div>
+          <div className="hovergreyslide"></div>
+        </div>
         <section className={boxClass.join(" ")}>
-          <div className="formwrap px-4">
-            <div className="card" id="formcss">
-              <div className="card" id="formcss">
-                <button
-                  className="btn btn-dark"
-                  onClick={() => this.handleslideclickoff()}
-                >
-                  Close Window
-                </button>
-
+          <div className="greyline2"></div>
+          <div className="formwrap px-4 zindex">
+            <img
+              src="https://i.imgur.com/PWf4vFd.png"
+              alt="slideicon"
+              className="opensliderbase"
+            />
+            <img
+              src="https://i.imgur.com/AX08Ky8.png"
+              alt="slidearrowclose"
+              className="opensliderarrow"
+              onClick={() => this.handleslideclickoff()}
+            />
+            <div className="card zindex" id="formcss2">
+              <div className="card xindex" id="formcss1">
                 {/* -------- FORM --------- */}
-                <form className="form">
+                <form className="form zindex">
                   <label>Title:</label>
                   <div>
                     <input
+                      className="formwrapinput"
                       value={this.state.title}
                       name="title"
                       onChange={this.handleInputChange}
@@ -134,6 +192,7 @@ class Form extends Component {
                     <label>Image URL:</label>
                     <div>
                       <input
+                        className="formwrapinput"
                         value={this.state.imageUrl}
                         name="imageUrl"
                         onChange={this.handleInputChange}
@@ -148,11 +207,18 @@ class Form extends Component {
                   >
                     Post
                   </button>
+                  <button
+                    className="btn btn-dark m-2 showclosebutton"
+                    onClick={this.handleFormSubmit}
+                  >
+                    close
+                  </button>
                 </form>
               </div>
             </div>
-            <FormVisualizer data={this.state} />
+            <FormVisualizer data={this.state} className="hidevisualizer" />
           </div>
+          <div className={modalAdder.join(" ")}></div>
         </section>
       </div>
     );

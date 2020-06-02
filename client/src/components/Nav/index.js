@@ -35,14 +35,17 @@ export default function Navigation() {
         <div className="whitebar"></div>
         <div className="greybar"></div>
         <div className="whitegradient"></div>
+        <div className="hidenavbar"></div>
       </div>
-      <Navbar bg="light" expand="xxlg" className="navbar">
+      <Navbar bg="light" expand="xxlg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/home" className="margintrick">
+              Home
+            </Nav.Link>
             <Nav.Link href="/create-post">Create a Post</Nav.Link>
-            <Nav.Link href="/log-in">Login</Nav.Link>
+            <Nav.Link href="/">Login</Nav.Link>
             <Nav.Link href="/sign-up">Sign-up</Nav.Link>
           </Nav>
         </Navbar.Collapse>

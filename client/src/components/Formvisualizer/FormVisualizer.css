@@ -20,6 +20,7 @@ body {
   overflow-x: hidden;
   overflow-x: auto;
   text-align: justify;
+  z-index: 2;
 }
 .VisualizerTitle {
   font-size: xx-large;
@@ -29,4 +30,16 @@ body {
   word-wrap: normal;
 
   font-size: xx-small;
+}
+@media only screen and (min-width: 1350px) {
+  .VisualizerBox {
+    position: absolute;
+    right: 60%;
+    top: 250px;
+  }
+}
+@media (max-width: 550px) {
+  .VisualizerBox {
+    display: none;
+  }
 }

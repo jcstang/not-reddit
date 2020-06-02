@@ -1,0 +1,9 @@
+.height {
+  height: 20px;
+}
+
+@media only screen and (min-width: 1350px) {
+  .height {
+    height: 500px;
+  }
+}

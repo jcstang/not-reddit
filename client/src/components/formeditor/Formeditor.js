@@ -1,5 +1,6 @@
 import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import "./formeditor.css";
 
 class Editor1 extends React.Component {
   //   handleEditorChange = (e) => {
@@ -9,11 +10,11 @@ class Editor1 extends React.Component {
   render() {
     return (
       <Editor
+        className="height"
         initialValue="<p></p>"
         apiKey="wwkmp2fw21ycmhgtkucd5pvy3kp32a35a99edhi5o4nt2nku"
         outputFormat="text"
         init={{
-          height: 200,
           menubar: false,
           plugins: [
             "advlist autolink lists link image",
