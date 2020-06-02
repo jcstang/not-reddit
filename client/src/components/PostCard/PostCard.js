@@ -13,7 +13,7 @@ export default function PostCard(props) {
   };
 
   return (
-    <Card>
+    <Card className="shadow rounded">
       <Card.Img
         variant="top"
         src={img}

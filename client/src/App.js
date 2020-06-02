@@ -86,7 +86,7 @@ const App = (props) => {
   return (
     <Router>
       <Nav />
-      <Header title={"Seenit"} />
+      {/* <Header title={"Seenit"} /> */}
       <BacktoTop />
       <Switch>
         <Route path="/home">

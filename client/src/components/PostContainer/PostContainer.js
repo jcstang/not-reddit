@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
 import { CardGroup, Col, Row } from "react-bootstrap";
+import "./PostContainer.css";
 
 function PostContainer(props) {
   const Posts = props.posts;
@@ -19,7 +20,7 @@ function PostContainer(props) {
   };
 
   return (
-    <div>
+    <div className="cardstackbackground shadow rounded">
       <CardGroup>
         <Row>
           {Posts.map((post, index) => (
