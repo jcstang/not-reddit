@@ -2,3 +2,262 @@
   border-radius: 0;
   background-color: rgb(172, 172, 172);
 }
+.navItem {
+  z-index: 20;
+  float: left;
+}
+.navbar-toggler {
+  position: absolute;
+  z-index: 30;
+  top: 60px;
+  right: 40px;
+  height: 75px;
+  width: 75px;
+  background-color: rgb(244, 244, 244);
+}
+.logoBackground {
+  position: absolute;
+  left: 0px;
+  z-index: 11;
+  top: 0px;
+  height: 200px;
+}
+.logoshadow {
+  position: absolute;
+  z-index: 15;
+  top: 20px;
+  left: 20px;
+  height: 140px;
+}
+.logowithoutE {
+  position: absolute;
+  z-index: 16;
+  top: 17px;
+  left: -5px;
+  height: 140px;
+}
+.movingGradient {
+  height: 100px;
+
+  position: relative;
+  top: 100px;
+  opacity: 0.7;
+  background: linear-gradient(
+    91deg,
+    #391686,
+    #f21515,
+    #5015f2,
+    #f2cb15,
+    #15ebf2,
+    #cd0e33
+  );
+  background-size: 1200% 1200%;
+  -webkit-animation: AnimationName 25s ease infinite;
+  -moz-animation: AnimationName 25s ease infinite;
+  -o-animation: AnimationName 25s ease infinite;
+  animation: AnimationName 25s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 91%;
+  }
+  50% {
+    background-position: 100% 10%;
+  }
+  100% {
+    background-position: 0% 91%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 91%;
+  }
+  50% {
+    background-position: 100% 10%;
+  }
+  100% {
+    background-position: 0% 91%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 0% 91%;
+  }
+  50% {
+    background-position: 100% 10%;
+  }
+  100% {
+    background-position: 0% 91%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 91%;
+  }
+  50% {
+    background-position: 100% 10%;
+  }
+  100% {
+    background-position: 0% 91%;
+  }
+}
+.movingGradient2 {
+  height: 100px;
+
+  background: linear-gradient(
+    180deg,
+    #0ca900,
+    #c77a7a,
+    #f197db,
+    #5971c5,
+    #5e2466
+  );
+
+  background-size: 1000% 1000%;
+  -webkit-animation: AnimationName1 8s ease infinite;
+  -moz-animation: AnimationName1 8s ease infinite;
+  -o-animation: AnimationName1 8s ease infinite;
+  animation: AnimationName1 8s ease infinite;
+}
+@-webkit-keyframes AnimationName1 {
+  0% {
+    background-position: 52% 0%;
+  }
+  50% {
+    background-position: 49% 100%;
+  }
+  100% {
+    background-position: 52% 0%;
+  }
+}
+@-moz-keyframes AnimationName1 {
+  0% {
+    background-position: 52% 0%;
+  }
+  50% {
+    background-position: 49% 100%;
+  }
+  100% {
+    background-position: 52% 0%;
+  }
+}
+@-o-keyframes AnimationName1 {
+  0% {
+    background-position: 52% 0%;
+  }
+  50% {
+    background-position: 49% 100%;
+  }
+  100% {
+    background-position: 52% 0%;
+  }
+}
+@keyframes AnimationName1 {
+  0% {
+    background-position: 52% 0%;
+  }
+  50% {
+    background-position: 49% 100%;
+  }
+  100% {
+    background-position: 52% 0%;
+  }
+}
+.movingGradient3 {
+  position: relative;
+  opacity: 0.7;
+  bottom: 100px;
+  height: 100px;
+
+  background: linear-gradient(320deg, #fefefe, #e2cdcd, #97def1);
+  background-size: 600% 600%;
+  -webkit-animation: AnimationName2 8s ease infinite;
+  -moz-animation: AnimationName2 8s ease infinite;
+  -o-animation: AnimationName2 8s ease infinite;
+  animation: AnimationName2 8s ease infinite;
+}
+@-webkit-keyframes AnimationName2 {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+@-moz-keyframes AnimationName2 {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+@-o-keyframes AnimationName2 {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+@keyframes AnimationName2 {
+  0% {
+    background-position: 0% 7%;
+  }
+  50% {
+    background-position: 100% 94%;
+  }
+  100% {
+    background-position: 0% 7%;
+  }
+}
+.outsidediv {
+  position: absolute;
+  z-index: 10;
+  width: 350px;
+  top: -100px;
+  left: 0px;
+}
+.outsidediv2 {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+}
+.whitebar {
+  background-color: rgb(244, 244, 244);
+  position: absolute;
+  z-index: 8;
+  height: 80px;
+  width: 100%;
+  top: 0;
+  right: 0;
+}
+.greybar {
+  background-color: rgb(195, 195, 195);
+  position: absolute;
+  z-index: 9;
+  top: 76px;
+  right: 0;
+  height: 30px;
+  width: 100%;
+}
+.whitegradient {
+  position: absolute;
+  top: -45px;
+  left: 0px;
+  z-index: 10;
+  height: 120px;
+  width: 350px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 1));
+}

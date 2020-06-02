@@ -36,7 +36,35 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light">
+      <div>
+        <img
+          src="https://i.imgur.com/iZShFMQ.png"
+          alt="background"
+          className="logowithoutE"
+        />
+        <img
+          src="https://i.imgur.com/rXhA7FC.png"
+          alt="background"
+          className="logoshadow"
+        />
+        <img
+          src="https://i.imgur.com/g9FX4yY.png"
+          alt="background"
+          className="logoBackground"
+        />
+        <div className="outsidediv">
+          <div className="movingGradient"></div>
+          <div className="movingGradient2"></div>
+          <div cclassName="movingGradient3"></div>
+        </div>
+        <div className="outsidediv2">
+          <div className="movingGradient"></div>
+          <div className="movingGradient2"></div>
+          <div className="movingGradient3"></div>
+        </div>
+        <div className="whitebar"></div>
+        <div className="greybar"></div>
+        <div className="whitegradient"></div>
         <Link className="navbar-brand" to="/">
           Seenit
         </Link>
@@ -55,9 +83,8 @@ class Nav extends Component {
           className={`${this.state.open ? "" : "collapse "}navbar-collapse`}
           id="navbarNav"
         >
-          {/* Navbar items */}
           <ul className="navbar-nav">
-            <li className="nav-item">
+            <li className="navItem">
               <Link
                 onClick={this.toggleNav}
                 className={this.setActiveNavItem("/")}
@@ -67,7 +94,7 @@ class Nav extends Component {
               </Link>
             </li>
 
-            <li className="nav-item">
+            <li className="navItem">
               <Link
                 onClick={this.toggleNav}
                 className={this.setActiveNavItem("/create-post")}
@@ -77,7 +104,7 @@ class Nav extends Component {
               </Link>
             </li>
 
-            <li className="nav-item">
+            <li className="navItem">
               <Link
                 onClick={this.toggleNav}
                 className={this.setActiveNavItem("/log-in")}
@@ -87,7 +114,7 @@ class Nav extends Component {
               </Link>
             </li>
 
-            <li className="nav-item">
+            <li className="navItem">
               <Link
                 onClick={this.toggleNav}
                 className={this.setActiveNavItem("/sign-up")}
@@ -98,7 +125,7 @@ class Nav extends Component {
             </li>
           </ul>
         </div>
-      </nav>
+      </div>
     );
   }
 }
