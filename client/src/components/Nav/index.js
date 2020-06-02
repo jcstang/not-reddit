@@ -25,7 +25,7 @@ export default function Navigation() {
         <div className="outsidediv">
           <div className="movingGradient"></div>
           <div className="movingGradient2"></div>
-          <div cclassName="movingGradient3"></div>
+          <div className="movingGradient3"></div>
         </div>
         <div className="outsidediv2">
           <div className="movingGradient"></div>
