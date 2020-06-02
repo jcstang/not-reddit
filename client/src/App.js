@@ -11,6 +11,7 @@ import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
 import CreatePost from "./pages/CreatePost/createPost";
 import Footer from "./components/Footer";
+import Form from "./components/Form/form";
 
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
@@ -93,20 +94,19 @@ const App = (props) => {
             posts={postState.postsFromMongo}
             dispatch={postDispatch}
           />
+          <Form refreshHomePage={refreshData} slidemenu={false} />
         </Route>
         <Route path="/sign-up" component={SignUpForm} />
         <Route exact path="/">
           <Login dispatch={postDispatch} />
         </Route>
-        <Route
-          path="/create-post"
-          component={() => (
-            <CreatePost
-              refreshHomePage={refreshData}
-              username={postState.placeHolderUser.username}
-            />
-          )}
-        />
+        <Route path="/create-post">
+          <DisplayAllPosts
+            posts={postState.postsFromMongo}
+            dispatch={postDispatch}
+          />
+          <Form refreshHomePage={refreshData} slidemenu={true} />
+        </Route>
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
