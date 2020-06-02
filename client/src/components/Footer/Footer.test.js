@@ -1,3 +1,4 @@
+// Testing the Footer component
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Footer from './index';
