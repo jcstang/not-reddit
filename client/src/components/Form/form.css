@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 .bodybox {
   height: 200px;
   width: 700px;
@@ -66,7 +69,7 @@ label {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .formwrap {
-  background-color: slategray;
+  background-color: rgba(244, 244, 244);
   max-width: 900px;
   height: 100%;
   float: right;
@@ -98,6 +101,93 @@ option {
   background-color: #fff;
   color: #1f2124;
 }
+.slidearrowclose {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  right: 40px;
+  height: 120px;
+  top: 375px;
+}
+.slidearrowopen {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  right: 40px;
+  height: 120px;
+  top: 375px;
+}
+.slidedots {
+  position: absolute;
+  z-index: 10;
+  right: 40px;
+  height: 120px;
+  top: 375px;
+}
+.baseslidericon {
+  position: absolute;
+  z-index: 10;
+  right: 40px;
+  height: 120px;
+  top: 375px;
+}
+.greyline {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+  height: 100%;
+  width: 4px;
+  background-color: rgba(195, 195, 195);
+}
+.hovergreyslide {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 40px;
+  right: 0px;
+  background-color: rgba(244, 244, 244);
+}
+.slidericon {
+  height: 100%;
+  position: absolute;
+  right: -47px;
+  top: 0px;
+  z-index: 68;
+  transition: border-color ease-in-out 0.25s, box-shadow ease-in-out 0.15s;
+}
+
+.slidericon.slideout {
+  right: 0px;
+}
+.slidedots.hidedots {
+  display: none;
+}
+.slidearrowopen.showarrow {
+  display: block;
+}
+.opensliderarrow {
+  position: absolute;
+  height: 120px;
+  right: 760px;
+  top: 375px;
+  min-width: 41px;
+}
+.opensliderbase {
+  position: absolute;
+  right: 760px;
+  top: 375px;
+  height: 120px;
+  min-width: 41px;
+}
+.greyline2 {
+  position: absolute;
+  top: 0px;
+  right: 760px;
+  height: 100%;
+  width: 4px;
+  background-color: rgba(195, 195, 195);
+}
+
 @media (max-width: 575px) {
   .formwrap {
     width: 100%;

@@ -19,7 +19,9 @@ class Form extends Component {
     postedBy: this.props.username,
     slidemenu: false,
     redirect: false,
+    hoveryes: false,
   };
+
   componentDidMount() {
     var data = localStorage.getItem("username1");
 
@@ -82,6 +84,13 @@ class Form extends Component {
     });
     this.handleslideclickoff();
   };
+  handleHover = () => {
+    if (this.state.hoveryes === false) {
+      this.setState({ hoveryes: true });
+    } else {
+      this.setState({ hoveryes: false });
+    }
+  };
 
   handleEditorChange = (e) => {
     this.setState({ body: e.target.getContent() });
@@ -96,27 +105,71 @@ class Form extends Component {
     if (this.state.slidemenu) {
       boxClass.push("active");
     }
+    let hoverpush = ["slidericon"];
+    if (this.state.hoveryes) {
+      hoverpush.push("slideout");
+    }
+    let deleteDots = ["slidedots"];
+    if (this.state.hoveryes) {
+      deleteDots.push("hidedots");
+    } else {
+      deleteDots = ["slidedots"];
+    }
+    let addextendarrow = ["slidearrowopen"];
+    if (this.state.hoveryes) {
+      addextendarrow.push("showarrow");
+    } else {
+      addextendarrow = ["slidearrowopen"];
+    }
     // Notice how each input has a `value`, `name`, and `onChange` prop
 
     return (
-      <div className="card">
-        <button
-          onClick={() => this.handleslideclick()}
-          className="btn btn-light cta-open"
+      <div>
+        <div
+          className={hoverpush.join(" ")}
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleHover}
         >
-          Create a New post
-        </button>
+          <img
+            src="https://i.imgur.com/PWf4vFd.png"
+            alt="slideicon"
+            className="baseslidericon"
+          />
+          <img
+            src="https://i.imgur.com/eStLuo5.png"
+            alt="slidedots"
+            className={deleteDots.join(" ")}
+          />
+          <img
+            onClick={() => this.handleslideclick()}
+            src="https://i.imgur.com/0NH3WaP.png"
+            alt="slidearrowopen"
+            className={addextendarrow.join(" ")}
+          />
+          <img
+            src="https://i.imgur.com/AX08Ky8.png"
+            alt="slidearrowclose"
+            className="slidearrowclose"
+          />
+          <div className="greyline"></div>
+          <div className="hovergreyslide"></div>
+        </div>
         <section className={boxClass.join(" ")}>
+          <div className="greyline2"></div>
           <div className="formwrap px-4">
+            <img
+              src="https://i.imgur.com/PWf4vFd.png"
+              alt="slideicon"
+              className="opensliderbase"
+            />
+            <img
+              src="https://i.imgur.com/AX08Ky8.png"
+              alt="slidearrowclose"
+              className="opensliderarrow"
+              onClick={() => this.handleslideclickoff()}
+            />
             <div className="card" id="formcss">
               <div className="card" id="formcss">
-                <button
-                  className="btn btn-dark"
-                  onClick={() => this.handleslideclickoff()}
-                >
-                  Close Window
-                </button>
-
                 {/* -------- FORM --------- */}
                 <form className="form">
                   <label>Title:</label>
