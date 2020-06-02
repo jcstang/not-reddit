@@ -88,11 +88,15 @@ const App = (props) => {
       <Header title={"Seenit"} />
       <BacktoTop />
       <Switch>
-        <Route exact path="/">
+        <Route path="/home">
           <DisplayAllPosts
             posts={postState.postsFromMongo}
             dispatch={postDispatch}
           />
+        </Route>
+        <Route path="/sign-up" component={SignUpForm} />
+        <Route path="/">
+          <Login dispatch={postDispatch} />
         </Route>
         <Route
           path="/create-post"
@@ -103,10 +107,6 @@ const App = (props) => {
             />
           )}
         />
-        <Route path="/sign-up" component={SignUpForm} />
-        <Route path="/log-in">
-          <Login dispatch={postDispatch} />
-        </Route>
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />

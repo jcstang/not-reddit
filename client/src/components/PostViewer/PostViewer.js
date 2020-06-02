@@ -34,7 +34,9 @@ class PostViewer extends Component {
             <h1 className="VisualizerTitleModal">
               {this.getPost(this.props.targetPost).title}
             </h1>
-            <p>Written by: Wikipedia</p>
+            <p>
+              Written by: {" " + this.getPost(this.props.targetPost).postedBy}
+            </p>
             <div
               className="mainViewerP"
               dangerouslySetInnerHTML={{
