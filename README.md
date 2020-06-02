@@ -34,6 +34,7 @@ Clicking on a chosen article will open it, allowing the user to review the conte
 * [Passport js](http://www.passportjs.org/)
 * [Google Fonts](https://fonts.google.com/)
 * [Travis CI](https://travis-ci.org)
+* [Jest](https://jestjs.io/)
 * [Bcrypt js](https://www.npmjs.com/package/bcryptjs)
 * [lodash](https://lodash.com/)
 
