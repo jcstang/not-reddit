@@ -15,19 +15,15 @@ export default class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state;
-    let userguy = {
-      username: username,
-      displayName: "beep",
-      email: username,
-      password: "",
-      joinDate: "2020-05-26T03:23:49.058Z",
-      imageUrl: "https://source.unsplash.com/6anudmpILw4/200x200",
-    };
 
-    this.props.dispatch({
-      type: "changeuserdata",
-      placeHolderUser: userguy,
-    });
+    // Store data
+    var username1 = username;
+    localStorage.setItem("username1", username1);
+
+    // this.props.dispatch({
+    //   type: "changeuserdata",
+    //   placeHolderUser: userguy,
+    // });
     axios({
       url: "api/log-in",
       method: "POST",
