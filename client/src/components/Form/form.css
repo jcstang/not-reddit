@@ -160,7 +160,7 @@ option {
 }
 .slidericon {
   height: 100%;
-  position: absolute;
+  position: fixed;
   right: -47px;
   top: 0px;
   z-index: 68;

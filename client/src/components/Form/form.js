@@ -16,8 +16,8 @@ class Form extends Component {
     title: "",
     body: "",
     imageUrl: "",
-    postedBy: this.props.username,
-    slidemenu: false,
+    postedBy: "",
+    slidemenu: this.props.slidemenu,
     redirect: false,
     hoveryes: false,
   };
@@ -79,7 +79,7 @@ class Form extends Component {
       body: "",
       imageUrl: "",
       onCommunity: "",
-      postedBy: this.props.username,
+      postedBy: this.state.postedBy,
       redirect: true,
     });
     this.handleslideclickoff();
