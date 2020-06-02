@@ -8,6 +8,7 @@
         "@tinymce/tinymce-react": "^3.6.0",
         "axios": "^0.19.2",
         "bootstrap": "^4.5.0",
+        "html-to-image": "^0.1.1",
         "lodash": "^4.17.15",
         "react": "^16.6.3",
         "react-bootstrap": "^1.0.1",
