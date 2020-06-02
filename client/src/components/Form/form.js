@@ -101,9 +101,13 @@ class Form extends Component {
     if (this.state.redirect) {
       return <Redirect to="/home" />;
     }
-    let boxClass = ["toggle-form"];
+    let boxClass = ["zindex", "toggle-form"];
     if (this.state.slidemenu) {
       boxClass.push("active");
+    }
+    let modalAdder = ["modal2"];
+    if (this.state.slidemenu) {
+      modalAdder.push("active");
     }
     let hoverpush = ["slidericon"];
     if (this.state.hoveryes) {
@@ -156,7 +160,7 @@ class Form extends Component {
         </div>
         <section className={boxClass.join(" ")}>
           <div className="greyline2"></div>
-          <div className="formwrap px-4">
+          <div className="formwrap px-4 zindex">
             <img
               src="https://i.imgur.com/PWf4vFd.png"
               alt="slideicon"
@@ -168,13 +172,14 @@ class Form extends Component {
               className="opensliderarrow"
               onClick={() => this.handleslideclickoff()}
             />
-            <div className="card" id="formcss">
-              <div className="card" id="formcss">
+            <div className="card zindex" id="formcss2">
+              <div className="card xindex" id="formcss1">
                 {/* -------- FORM --------- */}
-                <form className="form">
+                <form className="form zindex">
                   <label>Title:</label>
                   <div>
                     <input
+                      className="formwrapinput"
                       value={this.state.title}
                       name="title"
                       onChange={this.handleInputChange}
@@ -187,6 +192,7 @@ class Form extends Component {
                     <label>Image URL:</label>
                     <div>
                       <input
+                        className="formwrapinput"
                         value={this.state.imageUrl}
                         name="imageUrl"
                         onChange={this.handleInputChange}
@@ -204,8 +210,9 @@ class Form extends Component {
                 </form>
               </div>
             </div>
-            <FormVisualizer data={this.state} />
+            <FormVisualizer data={this.state} className="hidevisualizer" />
           </div>
+          <div className={modalAdder.join(" ")}></div>
         </section>
       </div>
     );
