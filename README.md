@@ -33,6 +33,9 @@ Clicking on a chosen article will open it, allowing the user to review the conte
 * [Mongoose](https://mongoosejs.com/)
 * [Passport js](http://www.passportjs.org/)
 * [Google Fonts](https://fonts.google.com/)
+* [Travis CI](https://travis-ci.org)
+* [Bcrypt js](https://www.npmjs.com/package/bcryptjs)
+* [lodash](https://lodash.com/)
 
 ## Details of the Application and Challenges
 
