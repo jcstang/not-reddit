@@ -27,6 +27,7 @@ body {
   overflow-x: hidden;
   overflow-x: auto;
   text-align: justify;
+  z-index: 50;
 }
 .VisualizerTitleModal {
   font-size: 70px;
@@ -38,7 +39,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 45;
   padding-top: 100px;
   left: 0;
   top: 0;
