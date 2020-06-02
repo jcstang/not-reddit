@@ -47,6 +47,14 @@ Users have a simple navbar to utilize to move about the site, including going to
 
 Users can examine existing posts with a simple mouseover, which highlights the image and enalrges it a bit so they can both clearly see what they are choosing, and get a better idea of the image. When they choose to click on the post, a modal containing the entirety of the post pops up, allowing them to read, and digest at their leisure. When they close the modal, they are returned to exactly where they left off while browsing. They can also like posts from the main view, and posts show how many have likes each one has currently. 
 
+#### Challenges
+
+Some of the biggest challenges we faced while creating the app were largely in two areas: utilizing the hooks and reducer technology in React, and authentication in passport.js. 
+
+The hooks and reducer where a challenge as they are not as obvious to figure out as simple class and function notation, and require a bit deeper understanding of how React handles states and passing data between the various components. The reducer was fairly complex, but with Jacobs previous dabbling with the tech, as well as some plain trial and error, we ended up getting it working out fairly well, which led to some neat solutions to state management throughout the application. 
+
+Passport was a bit tougher, and in spite of the many hours spent, it proved far more difficult to work with. Miranda spent hours reviewing, revising, and trying to best understand the code required to not only add authentication to the app, but doing so within the React framework, which was a bit more complex than we anticipated. 
+
 ## List of future developments/features
 
 * Comments - Ability for users to leave comments on articles and discuss within the opened article page.

@@ -83,7 +83,6 @@ const App = (props) => {
 
   return (
     <Router>
-      {/* <Header title={"Seenit"} /> */}
       <BacktoTop />
       <Switch>
         <Route path="/home">

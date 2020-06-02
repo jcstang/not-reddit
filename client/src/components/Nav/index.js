@@ -1,16 +1,20 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function Navigation() {
   return (
     <div>
       <div className="placeholder">
-        <img
-          src="https://i.imgur.com/iZShFMQ.png"
-          alt="background"
-          className="logowithoutE"
-        />
+        <Link to="/home">
+          <img
+            src="https://i.imgur.com/iZShFMQ.png"
+            alt="background"
+            className="logowithoutE"
+            href="/home"
+          />
+        </Link>
         <img
           src="https://i.imgur.com/rXhA7FC.png"
           alt="background"
