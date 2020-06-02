@@ -22,13 +22,17 @@ Clicking on a chosen article will open it, allowing the user to review the conte
 
 ## Technology Used
 
-* React.js
-* React-Bootstrap
-* Passport.js
-* CSS
-* Google Fonts
-* React-Icons
-* 
+* [React](https://reactjs.org/)
+* [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+* [React-Icons](https://www.npmjs.com/package/react-icons)
+* [Bootstrap](https://getbootstrap.com/)
+* [React-bootstrap](https://react-bootstrap.github.io/)
+* [Node js](https://nodejs.org/en/)
+* [Express js](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [Mongoose](https://mongoosejs.com/)
+* [Passport js](http://www.passportjs.org/)
+* [Google Fonts](https://fonts.google.com/)
 
 ## Details of the Application and Challenges
 
