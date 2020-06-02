@@ -53,6 +53,28 @@ router.get("/posts/:id", (req, res) => {
     });
 });
 
+// PUT REQUESTS
+// =============================================================
+router.put('/posts', (req, res) => {
+  const postToUpdate = req.body;
+  console.log(postToUpdate);
+
+
+  db.Post.updateOne({ _id: postToUpdate._id }, postToUpdate)
+  .then((result) => {
+    res.status(200).json({ status: 200, message: "good for you", result: result});
+  })
+  .catch((err) => {
+    console.log(err.message);
+    res
+      .status(418)
+      .json({ status: 418, message: "arent you late for something?" });
+  });
+
+});
+
+
+
 // POST REQUESTS
 // =============================================================
 router.post("/communities", (req, res) => {

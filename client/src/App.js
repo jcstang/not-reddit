@@ -11,6 +11,7 @@ import SignUpForm from "./components/SignUpForm/";
 import Footer from "./components/Footer";
 import Form from "./components/Form/form";
 
+
 // REDUCER - React hooks useReducer
 const postsReducer = (state, action) => {
   switch (action.type) {
@@ -28,15 +29,30 @@ const postsReducer = (state, action) => {
       const index = action.selectedPostIndex;
 
       const postMongoArray = state.postsFromMongo;
+      // console.log('postMongoArray');
+      // console.log(postMongoArray);
       const currentLikes = postMongoArray[index].numberOfLikes;
 
       // increase likes by 1
       postMongoArray[index].numberOfLikes = currentLikes + 1;
       // TODO: update the post data inside mongo
-
       // axios put
+      updateOnePost(postMongoArray[index]);
+
       //     state.postsFromMongo[index]
       // then do something
+      // const postToUpdate = {
+      //   __id: postMongoArray[index].__id,
+      //   numberOfLikes: postMongoArray[index].numberOfLikes
+      // }
+
+      // Axios.put("/api/posts", postToUpdate)
+      //   .then((result) => {
+      //     console.log(result);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err.message);
+      //   });
 
       return {
         ...state,
@@ -48,6 +64,21 @@ const postsReducer = (state, action) => {
 
   // if nothing goes down, use same old state
   return state;
+};
+
+const updateOnePost = (selectedPost) => {
+  const postToUpdate = {
+    _id: selectedPost._id,
+    numberOfLikes: selectedPost.numberOfLikes
+  }
+
+  Axios.put("/api/posts", postToUpdate)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 
 const App = (props) => {
