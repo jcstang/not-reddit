@@ -29,14 +29,6 @@ export default class Login extends Component {
         password,
       },
 
-      // let userguy = {
-      //   username: email,
-      //   email: email,
-      //   password: password,
-      //   joinDate: "2020-05-26T03:23:49.058Z",
-      //   imageUrl: "https://source.unsplash.com/6anudmpILw4/200x200",
-      // };
-      // this.props.dispatch({ type: "changeuserdata", placeHolderUser: userguy });
     })
       .then((response) => {
         this.setState({ redirect: true });

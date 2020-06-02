@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button, FormGroup, FormControl } from "react-bootstrap";
+import Header from "../Header/Header";
 
 export default class Signup extends Component {
   state = {
@@ -42,50 +43,56 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h2>Sign Up Below!</h2>
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="username" bssize="large">
-            <label>Username</label>
-            <FormControl
-              autoFocus
-              type="text"
-              name="username"
-              placeholder="username"
-              onChange={this.handleChange}
-            />
-          </FormGroup>
+      <div>
+        <Header />
+        <div className="container rounded bg-light mt-2 pb-2">
+          <h1 className="font-weight-bold">Sign Up Below!</h1>
+          <form onSubmit={this.handleSubmit}>
+            <FormGroup controlId="username" bssize="large">
+              <label>Username</label>
+              <FormControl
+                className="border border-dark"
+                autoFocus
+                type="text"
+                name="username"
+                placeholder="username"
+                onChange={this.handleChange}
+              />
+            </FormGroup>
 
-          <FormGroup controlId="email" bssize="large">
-            <label>Email</label>
-            <FormControl
-              autoFocus
-              type="text"
-              name="email"
-              placeholder="email"
-              onChange={this.handleChange}
-            />
-          </FormGroup>
+            <FormGroup controlId="email" bssize="large">
+              <label>Email</label>
+              <FormControl
+                className="border border-dark"
+                autoFocus
+                type="text"
+                name="email"
+                placeholder="email"
+                onChange={this.handleChange}
+              />
+            </FormGroup>
 
-          <FormGroup controlId="password" bssize="large">
-            <label>Password</label>
-            <FormControl
-              autoFocus
-              type="password"
-              name="password"
-              placeholder="password"
-              onChange={this.handleChange}
-            />
-          </FormGroup>
+            <FormGroup controlId="password" bssize="large">
+              <label>Password</label>
+              <FormControl
+                className="border border-dark"
+                autoFocus
+                type="password"
+                name="password"
+                placeholder="password"
+                onChange={this.handleChange}
+              />
+            </FormGroup>
 
-          <FormGroup>
-            <Button block bssize="large" type="submit">
-              {" "}
-              Sign Up{" "}
-            </Button>
-          </FormGroup>
-        </form>
-        <p>{this.state.errorMessage}</p>
+            <FormGroup>
+              <Button block bssize="large" type="submit">
+                {" "}
+                Sign Up{" "}
+              </Button>
+            </FormGroup>
+          </form>
+          <p>{this.state.errorMessage}</p>
+        </div>
       </div>
     );
   }
