@@ -45,7 +45,7 @@ export default function Navigation() {
               Home
             </Nav.Link>
             <Nav.Link href="/create-post">Create a Post</Nav.Link>
-            <Nav.Link href="/log-in">Login</Nav.Link>
+            <Nav.Link href="/">Login</Nav.Link>
             <Nav.Link href="/sign-up">Sign-up</Nav.Link>
           </Nav>
         </Navbar.Collapse>
