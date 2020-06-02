@@ -1,15 +1,21 @@
 .navbar {
   border-radius: 0;
   background-color: rgb(172, 172, 172);
+  /* top: 200px; */
+  z-index: 30;
 }
 .navItem {
   z-index: 20;
   float: left;
 }
+.placeholder {
+  height: 200px;
+}
+
 .navbar-toggler {
   position: absolute;
   z-index: 30;
-  top: 60px;
+  top: -145px;
   right: 40px;
   height: 75px;
   width: 75px;
