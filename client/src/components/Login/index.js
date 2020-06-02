@@ -42,11 +42,9 @@ export default class Login extends Component {
       // this.props.dispatch({ type: "changeuserdata", placeHolderUser: userguy });
     })
       .then((response) => {
-        // console.log("Data: ", response.data);
         this.setState({ redirect: true });
       })
       .catch((error) => {
-        // console.log("Error: ", error.response);
         this.setState({
           errorMessage: "Failed to login. Please sign up or try again.",
         });
@@ -71,7 +69,7 @@ export default class Login extends Component {
       return <Redirect to="/sign-up" />;
     }
     return (
-      <div className="Login Container container">
+      <div className="container rounded bg-light mt-2">
         <h2>Log in Below!</h2>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bssize="large">
