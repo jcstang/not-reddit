@@ -52,21 +52,6 @@ router.get("/posts/:id", (req, res) => {
     });
 });
 
-router.get("/community-posts/:id", (req, res) => {
-  const communityId = req.params.id;
-  // TODO: use community id to filter the posts that come back.
-
-  res.end("/community-posts/:id");
-});
-
-router.get("/all-communities", (req, res) => {
-  // TODO: get a list of the communities that are available
-
-  res.end("/all-communities");
-});
-
-// TODO: Do we need get user routes???????
-
 // POST REQUESTS
 // =============================================================
 router.post("/communities", (req, res) => {

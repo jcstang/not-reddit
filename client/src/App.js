@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer } from "react";
 import "./App.css";
-// import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
 import Axios from "axios";
@@ -28,31 +27,22 @@ const postsReducer = (state, action) => {
       };
     case "upLike":
       const index = action.selectedPostIndex;
-      console.log('upLike reached ' + index);
 
       const postMongoArray = state.postsFromMongo;
       const currentLikes = postMongoArray[index].numberOfLikes;
 
       // increase likes by 1
       postMongoArray[index].numberOfLikes = currentLikes + 1;
-      // [{ title: 'hi', body: 'hi'},{}]
-      // const post = postArray[index];
-      // post.likes = post.likes + 1;
-
-
       // TODO: update the post data inside mongo
+
       // axios put
       //     state.postsFromMongo[index]
       // then do something
 
-
       return {
         ...state,
-        postsFromMongo: postMongoArray
+        postsFromMongo: postMongoArray,
       };
-      // return (
-      //   postsFromMongo[action.index].likes += 1;
-      // );
     default:
       break;
   }
@@ -62,8 +52,6 @@ const postsReducer = (state, action) => {
 };
 
 const App = (props) => {
-  // const [postListState, setPostListState] = useState([]);
-
   const [postState, postDispatch] = useReducer(postsReducer, {
     defaultImgUrl: "https://source.unsplash.com/sfL_QOnmy00/250x300",
     postsFromMongo: [],
@@ -81,7 +69,6 @@ const App = (props) => {
   const refreshData = () => {
     Axios.get("/api/all-posts")
       .then((docs) => {
-        // setPostListState(docs.data);
         postDispatch({ type: "getNewData", postDocs: docs.data });
       })
       .catch((err) => {
@@ -101,8 +88,15 @@ const App = (props) => {
       <Header title={"Seenit"} />
       <BacktoTop />
       <Switch>
-        <Route exact path="/">
-          <DisplayAllPosts posts={postState.postsFromMongo} dispatch={postDispatch} />
+        <Route path="/home">
+          <DisplayAllPosts
+            posts={postState.postsFromMongo}
+            dispatch={postDispatch}
+          />
+        </Route>
+        <Route path="/sign-up" component={SignUpForm} />
+        <Route path="/">
+          <Login dispatch={postDispatch} />
         </Route>
         <Route
           path="/create-post"
@@ -113,10 +107,6 @@ const App = (props) => {
             />
           )}
         />
-        <Route path="/sign-up" component={SignUpForm} />
-        <Route path="/log-in">
-          <Login dispatch={postDispatch} />
-        </Route>
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />
@@ -124,22 +114,4 @@ const App = (props) => {
   );
 };
 
-// REDUX
-// =============================================================
-// const mapStateToProps = (state) => {
-//   return {
-//     // ctr: state.counter,
-//     reduxPosts: state.postList,
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     // this dispatch call is going all the way back to that reducer in ./store/rootReducer.js
-//     // onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
-//     onRefreshData: () => dispatch({ type: "refreshData" }),
-//   };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
 export default App;
