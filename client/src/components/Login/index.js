@@ -15,6 +15,15 @@ export default class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state;
+
+    // Store data
+    var username1 = username;
+    localStorage.setItem("username1", username1);
+
+    // this.props.dispatch({
+    //   type: "changeuserdata",
+    //   placeHolderUser: userguy,
+    // });
     axios({
       url: "api/log-in",
       method: "POST",
@@ -80,7 +89,7 @@ export default class Login extends Component {
             <label>Password</label>
             <FormControl
               autoFocus
-              type="text"
+              type="password"
               name="password"
               placeholder="password"
               onChange={this.handleChange}

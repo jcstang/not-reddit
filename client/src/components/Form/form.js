@@ -20,6 +20,11 @@ class Form extends Component {
     slidemenu: false,
     redirect: false,
   };
+  componentDidMount() {
+    var data = localStorage.getItem("username1");
+
+    this.setState({ postedBy: data });
+  }
 
   handleInputChange = (event) => {
     // Getting the value and name of the input which triggered the change
@@ -85,7 +90,7 @@ class Form extends Component {
 
   render(props) {
     if (this.state.redirect) {
-      return <Redirect to="/" />;
+      return <Redirect to="/home" />;
     }
     let boxClass = ["toggle-form"];
     if (this.state.slidemenu) {
