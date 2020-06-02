@@ -85,11 +85,11 @@ const App = (props) => {
 
   return (
     <Router>
-      <Nav />
       {/* <Header title={"Seenit"} /> */}
       <BacktoTop />
       <Switch>
         <Route path="/home">
+          <Nav />
           <DisplayAllPosts
             posts={postState.postsFromMongo}
             dispatch={postDispatch}
@@ -101,6 +101,7 @@ const App = (props) => {
           <Login dispatch={postDispatch} />
         </Route>
         <Route path="/create-post">
+          <Nav />
           <DisplayAllPosts
             posts={postState.postsFromMongo}
             dispatch={postDispatch}
