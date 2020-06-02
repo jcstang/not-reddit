@@ -27,32 +27,14 @@ const postsReducer = (state, action) => {
       };
     case "upLike":
       const index = action.selectedPostIndex;
-
       const postMongoArray = state.postsFromMongo;
-      // console.log('postMongoArray');
-      // console.log(postMongoArray);
       const currentLikes = postMongoArray[index].numberOfLikes;
 
-      // increase likes by 1
+      // MUTATE the array of posts @ index: increase likes by 1
       postMongoArray[index].numberOfLikes = currentLikes + 1;
-      // TODO: update the post data inside mongo
-      // axios put
+
+      // PUT request to db
       updateOnePost(postMongoArray[index]);
-
-      //     state.postsFromMongo[index]
-      // then do something
-      // const postToUpdate = {
-      //   __id: postMongoArray[index].__id,
-      //   numberOfLikes: postMongoArray[index].numberOfLikes
-      // }
-
-      // Axios.put("/api/posts", postToUpdate)
-      //   .then((result) => {
-      //     console.log(result);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err.message);
-      //   });
 
       return {
         ...state,
@@ -74,10 +56,10 @@ const updateOnePost = (selectedPost) => {
 
   Axios.put("/api/posts", postToUpdate)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
     })
     .catch((err) => {
-      console.log(err.message);
+      // console.log(err.message);
     });
 };
 
@@ -102,7 +84,7 @@ const App = (props) => {
         postDispatch({ type: "getNewData", postDocs: docs.data });
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
     return [];
   };

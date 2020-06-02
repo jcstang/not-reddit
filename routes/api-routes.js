@@ -57,8 +57,7 @@ router.get("/posts/:id", (req, res) => {
 // =============================================================
 router.put('/posts', (req, res) => {
   const postToUpdate = req.body;
-  console.log(postToUpdate);
-
+  // console.log(postToUpdate);
 
   db.Post.updateOne({ _id: postToUpdate._id }, postToUpdate)
   .then((result) => {
