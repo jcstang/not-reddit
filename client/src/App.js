@@ -95,7 +95,7 @@ const App = (props) => {
           />
         </Route>
         <Route path="/sign-up" component={SignUpForm} />
-        <Route path="/">
+        <Route exact path="/">
           <Login dispatch={postDispatch} />
         </Route>
         <Route
