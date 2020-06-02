@@ -207,6 +207,12 @@ class Form extends Component {
                   >
                     Post
                   </button>
+                  <button
+                    className="btn btn-dark m-2 showclosebutton"
+                    onClick={this.handleFormSubmit}
+                  >
+                    close
+                  </button>
                 </form>
               </div>
             </div>
