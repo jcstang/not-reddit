@@ -4,12 +4,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DisplayAllPosts from "./pages/DisplayAllPosts/displayAllPosts";
 import Axios from "axios";
 import Nav from "./components/Nav";
-import Header from "./components/Header/Header";
 import BacktoTop from "./components/BacktoTop/BackToTop";
 import Login from "./components/Login/";
 import NotFound from "./components/NotFound/";
 import SignUpForm from "./components/SignUpForm/";
-import CreatePost from "./pages/CreatePost/createPost";
 import Footer from "./components/Footer";
 import Form from "./components/Form/form";
 
