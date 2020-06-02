@@ -80,7 +80,7 @@ export default class Login extends Component {
             <label>Password</label>
             <FormControl
               autoFocus
-              type="text"
+              type="password"
               name="password"
               placeholder="password"
               onChange={this.handleChange}
