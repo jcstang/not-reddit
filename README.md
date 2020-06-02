@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jcstang/not-reddit.svg?branch=master)](https://travis-ci.org/jcstang/not-reddit)
 [![GitHub stars](https://img.shields.io/github/stars/jcstang/not-reddit)](https://github.com/jcstang/not-reddit/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/jcstang/not-reddit)](https://github.com/jcstang/not-reddit/network)
 [![GitHub license](https://img.shields.io/github/license/jcstang/not-reddit)](https://github.com/jcstang/not-reddit/blob/master/LICENSE)
