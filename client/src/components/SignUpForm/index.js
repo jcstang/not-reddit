@@ -92,7 +92,7 @@ export default class Signup extends Component {
             </FormGroup>
 
             <Breadcrumb>
-              <Breadcrumb.Item href="/login">Login</Breadcrumb.Item>
+              <Breadcrumb.Item href="/">Login</Breadcrumb.Item>
             </Breadcrumb>
           </form>
           <p>{this.state.errorMessage}</p>
