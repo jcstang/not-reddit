@@ -70,4 +70,26 @@ Passport was a bit tougher, and in spite of the many hours spent, it proved far 
 
 ## Screenshots
 
+Sign-up page:
+![](images/sign-up-page.png)
 
+Log-in page:
+![](images/log-in-page.png)
+
+Home page:
+![](images/home-page.png)
+
+Main page with menu open:
+![](images/main-page-with-menu.png)
+
+Create post modal:
+![](images/create-post.png)
+
+What post looks like after creation:
+![](images/post-after-creating.png)
+
+What it looks like to read the post:
+![](images/reading-post.png)
+
+It's friendly on all size screens:
+![](images/media-friendly.png)
