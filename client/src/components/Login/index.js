@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { Button, FormGroup, FormControl, Breadcrumb } from "react-bootstrap";
 import Header from "../Header/Header";
 
 export default class Login extends Component {
@@ -28,7 +28,6 @@ export default class Login extends Component {
         username,
         password,
       },
-
     })
       .then((response) => {
         this.setState({ redirect: true });
@@ -93,7 +92,12 @@ export default class Login extends Component {
                 Log in{" "}
               </Button>
             </FormGroup>
+
+            <Breadcrumb>
+              <Breadcrumb.Item href="/sign-up">Sign Up</Breadcrumb.Item>
+            </Breadcrumb>
           </form>
+
           <p>{this.state.errorMessage}</p>
         </div>
       </div>
