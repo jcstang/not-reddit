@@ -64,7 +64,7 @@ Passport was a bit tougher, and in spite of the many hours spent, it proved far 
 * Communities - Add categories to articles like tags and be able to view only content from communities you are interested in. 
 * Advanced Auth - Ability to use Github, Twitter, Google or other 3rd party auth instead of just local.
 * Permission roles - Ability to view all content without logging in, but restricting posting and commenting to users logged in only. 
-* Delete posts - This piggy backs off of the Permissions and would allow for either admins, or users to delete posts from the site. Admins could delete at will, and users can delete posts they have made. 
+* Delete edit posts - This piggy backs off of the Permissions and would allow for either admins, or users to delete posts from the site. Admins could delete at will, and users can delete posts they have made. 
 
 ### Link to the Live Project on Heroku: https://not-reddit-seenit.herokuapp.com/
 
