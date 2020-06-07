@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "./form.css";
+import "../Formvisualizer/FormVisualizer.css";
 import apiCalls from "../../utils/seenit-apis";
 import Editor1 from "../formeditor/Formeditor.js";
-import FormVisualizer from "../Formvisualizer/FormVisualizer";
+// import FormVisualizer from "../Formvisualizer/FormVisualizer";
 import { Redirect } from "react-router-dom";
+import htmlToImage from "html-to-image";
+import Axios from "axios";
+import FormVisualizer from "../Formvisualizer/FormVisualizer";
 const API = apiCalls;
 
 // const goGetUserData = () => {
@@ -17,6 +21,7 @@ class Form extends Component {
     body: "",
     imageUrl: "",
     postedBy: "",
+    imagethumbnail: "",
     slidemenu: this.props.slidemenu,
     redirect: false,
     hoveryes: false,
@@ -54,35 +59,61 @@ class Form extends Component {
   };
 
   handleFormSubmit = (event) => {
-    const formHomeRefresh = this.props.refreshHomePage;
+    let state = this.state;
+    var that = this;
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
+    const formHomeRefresh = this.props.refreshHomePage;
+    let srcURL;
+    htmlToImage
+      .toJpeg(document.getElementById("visualizerbox"), { quality: 0.1 })
+      .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        srcURL = img.src;
+        console.log(srcURL);
+        that.setState({ imagethumbnail: srcURL });
 
-    // go get user data from passport session? or DB?
-    // this.setState({postedBy: this.goGetUserData()});
+        console.log(that.state);
 
-    let postObjectInfo = {
-      title: this.state.title,
-      body: this.state.body,
-      imageUrl: this.state.imageUrl,
-      onCommunity: this.state.onCommunity,
-      postedBy: this.state.postedBy,
-    };
-    // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
-    API.saveinfo(postObjectInfo)
-      .then((res) => {
-        formHomeRefresh();
+        // go get user data from passport session? or DB?
+        // this.setState({postedBy: this.goGetUserData()});
+
+        let postObjectInfo = {
+          title: that.state.title,
+          body: that.state.body,
+          imageUrl: that.state.imageUrl,
+          onCommunity: that.state.onCommunity,
+          postedBy: that.state.postedBy,
+          imagethumbnail: that.state.imagethumbnail,
+        };
+        // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
+        API.saveinfo(postObjectInfo)
+          .then((res) => {
+            formHomeRefresh();
+          })
+          .catch((err) => console.log(err));
+        that.setState({
+          title: "",
+          body: "",
+          imageUrl: "",
+          onCommunity: "",
+          postedBy: that.state.postedBy,
+          imagethumbnail: "",
+          redirect: true,
+        });
+        that.handleslideclickoff();
+        // Axios.put("/api/addimage", {
+        //   name: state.title,
+        //   data: srcURL,
+        // }).then(function (res) {
+        //   console.log(res);
+        // });
+        // setfiles([...files, dataUrl]); // <-- spread existing state into new array, append new element
       })
-      .catch((err) => console.log(err));
-    this.setState({
-      title: "",
-      body: "",
-      imageUrl: "",
-      onCommunity: "",
-      postedBy: this.state.postedBy,
-      redirect: true,
-    });
-    this.handleslideclickoff();
+      .catch(function (error) {
+        console.error("oops, something went wrong!", error);
+      });
   };
   handleHover = () => {
     if (this.state.hoveryes === false) {
@@ -96,6 +127,23 @@ class Form extends Component {
     this.setState({ body: e.target.getContent() });
     // console.log("Content was updated:", e.target.getContent());
   };
+
+  // getimage = () => {
+  //   let srcURL;
+  //   htmlToImage
+  //     .toPng(document.getElementById("mymodal153"), { quality: 0.01 })
+  //     .then(function (dataUrl) {
+  //       var img = new Image();
+  //       img.src = dataUrl;
+  //       srcURL = img.src;
+
+  //       // setfiles([...files, dataUrl]); // <-- spread existing state into new array, append new element
+  //     })
+  //     .catch(function (error) {
+  //       console.error("oops, something went wrong!", error);
+  //     });
+
+  // };
 
   render(props) {
     if (this.state.redirect) {
@@ -216,7 +264,7 @@ class Form extends Component {
                 </form>
               </div>
             </div>
-            <FormVisualizer data={this.state} className="hidevisualizer" />
+            <FormVisualizer data={this.state} />
           </div>
           <div className={modalAdder.join(" ")}></div>
         </section>

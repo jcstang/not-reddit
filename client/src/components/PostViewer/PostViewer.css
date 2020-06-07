@@ -61,9 +61,10 @@ body {
 }
 
 .close {
+  display: inline;
   clear: both;
   color: #aaaaaa;
-  float: right;
+
   font-size: 40px;
   font-weight: bold;
 }
@@ -73,4 +74,15 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+.thumbnail {
+  object-fit: cover;
+  object-position: 0 0;
+}
+.thumbnailsizer {
+  float: right;
+  background-color: turquoise;
+  height: 50px;
+  width: 200px;
+  /* will not be resized */
 }

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 // const db = require("../models");
-const db = require('../models/Index');
+const db = require("../models/Index");
 const chalk = require("chalk");
 const passport = require("../passport");
 
@@ -87,6 +87,10 @@ router.post("/post", (req, res) => {
         .json({ status: 418, message: "arent you late for something?" });
     });
 });
+router.put("/addimage", (req, res) => {
+  const image = req.body;
+  console.log(image);
+});
 
 router.post("/users", (req, res) => {
   const userData = req.body;
@@ -114,7 +118,6 @@ router.post("/sign-up", (req, res, next) => {
     return res.json(user);
   })(req, res, next);
 });
-
 router.post("/log-in", (req, res, next) => {
   passport.authenticate("local-login", function (error, user, info) {
     if (error) {

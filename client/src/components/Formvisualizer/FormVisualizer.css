@@ -1,16 +1,15 @@
 .VisualizerPic {
+  display: block;
   float: left;
-  height: 150px;
   margin-right: 10px;
-  min-width: 150px;
+  min-height: 125px;
+  min-width: 125px;
 }
 body {
   margin: 0;
 }
-.VisualizerBox {
+#visualizerbox {
   background-color: white;
-  text-align: center;
-  margin: 20px auto;
   padding: 10px;
   border-style: solid;
   border-width: 2px;
@@ -19,8 +18,14 @@ body {
   height: 280px;
   overflow-x: hidden;
   overflow-x: auto;
-  text-align: justify;
   z-index: 2;
+  text-align: center;
+  text-align: justify;
+}
+.formmover {
+  margin: 20px auto;
+  width: 500px;
+  height: 280px;
 }
 .VisualizerTitle {
   font-size: xx-large;
@@ -29,17 +34,19 @@ body {
 .VisualizerP {
   word-wrap: normal;
 
-  font-size: xx-small;
+  font-size: 0.45em;
 }
+
 @media only screen and (min-width: 1350px) {
-  .VisualizerBox {
+  .formmover {
     position: absolute;
     right: 60%;
     top: 250px;
+    z-index: 150;
   }
 }
 @media (max-width: 550px) {
-  .VisualizerBox {
+  .formmover {
     display: none;
   }
 }
