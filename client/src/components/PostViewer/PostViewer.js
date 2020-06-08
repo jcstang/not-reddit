@@ -26,17 +26,23 @@ class PostViewer extends Component {
           <div className="modal-content">
             <div id="mymodal15">
               <div>
-                <span
-                  onClick={() =>
-                    this.props.updateSelectedPost(this.props.targetPost)
-                  }
-                  className="close"
-                >
-                  &minus;
-                </span>
-                <span onClick={this.props.close} className="close">
-                  &times;
-                </span>
+                <div className="modalNavButtons">
+                  <div className="floatLeft">
+                    <span
+                      onClick={() =>
+                        this.props.updateSelectedPost(this.props.targetPost)
+                      }
+                      className="close floatLeft"
+                    >
+                      &minus;
+                    </span>
+                  </div>
+                  <div className="floatRight">
+                    <span onClick={this.props.close} className="close">
+                      &times;
+                    </span>
+                  </div>
+                </div>
                 <img
                   src={this.getPost(this.props.targetPost).imageUrl}
                   alt="imagefailedtoload"

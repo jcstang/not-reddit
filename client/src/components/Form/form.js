@@ -103,13 +103,6 @@ class Form extends Component {
           redirect: true,
         });
         that.handleslideclickoff();
-        // Axios.put("/api/addimage", {
-        //   name: state.title,
-        //   data: srcURL,
-        // }).then(function (res) {
-        //   console.log(res);
-        // });
-        // setfiles([...files, dataUrl]); // <-- spread existing state into new array, append new element
       })
       .catch(function (error) {
         console.error("oops, something went wrong!", error);
@@ -127,23 +120,6 @@ class Form extends Component {
     this.setState({ body: e.target.getContent() });
     // console.log("Content was updated:", e.target.getContent());
   };
-
-  // getimage = () => {
-  //   let srcURL;
-  //   htmlToImage
-  //     .toPng(document.getElementById("mymodal153"), { quality: 0.01 })
-  //     .then(function (dataUrl) {
-  //       var img = new Image();
-  //       img.src = dataUrl;
-  //       srcURL = img.src;
-
-  //       // setfiles([...files, dataUrl]); // <-- spread existing state into new array, append new element
-  //     })
-  //     .catch(function (error) {
-  //       console.error("oops, something went wrong!", error);
-  //     });
-
-  // };
 
   render(props) {
     if (this.state.redirect) {

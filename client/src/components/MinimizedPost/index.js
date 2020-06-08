@@ -18,7 +18,7 @@ function MinimizedPost(props) {
         name={props.indexValue}
         onClick={props.getid}
       />
-      <div>
+      <div className="slidetext">
         <p className="titleText">{props.title}</p>
       </div>
     </div>

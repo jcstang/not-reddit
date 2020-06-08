@@ -64,6 +64,7 @@ body {
   display: inline;
   clear: both;
   color: #aaaaaa;
+  display: flex;
 
   font-size: 40px;
   font-weight: bold;
@@ -79,10 +80,17 @@ body {
   object-fit: cover;
   object-position: 0 0;
 }
-.thumbnailsizer {
+
+.modalNavButtons {
   float: right;
-  background-color: turquoise;
-  height: 50px;
-  width: 200px;
-  /* will not be resized */
+  display: flexbox;
+  width: 100px;
+}
+.floatLeft {
+  float: left;
+  width: 50px;
+}
+.floatRight {
+  float: right;
+  width: 50px;
 }

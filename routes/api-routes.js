@@ -87,10 +87,6 @@ router.post("/post", (req, res) => {
         .json({ status: 418, message: "arent you late for something?" });
     });
 });
-router.put("/addimage", (req, res) => {
-  const image = req.body;
-  console.log(image);
-});
 
 router.post("/users", (req, res) => {
   const userData = req.body;
