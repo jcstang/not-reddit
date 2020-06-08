@@ -1,0 +1,25 @@
+#imageplacer img {
+  height: 200px;
+}
+#imageplacer {
+  left: 0px;
+}
+.minize {
+  position: absolute;
+  z-index: 500;
+  display: inline;
+}
+.imageholder {
+  background-color: royalblue;
+  height: 400px;
+  width: 400px;
+}
+
+#mymodal153 {
+  height: 100px;
+  width: 100px;
+}
+.dinoimage {
+  height: 50px;
+  width: 50px;
+}

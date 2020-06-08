@@ -21,6 +21,9 @@ let PostSchema = new Schema({
     // type: mongoose.Schema.Types.ObjectId,
     // ref: 'users'
   },
+  imagethumbnail: {
+    type: String,
+  },
   dateCreated: {
     type: Date,
     default: Date.now,
