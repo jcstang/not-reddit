@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
+import Viewminimized from "../Viewminimized";
 import { CardGroup, Col, Row } from "react-bootstrap";
 import "./PostContainer.css";
 
@@ -8,6 +9,8 @@ function PostContainer(props) {
   const Posts = props.posts;
   const [TargetPost, setTargetPost] = useState([]);
   const [showMainViewer, setShowMainViewer] = useState([false]);
+  const [showViewminimized, setViewminimized] = useState([false]);
+  const [selectedPosts, setSelectedPost] = useState([]);
 
   const getid = (event) => {
     let postname = event.target.name;
@@ -17,6 +20,31 @@ function PostContainer(props) {
   };
   const closeViewer = (event) => {
     setShowMainViewer(false);
+  };
+  const updateSelectedPost = (postidentifier) => {
+    console.log("your in");
+    closeViewer();
+    setViewminimized(true);
+    let newPost = Posts[postidentifier];
+    newPost.indexValue = TargetPost;
+    setTimeout(() => {
+      setSelectedPost([newPost, ...selectedPosts]);
+    }, 750);
+
+    setTimeout(() => {
+      setTimeout(setViewminimized(false));
+    }, 2000);
+  };
+  const deletefromfavs = (indexValuefromclick) => {
+    const selectedPostsarray = selectedPosts;
+    const newselectpostsarray = [];
+    selectedPostsarray.forEach((element) => {
+      if (element.indexValue === indexValuefromclick) {
+      } else {
+        newselectpostsarray.push(element);
+      }
+    });
+    setSelectedPost(newselectpostsarray);
   };
 
   return (
@@ -40,7 +68,14 @@ function PostContainer(props) {
         show={showMainViewer}
         posts={Posts}
         targetPost={TargetPost}
+        updateSelectedPost={updateSelectedPost}
         close={closeViewer}
+      />
+      <Viewminimized
+        selectedPosts={selectedPosts}
+        show={showViewminimized}
+        getid={getid}
+        deletefromfavs={deletefromfavs}
       />
     </div>
   );
