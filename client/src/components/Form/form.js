@@ -6,7 +6,7 @@ import Editor1 from "../formeditor/Formeditor.js";
 // import FormVisualizer from "../Formvisualizer/FormVisualizer";
 import { Redirect } from "react-router-dom";
 import htmlToImage from "html-to-image";
-import Axios from "axios";
+// import Axios from "axios";
 import FormVisualizer from "../Formvisualizer/FormVisualizer";
 const API = apiCalls;
 
@@ -59,7 +59,7 @@ class Form extends Component {
   };
 
   handleFormSubmit = (event) => {
-    let state = this.state;
+    // let state = this.state;
     var that = this;
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();

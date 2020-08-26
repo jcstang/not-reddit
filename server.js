@@ -8,9 +8,14 @@ const PORT = process.env.PORT || 3001;
 const apiRouter = require("./routes/api-routes");
 const mongoose = require("mongoose");
 const passport = require("./passport");
+const connectDB = require('./config/db');
 
 const app = express();
 // mongoose.connect("mongodb://localhost/seenit_db");
+
+// ** Connect Database **
+// =============================================================
+connectDB()
 
 // == MIDDLEWARE
 // =============================================================

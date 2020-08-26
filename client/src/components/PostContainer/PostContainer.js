@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PostCard from "../PostCard/PostCard";
 import PostViewer from "../PostViewer/PostViewer";
 import Viewminimized from "../Viewminimized";

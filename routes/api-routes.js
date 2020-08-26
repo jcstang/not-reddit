@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -8,14 +9,14 @@ const passport = require("../passport");
 
 // MONGO setup ===
 // =============================================================
-let MONGODB_URI = process.env.NODE_ENV
-  ? process.env.MONGODB_URI
-  : "mongodb://localhost/seenit_db";
+// let MONGODB_URI = process.env.NODE_ENV
+//   ? process.env.MONGODB_URI
+//   : "mongodb://localhost/seenit_db";
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(MONGODB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 // ROUTES - /api
 // =============================================================
