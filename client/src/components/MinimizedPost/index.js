@@ -17,6 +17,7 @@ function MinimizedPost(props) {
         className="thumbnail"
         name={props.indexValue}
         onClick={props.getid}
+        alt=""
       />
       <div className="slidetext">
         <p className="titleText">{props.title}</p>
