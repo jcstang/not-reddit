@@ -71,10 +71,10 @@ class Form extends Component {
         var img = new Image();
         img.src = dataUrl;
         srcURL = img.src;
-        console.log(srcURL);
+        // console.log(srcURL);
         that.setState({ imagethumbnail: srcURL });
 
-        console.log(that.state);
+        // console.log(that.state);
 
         // go get user data from passport session? or DB?
         // this.setState({postedBy: this.goGetUserData()});

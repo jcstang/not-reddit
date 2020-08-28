@@ -22,7 +22,7 @@ function PostContainer(props) {
     setShowMainViewer(false);
   };
   const updateSelectedPost = (postidentifier) => {
-    console.log("your in");
+    // console.log("your in");
     closeViewer();
     setViewminimized(true);
     let newPost = Posts[postidentifier];

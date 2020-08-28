@@ -79,11 +79,11 @@ router.put('/posts', (req, res) => {
 // =============================================================
 router.post("/communities", (req, res) => {
   const commData = req.body;
-  console.log(commData);
+  // console.log(commData);
 
   db.Community.create(commData)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       res.status(200).end();
     })
     .catch((err) => {
@@ -96,7 +96,7 @@ router.post("/communities", (req, res) => {
 
 router.post("/post", (req, res) => {
   const postData = req.body;
-  console.log(postData);
+  // console.log(postData);
 
   db.Post.create(postData)
     .then(() => {
@@ -112,7 +112,7 @@ router.post("/post", (req, res) => {
 
 router.post("/users", (req, res) => {
   const userData = req.body;
-  console.log(userData);
+  // console.log(userData);
 
   db.User.create(userData)
     .then((whatHappened) => {

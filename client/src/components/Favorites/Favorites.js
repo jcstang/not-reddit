@@ -12,7 +12,7 @@ function Favorites(props) {
       .then(function (dataUrl) {
         var img = new Image();
         img.src = dataUrl;
-        console.log(dataUrl);
+        // console.log(dataUrl);
         setfiles([...files, dataUrl]); // <-- spread existing state into new array, append new element
       })
       .catch(function (error) {
