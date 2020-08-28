@@ -24,7 +24,7 @@ export default class Signup extends Component {
       },
     })
       .then((response) => {
-        console.log("Data: ", response.data);
+        // console.log("Data: ", response.data);
         this.props.history.push("/");
       })
       .catch((error) => {
